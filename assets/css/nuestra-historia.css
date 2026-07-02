@@ -1,0 +1,367 @@
+/* Bingo Essentials - Nuestra Historia widgets */
+
+.blv-history-widget {
+    --bg-primary: #094800;
+    --bg-surface: #052000;
+    --bg-surface-dark: #031400;
+    --cta-fuchsia: #CE0046;
+    --accent-gold: #FDB314;
+    --text-main: #FFFFFF;
+    --text-muted: rgba(255, 255, 255, 0.65);
+    --theme-light-bg: #F4F1EA;
+    --theme-light-text: #052000;
+    --theme-light-muted: rgba(5, 32, 0, 0.72);
+    --font-serif: 'Libre Bodoni', serif;
+    --font-sans: 'Open Sans', sans-serif;
+    --radius: 4px;
+    --transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    color: var(--text-main) !important;
+    font-family: var(--font-sans) !important;
+    line-height: 1.6 !important;
+    width: 100% !important;
+    display: block !important;
+}
+
+.blv-history-widget *,
+.blv-history-widget *::before,
+.blv-history-widget *::after {
+    box-sizing: border-box !important;
+}
+
+.blv-history-widget[data-blv-history-anim="pending"] .blv-history-reveal {
+    opacity: 1;
+    animation: blvHistoryFailsafe 0s linear 2s forwards;
+}
+
+@keyframes blvHistoryFailsafe {
+    to { opacity: 1; }
+}
+
+.blv-history-widget h1,
+.blv-history-widget h2,
+.blv-history-widget h3 {
+    font-family: var(--font-serif) !important;
+    font-weight: 500 !important;
+    line-height: 1.12 !important;
+    letter-spacing: 0 !important;
+    margin: 0 !important;
+}
+
+.blv-history-widget p {
+    margin: 0 0 1.5rem !important;
+}
+
+.blv-history-widget p:last-child {
+    margin-bottom: 0 !important;
+}
+
+.blv-history-hero {
+    min-height: clamp(540px, 78vh, 820px) !important;
+    position: relative !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    padding: 7rem 5% 6rem !important;
+    overflow: hidden !important;
+    background: var(--bg-primary) !important;
+}
+
+.blv-history-hero-bg {
+    position: absolute !important;
+    inset: 0 !important;
+    background-size: cover !important;
+    background-position: center !important;
+    transform: scale(1.08);
+    z-index: 0 !important;
+}
+
+.blv-history-hero-overlay {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 1 !important;
+    background: rgba(0, 0, 0, 0.42) !important;
+}
+
+.blv-history-hero-content {
+    position: relative !important;
+    z-index: 2 !important;
+    width: min(100%, 1400px) !important;
+    margin: 0 auto !important;
+}
+
+.blv-history-hero h1 {
+    max-width: 900px !important;
+    color: var(--text-main) !important;
+    font-size: clamp(3.4rem, 7vw, 6.5rem) !important;
+    margin-bottom: 1.5rem !important;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.95), 0 4px 24px rgba(0,0,0,0.85) !important;
+}
+
+.blv-history-lead {
+    max-width: 900px !important;
+    color: rgba(255,255,255,0.95) !important;
+    font-size: 1.2rem !important;
+    line-height: 1.8 !important;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.95), 0 4px 20px rgba(0,0,0,0.8) !important;
+}
+
+.blv-history-section {
+    padding: 8rem 5% !important;
+    background: var(--bg-primary) !important;
+}
+
+.blv-theme-light {
+    background: var(--theme-light-bg) !important;
+    color: var(--theme-light-text) !important;
+}
+
+.blv-theme-dark {
+    background: var(--bg-primary) !important;
+    color: var(--text-main) !important;
+}
+
+.blv-history-split {
+    width: min(100%, 1400px) !important;
+    margin: 0 auto !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    gap: 6rem !important;
+    align-items: center !important;
+}
+
+.blv-history-reverse .blv-history-split {
+    direction: rtl !important;
+}
+
+.blv-history-reverse .blv-history-split > * {
+    direction: ltr !important;
+}
+
+.blv-history-copy {
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+.blv-history-tag {
+    display: inline-block !important;
+    color: var(--accent-gold) !important;
+    font-family: var(--font-sans) !important;
+    font-size: 0.8125rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.15em !important;
+    text-transform: uppercase !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.blv-theme-light .blv-history-tag {
+    color: var(--cta-fuchsia) !important;
+}
+
+.blv-history-copy h2,
+.blv-history-center h2 {
+    color: inherit !important;
+    font-size: clamp(2.4rem, 4vw, 3.5rem) !important;
+    margin-bottom: 2rem !important;
+}
+
+.blv-history-copy p {
+    color: var(--text-muted) !important;
+    font-size: 1.08rem !important;
+    line-height: 1.85 !important;
+}
+
+.blv-theme-light .blv-history-copy p,
+.blv-theme-light .blv-history-intro p {
+    color: var(--theme-light-muted) !important;
+}
+
+.blv-history-image-wrap {
+    position: relative !important;
+}
+
+.blv-history-image {
+    width: 100% !important;
+    aspect-ratio: 4 / 5 !important;
+    overflow: hidden !important;
+    border-radius: var(--radius) !important;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.4) !important;
+    margin: 0 !important;
+}
+
+.blv-theme-light .blv-history-image {
+    box-shadow: 0 30px 60px rgba(9,72,0,0.15) !important;
+}
+
+.blv-history-image img,
+.blv-history-card img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+    transition: transform 0.7s ease !important;
+}
+
+.blv-history-image:hover img,
+.blv-history-card:hover img {
+    transform: scale(1.05) !important;
+}
+
+.blv-history-image-accent {
+    position: absolute !important;
+    bottom: -20px !important;
+    right: -20px !important;
+    width: 150px !important;
+    height: 150px !important;
+    border-right: 2px solid var(--accent-gold) !important;
+    border-bottom: 2px solid var(--accent-gold) !important;
+    pointer-events: none !important;
+}
+
+.blv-history-reverse .blv-history-image-accent {
+    right: auto !important;
+    left: -20px !important;
+    border-right: 0 !important;
+    border-left: 2px solid var(--cta-fuchsia) !important;
+}
+
+.blv-history-center {
+    max-width: 840px !important;
+    margin: 0 auto 5rem !important;
+    text-align: center !important;
+}
+
+.blv-history-center h2 {
+    color: var(--theme-light-text) !important;
+}
+
+.blv-history-intro {
+    color: var(--theme-light-muted) !important;
+    font-size: 1.18rem !important;
+    line-height: 1.75 !important;
+}
+
+.blv-history-grid {
+    width: min(100%, 1400px) !important;
+    margin: 0 auto !important;
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 2rem !important;
+}
+
+.blv-history-card {
+    background: #FFFFFF !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06) !important;
+    transition: var(--transition) !important;
+}
+
+.blv-history-card:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 24px 48px rgba(0,0,0,0.12) !important;
+}
+
+.blv-history-card figure {
+    height: 220px !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+}
+
+.blv-history-card-head {
+    padding: 1.75rem 1.75rem 0.5rem !important;
+}
+
+.blv-history-card-head span {
+    display: block !important;
+    color: var(--accent-gold) !important;
+    font-family: var(--font-serif) !important;
+    font-size: 2.25rem !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+    margin-bottom: 0.75rem !important;
+}
+
+.blv-history-card h3 {
+    color: var(--theme-light-text) !important;
+    font-size: 1.4rem !important;
+    font-weight: 600 !important;
+}
+
+.blv-history-card h3 small {
+    display: block !important;
+    color: var(--cta-fuchsia) !important;
+    font-family: var(--font-sans) !important;
+    font-size: 0.7rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    margin-top: 0.35rem !important;
+}
+
+.blv-history-card-copy {
+    padding: 0 1.75rem 1.75rem !important;
+}
+
+.blv-history-card-copy p {
+    color: #444 !important;
+    font-size: 0.9rem !important;
+    line-height: 1.7 !important;
+    margin-bottom: 0.75rem !important;
+}
+
+@media (max-width: 1200px) {
+    .blv-history-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+}
+
+@media (max-width: 1024px) {
+    .blv-history-split,
+    .blv-history-reverse .blv-history-split {
+        grid-template-columns: 1fr !important;
+        gap: 4rem !important;
+        direction: ltr !important;
+    }
+
+    .blv-history-image {
+        aspect-ratio: 16 / 9 !important;
+        max-height: 520px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .blv-history-hero {
+        min-height: 560px !important;
+        padding: 5rem 1.25rem 3rem !important;
+    }
+
+    .blv-history-hero h1 {
+        font-size: 3rem !important;
+    }
+
+    .blv-history-lead,
+    .blv-history-copy p,
+    .blv-history-intro {
+        font-size: 1rem !important;
+    }
+
+    .blv-history-section {
+        padding: 5rem 1.25rem !important;
+    }
+
+    .blv-history-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .blv-history-widget[data-blv-history-anim="pending"] .blv-history-reveal {
+        opacity: 1;
+        animation: none;
+    }
+
+    .blv-history-image img,
+    .blv-history-card img,
+    .blv-history-card {
+        transition: none !important;
+    }
+}

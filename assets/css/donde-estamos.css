@@ -1,0 +1,378 @@
+/* =============================================================
+   BINGO LAS VEGAS – WIDGET "DÓNDE ESTAMOS" (Elementor)
+   Todo scopeado bajo .blv-widget con !important para que el
+   tema/Elementor no pise los estilos. Las variaciones de color
+   (oro / fucsia) y de orden (mapa a la izquierda) se controlan
+   por CLASES, no por IDs, para funcionar con bloques dinámicos:
+     .blv-accent-gold     -> acento oro
+     .blv-accent-fuchsia  -> acento fucsia
+     .blv-reverse         -> tarjeta a la derecha, mapa a la izquierda
+   ============================================================= */
+
+.blv-widget {
+    /* Colores (sobrescribibles con variables inline desde Elementor) */
+    --bg-primary: #094800;
+    --bg-surface: #052000;
+    --bg-surface-dark: #031400;
+    --cta-fuchsia: #CE0046;
+    --cta-fuchsia-hover: #a80039;
+    --accent-gold: #FDB314;
+
+    /* Texto */
+    --text-main: #FFFFFF;
+    --text-muted: rgba(255, 255, 255, 0.65);
+
+    /* Tipografía */
+    --font-serif: 'Libre Bodoni', serif;
+    --font-sans: 'Open Sans', sans-serif;
+
+    /* Layout */
+    --border-radius: 4px;
+    --transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+
+    background-color: var(--bg-primary) !important;
+    color: var(--text-main) !important;
+    font-family: var(--font-sans) !important;
+    line-height: 1.6 !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    display: block !important;
+    width: 100% !important;
+}
+
+.blv-widget * {
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* Estado inicial anti-FOUC: oculta lo animado hasta que GSAP toma el control.
+   Sin !important para que el opacity inline de GSAP gane.
+   RED DE SEGURIDAD CSS: si el JS nunca marca el widget como "ready"
+   (JS desactivado, error de carga, GSAP caído...), esta animación
+   revela el contenido a los 2s. Si GSAP funciona, marca "ready" antes
+   y el gate (con esta animación) desaparece sin conflicto. */
+.blv-widget[data-blv-anim="pending"] .blv-reveal {
+    opacity: 0;
+    animation: blvFailsafeReveal 0s linear 2s forwards;
+}
+
+@keyframes blvFailsafeReveal {
+    to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .blv-widget[data-blv-anim="pending"] .blv-reveal {
+        opacity: 1;
+        animation: none;
+    }
+}
+
+.blv-widget h1,
+.blv-widget h2,
+.blv-widget h3,
+.blv-widget h4 {
+    font-family: var(--font-serif) !important;
+    font-weight: 500 !important;
+    line-height: 1.1 !important;
+    color: var(--text-main) !important;
+}
+
+.blv-widget .label {
+    font-family: var(--font-sans) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+}
+
+.blv-widget a {
+    color: inherit !important;
+    text-decoration: none !important;
+    transition: var(--transition) !important;
+}
+
+/* ---- Iconos SVG incrustados ---- */
+.blv-widget svg.blv-ico {
+    width: 1em !important;
+    height: 1em !important;
+    fill: currentColor !important;
+    flex-shrink: 0 !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+}
+
+/* ---- Acentos por bloque ---- */
+.blv-widget .blv-accent-gold {
+    --loc-accent: var(--accent-gold);
+    --loc-accent-text: var(--bg-surface-dark);
+}
+.blv-widget .blv-accent-fuchsia {
+    --loc-accent: var(--cta-fuchsia);
+    --loc-accent-text: var(--text-main);
+}
+
+/* ---- Botones ---- */
+.blv-widget .btn-primary {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+    background-color: var(--cta-fuchsia) !important;
+    color: var(--text-main) !important;
+    padding: 1rem 2rem !important;
+    font-family: var(--font-sans) !important;
+    font-weight: 600 !important;
+    font-size: 0.875rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    border-radius: var(--border-radius) !important;
+    border: 1px solid transparent !important;
+    cursor: pointer !important;
+    transition: var(--transition) !important;
+    line-height: 1.6 !important;
+}
+
+.blv-widget .btn-primary:hover {
+    background-color: var(--cta-fuchsia-hover) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 10px 20px rgba(206, 0, 70, 0.2) !important;
+}
+
+/* Botón primario en oro (p.ej. "Ruta al Parking") */
+.blv-widget .btn-primary.btn-gold {
+    background-color: var(--accent-gold) !important;
+    color: var(--bg-surface-dark) !important;
+}
+.blv-widget .btn-primary.btn-gold:hover {
+    background-color: #e6a10f !important;
+    box-shadow: 0 10px 20px rgba(253, 179, 20, 0.2) !important;
+}
+
+.blv-widget .btn-outline {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+    background-color: transparent !important;
+    color: var(--accent-gold) !important;
+    padding: 0.875rem 1.5rem !important;
+    font-family: var(--font-sans) !important;
+    font-weight: 600 !important;
+    font-size: 0.875rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    border: 1px solid var(--accent-gold) !important;
+    border-radius: var(--border-radius) !important;
+    cursor: pointer !important;
+    transition: var(--transition) !important;
+    line-height: 1.6 !important;
+}
+
+.blv-widget .btn-outline:hover {
+    background-color: rgba(253, 179, 20, 0.1) !important;
+}
+
+/* ---- Secciones de localización ---- */
+.blv-widget .location-section {
+    padding: 6rem 5% !important;
+    position: relative !important;
+}
+
+.blv-widget .location-container {
+    max-width: 1400px !important;
+    margin: 0 auto !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 6rem !important;
+    align-items: center !important;
+}
+
+/* Bloque invertido: tarjeta a la derecha, mapa a la izquierda */
+.blv-widget .blv-reverse .location-container {
+    direction: rtl !important;
+}
+.blv-widget .blv-reverse .location-container > * {
+    direction: ltr !important;
+}
+
+.blv-widget .location-info-card {
+    background-color: var(--bg-surface) !important;
+    padding: 4rem !important;
+    border-radius: var(--border-radius) !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5) !important;
+    position: relative !important;
+    border-left: 2px solid var(--loc-accent, var(--accent-gold)) !important;
+}
+
+.blv-widget .blv-reverse .location-info-card {
+    border-left: none !important;
+    border-right: 2px solid var(--loc-accent, var(--cta-fuchsia)) !important;
+}
+
+.blv-widget .loc-badge {
+    display: inline-block !important;
+    background-color: var(--loc-accent, var(--accent-gold)) !important;
+    color: var(--loc-accent-text, var(--bg-surface-dark)) !important;
+    padding: 0.4rem 0.8rem !important;
+    border-radius: 2px !important;
+    margin-bottom: 2rem !important;
+}
+
+.blv-widget .loc-title {
+    font-size: 2.5rem !important;
+    margin-bottom: 1.5rem !important;
+    color: var(--text-main) !important;
+}
+
+.blv-widget .loc-address {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 1rem !important;
+    font-size: 1.125rem !important;
+    color: var(--text-muted) !important;
+    margin-bottom: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+    border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+}
+
+.blv-widget .loc-address .blv-ico {
+    font-size: 1.5rem !important;
+    color: var(--accent-gold) !important;
+    margin-top: 0.2rem !important;
+}
+
+.blv-widget .loc-address .addr-main {
+    color: var(--text-main) !important;
+    font-weight: 600 !important;
+    font-size: 1.25rem !important;
+}
+
+.blv-widget .loc-details {
+    display: grid !important;
+    gap: 1.5rem !important;
+    margin-bottom: 3rem !important;
+}
+
+.blv-widget .detail-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1rem !important;
+}
+
+.blv-widget .detail-item .blv-ico {
+    color: var(--text-muted) !important;
+    font-size: 1.25rem !important;
+}
+
+.blv-widget .detail-text {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.blv-widget .detail-text .label {
+    color: var(--loc-accent, var(--accent-gold)) !important;
+    margin-bottom: 0.2rem !important;
+}
+
+.blv-widget .actions {
+    display: flex !important;
+    gap: 1rem !important;
+    flex-wrap: wrap !important;
+}
+
+/* ---- Mapa ---- */
+.blv-widget .map-frame {
+    position: relative !important;
+    width: 100% !important;
+    aspect-ratio: 1 / 1 !important;
+    background-color: var(--bg-surface-dark) !important;
+    padding: 1rem !important;
+    border: 1px solid rgba(253, 179, 20, 0.3) !important;
+    border-radius: var(--border-radius) !important;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.4) !important;
+}
+
+.blv-widget .map-frame::before {
+    content: '' !important;
+    position: absolute !important;
+    top: -10px !important;
+    right: -10px !important;
+    width: 100px !important;
+    height: 100px !important;
+    border-top: 2px solid var(--loc-accent, var(--accent-gold)) !important;
+    border-right: 2px solid var(--loc-accent, var(--accent-gold)) !important;
+    pointer-events: none !important;
+}
+
+.blv-widget .blv-reverse .map-frame::before {
+    top: auto !important;
+    bottom: -10px !important;
+    right: auto !important;
+    left: -10px !important;
+    border-top: none !important;
+    border-right: none !important;
+    border-bottom: 2px solid var(--loc-accent, var(--cta-fuchsia)) !important;
+    border-left: 2px solid var(--loc-accent, var(--cta-fuchsia)) !important;
+}
+
+.blv-widget .map-frame iframe {
+    width: 100% !important;
+    height: 100% !important;
+    border: none !important;
+    border-radius: 2px !important;
+    filter: contrast(1.1) saturate(0.8) !important;
+}
+
+.blv-widget .map-legal-wrapper {
+    width: 100% !important;
+}
+
+.blv-widget .map-legal-notice {
+    background-color: var(--bg-surface) !important;
+    border: 1px solid rgba(253, 179, 20, 0.3) !important;
+    border-radius: var(--border-radius) !important;
+    padding: 1.5rem !important;
+    margin-bottom: 1rem !important;
+    font-size: 0.8125rem !important;
+    color: var(--text-muted) !important;
+    line-height: 1.5 !important;
+}
+
+.blv-widget .map-legal-notice p {
+    margin-bottom: 0.5rem !important;
+}
+
+.blv-widget .map-legal-notice p:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* ---- Divisor ---- */
+.blv-widget .section-divider {
+    height: 1px !important;
+    background: linear-gradient(90deg, transparent, rgba(253, 179, 20, 0.2), transparent) !important;
+    margin: 0 5% !important;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 1024px) {
+    .blv-widget .location-container,
+    .blv-widget .blv-reverse .location-container {
+        grid-template-columns: 1fr !important;
+        gap: 4rem !important;
+        direction: ltr !important;
+    }
+
+    .blv-widget .map-frame {
+        max-width: 600px !important;
+        margin: 0 auto !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .blv-widget .location-info-card {
+        padding: 2.5rem 1.5rem !important;
+    }
+
+    .blv-widget .actions {
+        flex-direction: column !important;
+    }
+}
