@@ -243,6 +243,17 @@ class BLV_Historia_Producciones_Widget extends BLV_Historia_Base_Widget {
 				'default'     => $this->default_items(),
 			)
 		);
+
+		$this->add_control(
+			'curiosity_heading',
+			array(
+				'label'     => esc_html__( 'Dato curioso', 'bingo-essentials' ),
+				'type'      => Controls_Manager::HEADING,
+				'separator' => 'before',
+			)
+		);
+		$this->text_control( 'curiosity_label', esc_html__( 'Etiqueta', 'bingo-essentials' ), 'Dato curioso fuera de cámaras', Controls_Manager::TEXT );
+		$this->text_control( 'curiosity_text', esc_html__( 'Texto', 'bingo-essentials' ), 'Aunque no fuera para rodar, la sala vivió su momento más cinematográfico e internacional cuando un actor Hollywood, protagonista de Los Juegos del Hambre, acudió a jugar cartones y cenar allí junto a su pareja y un elenco de directores de cine madrileños, logrando captar la atención de toda la prensa cinematográfica del país.' );
 		$this->end_controls_section();
 	}
 
@@ -294,6 +305,16 @@ class BLV_Historia_Producciones_Widget extends BLV_Historia_Base_Widget {
 					echo '</div></article>';
 				}
 				echo '</div>';
+				if ( ! empty( $s['curiosity_text'] ) ) {
+					echo '<aside class="blv-history-curiosity blv-history-reveal">';
+					echo '<div class="blv-history-curiosity-mark">+</div>';
+					echo '<div class="blv-history-curiosity-copy">';
+					if ( ! empty( $s['curiosity_label'] ) ) {
+						echo '<span>' . esc_html( $s['curiosity_label'] ) . '</span>';
+					}
+					echo '<p>' . wp_kses_post( nl2br( esc_html( $s['curiosity_text'] ) ) ) . '</p>';
+					echo '</div></aside>';
+				}
 			}
 		);
 	}

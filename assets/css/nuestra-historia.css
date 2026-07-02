@@ -328,6 +328,73 @@
     margin-bottom: 0.75rem !important;
 }
 
+.blv-history-curiosity {
+    width: min(100%, 1120px) !important;
+    margin: 4.5rem auto 0 !important;
+    display: grid !important;
+    grid-template-columns: auto minmax(0, 1fr) !important;
+    gap: 1.4rem !important;
+    align-items: start !important;
+    position: relative !important;
+    padding: 2rem 2.25rem !important;
+    background:
+        linear-gradient(135deg, rgba(5, 32, 0, 0.98), rgba(3, 20, 0, 0.98)) !important;
+    border: 1px solid rgba(253, 179, 20, 0.28) !important;
+    border-left: 3px solid var(--accent-gold) !important;
+    border-radius: var(--radius) !important;
+    box-shadow: 0 24px 60px rgba(5, 32, 0, 0.18) !important;
+    overflow: hidden !important;
+}
+
+.blv-history-curiosity::after {
+    content: '' !important;
+    position: absolute !important;
+    right: -42px !important;
+    bottom: -42px !important;
+    width: 150px !important;
+    height: 150px !important;
+    border-left: 2px solid var(--cta-fuchsia) !important;
+    border-top: 2px solid var(--cta-fuchsia) !important;
+    opacity: 0.85 !important;
+    pointer-events: none !important;
+}
+
+.blv-history-curiosity-mark {
+    width: 42px !important;
+    height: 42px !important;
+    display: grid !important;
+    place-items: center !important;
+    color: var(--bg-surface-dark) !important;
+    background: var(--accent-gold) !important;
+    border-radius: 50% !important;
+    font-family: var(--font-serif) !important;
+    font-size: 2rem !important;
+    line-height: 1 !important;
+}
+
+.blv-history-curiosity-copy {
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+.blv-history-curiosity-copy span {
+    display: inline-block !important;
+    color: var(--accent-gold) !important;
+    font-family: var(--font-sans) !important;
+    font-size: 0.76rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.14em !important;
+    text-transform: uppercase !important;
+    margin-bottom: 0.65rem !important;
+}
+
+.blv-history-curiosity-copy p {
+    color: rgba(255, 255, 255, 0.82) !important;
+    font-size: 1.02rem !important;
+    line-height: 1.82 !important;
+    margin: 0 !important;
+}
+
 .blv-history-cta-section {
     background: var(--bg-surface-dark) !important;
     border-top: 1px solid rgba(253, 179, 20, 0.18) !important;
@@ -482,6 +549,11 @@
 
     .blv-history-grid {
         grid-template-columns: 1fr !important;
+    }
+
+    .blv-history-curiosity {
+        grid-template-columns: 1fr !important;
+        padding: 1.6rem !important;
     }
 
     .blv-history-cta-actions {

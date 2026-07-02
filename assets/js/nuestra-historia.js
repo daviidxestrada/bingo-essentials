@@ -68,6 +68,7 @@
             if (productions) {
                 var center = productions.querySelector('.blv-history-center');
                 var cards = productions.querySelectorAll('.blv-history-card');
+                var curiosity = productions.querySelector('.blv-history-curiosity');
                 var prodTl = gsap.timeline({
                     defaults: { ease: 'power2.out' },
                     scrollTrigger: { trigger: productions, start: 'top 78%', once: true }
@@ -77,6 +78,9 @@
                 }
                 if (cards.length) {
                     prodTl.from(cards, { y: 28, duration: 0.5, stagger: 0.08 }, '-=0.25');
+                }
+                if (curiosity) {
+                    prodTl.from(curiosity, { y: 22, duration: 0.45 }, '-=0.1');
                 }
             }
 
