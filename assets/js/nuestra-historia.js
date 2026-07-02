@@ -76,7 +76,7 @@
                     prodTl.from(center, { autoAlpha: 0, y: 24, duration: 0.55 });
                 }
                 if (cards.length) {
-                    prodTl.from(cards, { autoAlpha: 0, y: 28, duration: 0.5, stagger: 0.08 }, '-=0.25');
+                    prodTl.from(cards, { y: 28, duration: 0.5, stagger: 0.08 }, '-=0.25');
                 }
             }
 

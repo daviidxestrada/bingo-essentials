@@ -255,6 +255,16 @@ class BLV_Historia_Producciones_Widget extends BLV_Historia_Base_Widget {
 		);
 	}
 
+	private function production_fallback_image( $number ) {
+		$fallbacks = array(
+			'01' => 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80&w=1200',
+			'02' => 'https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&q=80&w=1200',
+			'03' => 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=1200',
+			'04' => 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&q=80&w=1200',
+		);
+		return $fallbacks[ (string) $number ] ?? $fallbacks['01'];
+	}
+
 	protected function render() {
 		$s = $this->get_settings_for_display();
 		$items = ! empty( $s['items'] ) && is_array( $s['items'] ) ? $s['items'] : $this->default_items();
@@ -267,11 +277,12 @@ class BLV_Historia_Producciones_Widget extends BLV_Historia_Base_Widget {
 				echo '</div></div>';
 				echo '<div class="blv-history-grid">';
 				foreach ( $items as $item ) {
-					$image = $item['image']['url'] ?? '';
+					$fallback_image = $this->production_fallback_image( $item['number'] ?? '' );
+					$image          = ! empty( $item['image']['url'] ) ? $item['image']['url'] : $fallback_image;
 					echo '<article class="blv-history-card blv-history-reveal">';
 					echo '<figure class="blv-history-card-visual' . ( empty( $image ) ? ' is-missing' : '' ) . '">';
 					if ( ! empty( $image ) ) {
-						echo '<img src="' . esc_url( $image ) . '" alt="' . esc_attr( $item['alt'] ?? '' ) . '" loading="lazy" onerror="this.closest(\'.blv-history-card-visual\').classList.add(\'is-missing\'); this.remove();">';
+						echo '<img src="' . esc_url( $image ) . '" data-fallback-src="' . esc_url( $fallback_image ) . '" alt="' . esc_attr( $item['alt'] ?? '' ) . '" loading="lazy" onerror="if (this.dataset.fallbackSrc && this.src !== this.dataset.fallbackSrc) { this.src = this.dataset.fallbackSrc; } else { this.closest(\'.blv-history-card-visual\').classList.add(\'is-missing\'); this.remove(); }">';
 					}
 					echo '</figure>';
 					echo '<div class="blv-history-card-head"><span>' . esc_html( $item['number'] ?? '' ) . '</span><h3>' . esc_html( $item['name'] ?? '' );
