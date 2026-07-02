@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Bingo Essentials
  * Description:        Widgets esenciales de Elementor para Bingo Las Vegas: Dónde Estamos y secciones de Nuestra Historia.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Bingo Las Vegas
  * Text Domain:       bingo-essentials
  * Requires Plugins:  elementor
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // No acceso directo.
 }
 
-define( 'BLV_BE_VERSION', '1.0.0' );
+define( 'BLV_BE_VERSION', '1.0.1' );
 define( 'BLV_BE_PATH', plugin_dir_path( __FILE__ ) );
 define( 'BLV_BE_URL', plugin_dir_url( __FILE__ ) );
 
@@ -91,6 +91,7 @@ add_action( 'elementor/widgets/register', function ( $widgets_manager ) {
 	$widgets_manager->register( new \BLV_Historia_Famosos_Widget() );
 	$widgets_manager->register( new \BLV_Historia_Producciones_Widget() );
 	$widgets_manager->register( new \BLV_Historia_Revolucion_Widget() );
+	$widgets_manager->register( new \BLV_Historia_Cta_Widget() );
 } );
 
 /**

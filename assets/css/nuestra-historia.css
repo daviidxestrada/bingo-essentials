@@ -176,6 +176,7 @@
 
 .blv-history-image-wrap {
     position: relative !important;
+    padding: 0 !important;
 }
 
 .blv-history-image {
@@ -253,6 +254,7 @@
     overflow: hidden !important;
     box-shadow: 0 4px 24px rgba(0,0,0,0.06) !important;
     transition: var(--transition) !important;
+    min-height: 100% !important;
 }
 
 .blv-history-card:hover {
@@ -260,10 +262,28 @@
     box-shadow: 0 24px 48px rgba(0,0,0,0.12) !important;
 }
 
-.blv-history-card figure {
+.blv-history-card figure,
+.blv-history-card-visual {
     height: 220px !important;
     overflow: hidden !important;
     margin: 0 !important;
+    position: relative !important;
+    background:
+        radial-gradient(circle at 22% 18%, rgba(253, 179, 20, 0.28), transparent 24%),
+        linear-gradient(135deg, #031400 0%, #094800 56%, #CE0046 160%) !important;
+}
+
+.blv-history-card-visual::after {
+    content: '' !important;
+    position: absolute !important;
+    inset: 18px !important;
+    border: 1px solid rgba(253, 179, 20, 0.45) !important;
+    opacity: 0 !important;
+    transition: opacity 0.25s ease !important;
+}
+
+.blv-history-card-visual.is-missing::after {
+    opacity: 1 !important;
 }
 
 .blv-history-card-head {
@@ -308,6 +328,99 @@
     margin-bottom: 0.75rem !important;
 }
 
+.blv-history-cta-section {
+    background: var(--bg-surface-dark) !important;
+    border-top: 1px solid rgba(253, 179, 20, 0.18) !important;
+}
+
+.blv-history-cta {
+    width: min(100%, 1400px) !important;
+    margin: 0 auto !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr) !important;
+    gap: 5rem !important;
+    align-items: center !important;
+    position: relative !important;
+}
+
+.blv-history-cta::before {
+    content: '' !important;
+    position: absolute !important;
+    top: -2.5rem !important;
+    left: 0 !important;
+    width: min(360px, 45%) !important;
+    height: 1px !important;
+    background: linear-gradient(90deg, var(--accent-gold), transparent) !important;
+}
+
+.blv-history-cta-copy h2 {
+    color: var(--text-main) !important;
+    font-size: clamp(2.6rem, 5vw, 4.8rem) !important;
+    margin: 0 0 1.5rem !important;
+    max-width: 760px !important;
+}
+
+.blv-history-cta-copy p {
+    color: rgba(255, 255, 255, 0.72) !important;
+    font-size: 1.12rem !important;
+    line-height: 1.85 !important;
+    max-width: 720px !important;
+}
+
+.blv-history-cta-actions {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 1rem !important;
+    margin-top: 2.25rem !important;
+}
+
+.blv-history-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 52px !important;
+    padding: 0.95rem 1.45rem !important;
+    border-radius: var(--radius) !important;
+    font-family: var(--font-sans) !important;
+    font-size: 0.82rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.07em !important;
+    line-height: 1.2 !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    transition: var(--transition) !important;
+}
+
+.blv-history-btn-primary {
+    color: var(--bg-surface-dark) !important;
+    background: var(--accent-gold) !important;
+    border: 1px solid var(--accent-gold) !important;
+}
+
+.blv-history-btn-primary:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 16px 30px rgba(253, 179, 20, 0.2) !important;
+}
+
+.blv-history-btn-outline {
+    color: var(--text-main) !important;
+    background: transparent !important;
+    border: 1px solid rgba(255, 255, 255, 0.28) !important;
+}
+
+.blv-history-btn-outline:hover {
+    border-color: var(--cta-fuchsia) !important;
+    color: var(--accent-gold) !important;
+}
+
+.blv-history-cta-media {
+    position: relative !important;
+}
+
+.blv-history-cta-media .blv-history-image {
+    aspect-ratio: 5 / 4 !important;
+}
+
 @media (max-width: 1200px) {
     .blv-history-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
@@ -325,6 +438,25 @@
     .blv-history-image {
         aspect-ratio: 16 / 9 !important;
         max-height: 520px !important;
+    }
+
+    .blv-history-image-wrap,
+    .blv-history-cta-media {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+
+    .blv-history-image-accent {
+        right: 0 !important;
+    }
+
+    .blv-history-reverse .blv-history-image-accent {
+        left: 0 !important;
+    }
+
+    .blv-history-cta {
+        grid-template-columns: 1fr !important;
+        gap: 3.5rem !important;
     }
 }
 
@@ -350,6 +482,14 @@
 
     .blv-history-grid {
         grid-template-columns: 1fr !important;
+    }
+
+    .blv-history-cta-actions {
+        flex-direction: column !important;
+    }
+
+    .blv-history-btn {
+        width: 100% !important;
     }
 }
 

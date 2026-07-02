@@ -230,7 +230,7 @@ class BLV_Historia_Producciones_Widget extends BLV_Historia_Base_Widget {
 		$repeater->add_control( 'name', array( 'label' => esc_html__( 'Nombre', 'bingo-essentials' ), 'type' => Controls_Manager::TEXT, 'default' => 'Furia', 'label_block' => true ) );
 		$repeater->add_control( 'meta', array( 'label' => esc_html__( 'Subtitulo', 'bingo-essentials' ), 'type' => Controls_Manager::TEXT, 'default' => 'Serie de HBO Max', 'label_block' => true ) );
 		$repeater->add_control( 'description', array( 'label' => esc_html__( 'Descripcion', 'bingo-essentials' ), 'type' => Controls_Manager::TEXTAREA, 'rows' => 6, 'default' => 'Descripcion de la produccion.' ) );
-		$repeater->add_control( 'image', array( 'label' => esc_html__( 'Imagen', 'bingo-essentials' ), 'type' => Controls_Manager::MEDIA, 'default' => array( 'url' => 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80&w=800' ) ) );
+		$repeater->add_control( 'image', array( 'label' => esc_html__( 'Imagen', 'bingo-essentials' ), 'type' => Controls_Manager::MEDIA, 'default' => array( 'url' => 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80&w=1200' ) ) );
 		$repeater->add_control( 'alt', array( 'label' => esc_html__( 'Texto alternativo', 'bingo-essentials' ), 'type' => Controls_Manager::TEXT, 'default' => 'Produccion audiovisual', 'label_block' => true ) );
 
 		$this->add_control(
@@ -248,10 +248,10 @@ class BLV_Historia_Producciones_Widget extends BLV_Historia_Base_Widget {
 
 	private function default_items() {
 		return array(
-			array( 'number' => '01', 'name' => 'Furia', 'meta' => 'Serie de HBO Max', 'description' => 'La serie original de HBO Max, un thriller dramático protagonizado por rostros icónicos del cine español, eligió expresamente el Bingo Las Vegas como una de sus localizaciones principales en Madrid.', 'image' => array( 'url' => 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80&w=800' ), 'alt' => 'Furia HBO Max' ),
-			array( 'number' => '02', 'name' => 'Paquita Salas', 'meta' => 'Netflix', 'description' => 'Aunque no se grabaron episodios enteros nuestras mesas, el Bingo Las Vegas sobrevuela el universo de la aclamada serie.', 'image' => array( 'url' => 'https://images.unsplash.com/photo-1522869635100-9f4c5e86a37b?auto=format&fit=crop&q=80&w=800' ), 'alt' => 'Paquita Salas Netflix' ),
-			array( 'number' => '03', 'name' => 'Universo Mediaset', 'meta' => 'Telecinco / Cuatro', 'description' => 'Más allá de la ficción pura, el Bingo Las Vegas ha funcionado como un plató de televisión exterior en innumerables ocasiones.', 'image' => array( 'url' => 'https://images.unsplash.com/photo-1593784691221-991b14f59b4a?auto=format&fit=crop&q=80&w=800' ), 'alt' => 'Telecinco Mediaset' ),
-			array( 'number' => '04', 'name' => 'Cameos en Ficcion Nacional', 'meta' => '', 'description' => 'Bingo las Vegas se ha ganado un hueco en los guiones españoles de la última década como el bingo de los famosos por excelencia.', 'image' => array( 'url' => 'https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80&w=800' ), 'alt' => 'Cameos ficcion nacional' ),
+			array( 'number' => '01', 'name' => 'Furia', 'meta' => 'Serie de HBO Max', 'description' => 'La serie original de HBO Max, un thriller dramático protagonizado por rostros icónicos del cine español, eligió expresamente el Bingo Las Vegas como una de sus localizaciones principales en Madrid.', 'image' => array( 'url' => 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80&w=1200' ), 'alt' => 'Furia HBO Max' ),
+			array( 'number' => '02', 'name' => 'Paquita Salas', 'meta' => 'Netflix', 'description' => 'Aunque no se grabaron episodios enteros nuestras mesas, el Bingo Las Vegas sobrevuela el universo de la aclamada serie.', 'image' => array( 'url' => 'https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&q=80&w=1200' ), 'alt' => 'Paquita Salas Netflix' ),
+			array( 'number' => '03', 'name' => 'Universo Mediaset', 'meta' => 'Telecinco / Cuatro', 'description' => 'Más allá de la ficción pura, el Bingo Las Vegas ha funcionado como un plató de televisión exterior en innumerables ocasiones.', 'image' => array( 'url' => 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=1200' ), 'alt' => 'Telecinco Mediaset' ),
+			array( 'number' => '04', 'name' => 'Cameos en Ficcion Nacional', 'meta' => 'Ficción española', 'description' => 'Bingo Las Vegas se ha ganado un hueco en los guiones españoles de la última década como el bingo de los famosos por excelencia.', 'image' => array( 'url' => 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&q=80&w=1200' ), 'alt' => 'Cameos ficcion nacional' ),
 		);
 	}
 
@@ -267,8 +267,13 @@ class BLV_Historia_Producciones_Widget extends BLV_Historia_Base_Widget {
 				echo '</div></div>';
 				echo '<div class="blv-history-grid">';
 				foreach ( $items as $item ) {
+					$image = $item['image']['url'] ?? '';
 					echo '<article class="blv-history-card blv-history-reveal">';
-					echo '<figure><img src="' . esc_url( $item['image']['url'] ?? '' ) . '" alt="' . esc_attr( $item['alt'] ?? '' ) . '"></figure>';
+					echo '<figure class="blv-history-card-visual' . ( empty( $image ) ? ' is-missing' : '' ) . '">';
+					if ( ! empty( $image ) ) {
+						echo '<img src="' . esc_url( $image ) . '" alt="' . esc_attr( $item['alt'] ?? '' ) . '" loading="lazy" onerror="this.closest(\'.blv-history-card-visual\').classList.add(\'is-missing\'); this.remove();">';
+					}
+					echo '</figure>';
 					echo '<div class="blv-history-card-head"><span>' . esc_html( $item['number'] ?? '' ) . '</span><h3>' . esc_html( $item['name'] ?? '' );
 					if ( ! empty( $item['meta'] ) ) {
 						echo '<small>' . esc_html( $item['meta'] ) . '</small>';
@@ -278,6 +283,86 @@ class BLV_Historia_Producciones_Widget extends BLV_Historia_Base_Widget {
 					echo '</div></article>';
 				}
 				echo '</div>';
+			}
+		);
+	}
+}
+
+class BLV_Historia_Cta_Widget extends BLV_Historia_Base_Widget {
+
+	public function get_name() { return 'blv_historia_cta'; }
+	public function get_title() { return esc_html__( 'CTA - Nuestra Historia', 'bingo-essentials' ); }
+	public function get_icon() { return 'eicon-call-to-action'; }
+
+	protected function register_controls() {
+		$this->start_controls_section( 'content', array( 'label' => esc_html__( 'Contenido', 'bingo-essentials' ) ) );
+		$this->text_control( 'eyebrow', esc_html__( 'Etiqueta', 'bingo-essentials' ), 'Ven a vivirlo', Controls_Manager::TEXT );
+		$this->text_control( 'title', esc_html__( 'Titulo', 'bingo-essentials' ), 'La historia sigue cada noche', Controls_Manager::TEXT );
+		$this->text_control( 'body', esc_html__( 'Texto', 'bingo-essentials' ), 'Después de más de dos décadas encendiendo Madrid, Bingo Las Vegas sigue siendo un lugar para celebrar, cenar, jugar y reconocerse en una sala con carácter propio.' );
+		$this->text_control( 'primary_text', esc_html__( 'Boton principal - texto', 'bingo-essentials' ), 'Cómo llegar', Controls_Manager::TEXT );
+		$this->add_control(
+			'primary_url',
+			array(
+				'label'       => esc_html__( 'Boton principal - enlace', 'bingo-essentials' ),
+				'type'        => Controls_Manager::URL,
+				'placeholder' => 'https://...',
+				'default'     => array( 'url' => 'https://maps.google.com/?q=Calle+Hermanos+Garcia+Noblejas+17+Madrid', 'is_external' => 'on' ),
+			)
+		);
+		$this->text_control( 'secondary_text', esc_html__( 'Boton secundario - texto', 'bingo-essentials' ), 'Ver dónde estamos', Controls_Manager::TEXT );
+		$this->add_control(
+			'secondary_url',
+			array(
+				'label'       => esc_html__( 'Boton secundario - enlace', 'bingo-essentials' ),
+				'type'        => Controls_Manager::URL,
+				'placeholder' => 'https://...',
+				'default'     => array( 'url' => '#donde-estamos' ),
+			)
+		);
+		$this->media_control( 'image', esc_html__( 'Imagen', 'bingo-essentials' ), 'https://images.unsplash.com/photo-1596838132731-3301c3fd4317?auto=format&fit=crop&q=80&w=1400' );
+		$this->add_control(
+			'alt',
+			array(
+				'label'       => esc_html__( 'Texto alternativo', 'bingo-essentials' ),
+				'type'        => Controls_Manager::TEXT,
+				'default'     => 'Sala Bingo Las Vegas',
+				'label_block' => true,
+			)
+		);
+		$this->end_controls_section();
+	}
+
+	private function render_link( $settings, $text_key, $url_key, $class_name ) {
+		if ( empty( $settings[ $text_key ] ) ) {
+			return;
+		}
+		$url    = $settings[ $url_key ] ?? array();
+		$href   = ! empty( $url['url'] ) ? $url['url'] : '#';
+		$target = ! empty( $url['is_external'] ) ? ' target="_blank"' : '';
+		$rel    = ! empty( $url['is_external'] ) ? ' rel="noopener"' : '';
+		echo '<a class="' . esc_attr( $class_name ) . '" href="' . esc_url( $href ) . '"' . $target . $rel . '>' . esc_html( $settings[ $text_key ] ) . '</a>';
+	}
+
+	protected function render() {
+		$s = $this->get_settings_for_display();
+		$this->render_shell(
+			'blv-history-section blv-history-cta-section blv-theme-dark',
+			function () use ( $s ) {
+				echo '<div class="blv-history-cta blv-history-reveal">';
+				echo '<div class="blv-history-cta-copy">';
+				if ( ! empty( $s['eyebrow'] ) ) {
+					echo '<span class="blv-history-tag">' . esc_html( $s['eyebrow'] ) . '</span>';
+				}
+				echo '<h2>' . esc_html( $s['title'] ) . '</h2>';
+				$this->paragraphs( $s['body'] );
+				echo '<div class="blv-history-cta-actions">';
+				$this->render_link( $s, 'primary_text', 'primary_url', 'blv-history-btn blv-history-btn-primary' );
+				$this->render_link( $s, 'secondary_text', 'secondary_url', 'blv-history-btn blv-history-btn-outline' );
+				echo '</div></div>';
+				echo '<div class="blv-history-cta-media">';
+				echo '<div class="blv-history-image-accent"></div>';
+				echo '<figure class="blv-history-image"><img src="' . esc_url( $this->image_url( $s, 'image' ) ) . '" alt="' . esc_attr( $s['alt'] ) . '" loading="lazy"></figure>';
+				echo '</div></div>';
 			}
 		);
 	}

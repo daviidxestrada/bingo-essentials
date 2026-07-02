@@ -10,6 +10,7 @@ Plugin de WordPress para Elementor con los widgets esenciales de Bingo Las Vegas
 - **Fenomeno pop y famosos**.
 - **Cine y television**.
 - **Revolucion digital**.
+- **CTA - Nuestra Historia**.
 
 Todos aparecen en la categoria **Bingo Essentials** de Elementor.
 

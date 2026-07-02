@@ -118,7 +118,8 @@
                     'frontend/element_ready/blv_historia_nacimiento.default',
                     'frontend/element_ready/blv_historia_famosos.default',
                     'frontend/element_ready/blv_historia_producciones.default',
-                    'frontend/element_ready/blv_historia_revolucion.default'
+                    'frontend/element_ready/blv_historia_revolucion.default',
+                    'frontend/element_ready/blv_historia_cta.default'
                 ].forEach(function (hook) {
                     elementorFrontend.hooks.addAction(hook, function ($scope) {
                         var el = $scope && $scope[0] ? $scope[0] : document;
