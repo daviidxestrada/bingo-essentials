@@ -1,0 +1,1107 @@
+/* ==========================================================================
+   Bingo Essentials — Widgets legales
+   Canal Ético · Política de Privacidad · Política de Cookies · Aviso Legal
+   Estilos auto-contenidos y scopeados por prefijo.
+   ========================================================================== */
+
+/* ===================== CANAL ÉTICO ===================== */
+.blv-canal,
+.blv-canal * {
+  box-sizing: border-box !important;
+}
+
+.blv-canal {
+  width: 100% !important;
+  font-family: "Open Sans", sans-serif !important;
+  color: #ffffff !important;
+  background: transparent !important;
+  line-height: 1.6 !important;
+}
+
+.blv-canal-h1 {
+  font-family: "Libre Bodoni", serif !important;
+  font-size: 52px !important;
+  font-weight: 400 !important;
+  color: #ffffff !important;
+  margin: 0 0 40px !important;
+  padding: 0 !important;
+  letter-spacing: -0.5px !important;
+  text-transform: none !important;
+  line-height: 1.15 !important;
+}
+
+.blv-canal-intro {
+  margin-bottom: 64px !important;
+  padding: 36px 40px !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  border-radius: 4px !important;
+}
+
+.blv-canal-aviso {
+  font-family: "Open Sans", sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: rgba(255,255,255,0.90) !important;
+  margin: 20px 0 0 !important;
+  padding: 16px 20px !important;
+  border-left: 3px solid rgba(255,255,255,0.40) !important;
+  background: rgba(255,255,255,0.05) !important;
+}
+
+.blv-canal-section {
+  margin-bottom: 80px !important;
+}
+
+.blv-canal-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 80px !important;
+  align-items: center !important;
+}
+
+.blv-canal-title {
+  font-family: "Libre Bodoni", serif !important;
+  font-size: 42px !important;
+  font-weight: 400 !important;
+  color: #ffffff !important;
+  margin: 0 0 28px !important;
+  padding: 0 !important;
+  letter-spacing: -0.3px !important;
+  text-transform: none !important;
+  line-height: 1.2 !important;
+}
+
+.blv-canal-body {
+  font-family: "Open Sans", sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  color: rgba(255,255,255,0.70) !important;
+  margin: 0 0 16px !important;
+  padding: 0 !important;
+  line-height: 1.7 !important;
+}
+
+.blv-canal-img-wrap {
+  width: 100% !important;
+}
+
+.blv-canal-img {
+  width: 100% !important;
+  height: 420px !important;
+  object-fit: cover !important;
+  border-radius: 12px !important;
+  display: block !important;
+}
+
+.blv-canal-sala-img {
+  width: 100% !important;
+  height: 380px !important;
+  object-fit: cover !important;
+  border-radius: 12px !important;
+  display: block !important;
+  margin-bottom: 48px !important;
+}
+
+.blv-canal-btn {
+  display: inline-block !important;
+  margin-top: 8px !important;
+  padding: 12px 28px !important;
+  border: 1px solid rgba(255,255,255,0.50) !important;
+  border-radius: 2px !important;
+  font-family: "Open Sans", sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: 1.2px !important;
+  text-transform: uppercase !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  transition: background 0.25s ease, border-color 0.25s ease !important;
+}
+
+.blv-canal-btn:hover {
+  background: rgba(255,255,255,0.10) !important;
+  border-color: rgba(255,255,255,0.80) !important;
+}
+
+.blv-canal-compromisos {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr 1fr !important;
+  gap: 1px !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  border-radius: 4px !important;
+  overflow: hidden !important;
+}
+
+.blv-canal-compromiso {
+  padding: 32px 28px !important;
+  border-right: 1px solid rgba(255,255,255,0.12) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.12) !important;
+  background: rgba(255,255,255,0.03) !important;
+}
+
+.blv-canal-compromiso-title {
+  font-family: "Open Sans", sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  margin: 0 0 12px !important;
+  padding: 0 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  line-height: 1.3 !important;
+}
+
+.blv-canal-compromiso .blv-canal-body {
+  font-size: 13px !important;
+  margin: 0 !important;
+}
+
+/* ACCORDION / FAQ */
+.blv-canal-accordion {
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+.blv-canal-faq {
+  border-bottom: 1px solid rgba(255,255,255,0.20) !important;
+  background: transparent !important;
+}
+
+.blv-canal-faq-btn {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 16px !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  color: #ffffff !important;
+  font-size: 18px !important;
+  font-family: "Open Sans", sans-serif !important;
+  font-weight: 600 !important;
+  padding: 22px 0 !important;
+  margin: 0 !important;
+  cursor: pointer !important;
+  text-align: left !important;
+  text-decoration: none !important;
+  text-transform: none !important;
+  line-height: 1.2 !important;
+}
+
+.blv-canal-faq-btn:hover,
+.blv-canal-faq-btn:focus,
+.blv-canal-faq-btn:active {
+  background: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+  color: #ffffff !important;
+}
+
+.blv-canal-plus {
+  width: 18px !important;
+  height: 18px !important;
+  border: none !important;
+  position: relative !important;
+  flex: 0 0 auto !important;
+  background: transparent !important;
+  opacity: 0.68 !important;
+}
+
+.blv-canal-plus::before,
+.blv-canal-plus::after {
+  content: '' !important;
+  position: absolute !important;
+  background: rgba(255,255,255,0.82) !important;
+  border-radius: 999px !important;
+}
+
+.blv-canal-plus::before {
+  width: 14px !important;
+  height: 1px !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%,-50%) !important;
+}
+
+.blv-canal-plus::after {
+  width: 1px !important;
+  height: 14px !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%,-50%) !important;
+  transition: opacity .28s ease !important;
+  opacity: 1 !important;
+}
+
+.blv-canal-faq.active .blv-canal-plus::after {
+  opacity: 0 !important;
+}
+
+.blv-canal-faq-content {
+  max-height: 0 !important;
+  overflow: hidden !important;
+  transition: max-height .4s ease, padding .4s ease !important;
+  padding: 0 !important;
+}
+
+.blv-canal-faq.active .blv-canal-faq-content {
+  max-height: 400px !important;
+  padding-bottom: 20px !important;
+}
+
+.blv-canal-faq-list {
+  margin: 0 !important;
+  padding: 0 0 0 20px !important;
+  list-style: disc !important;
+}
+
+.blv-canal-faq-list li {
+  font-family: "Open Sans", sans-serif !important;
+  font-size: 14px !important;
+  color: rgba(255,255,255,0.70) !important;
+  margin-bottom: 8px !important;
+  padding: 0 !important;
+}
+
+@media (max-width: 900px) {
+  .blv-canal-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  .blv-canal-compromisos {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .blv-canal-h1 {
+    font-size: 38px !important;
+  }
+  .blv-canal-title {
+    font-size: 30px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .blv-canal-compromisos {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ===================== POLÍTICA DE PRIVACIDAD ===================== */
+.blv-priv,
+.blv-priv * {
+  box-sizing: border-box !important;
+}
+
+.blv-priv {
+  width: 100% !important;
+  font-family: "Open Sans", sans-serif !important;
+  color: #ffffff !important;
+  background: transparent !important;
+  line-height: 1.6 !important;
+}
+
+.blv-priv-h1 {
+  font-family: "Libre Bodoni", serif !important;
+  font-size: 52px !important;
+  font-weight: 400 !important;
+  color: #ffffff !important;
+  margin: 0 0 40px !important;
+  padding: 0 !important;
+  letter-spacing: -0.5px !important;
+  text-transform: none !important;
+  line-height: 1.15 !important;
+}
+
+.blv-priv-intro {
+  margin-bottom: 64px !important;
+  padding: 36px 40px !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  border-radius: 4px !important;
+}
+
+.blv-priv-section {
+  margin-bottom: 64px !important;
+}
+
+.blv-priv-title {
+  font-family: "Libre Bodoni", serif !important;
+  font-size: 32px !important;
+  font-weight: 400 !important;
+  color: #ffffff !important;
+  margin: 0 0 24px !important;
+  padding: 0 !important;
+  letter-spacing: -0.3px !important;
+  text-transform: none !important;
+  line-height: 1.2 !important;
+}
+
+.blv-priv-label {
+  font-family: "Open Sans", sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 1.2px !important;
+  text-transform: uppercase !important;
+  color: rgba(255,255,255,0.45) !important;
+  margin: 0 0 8px !important;
+  padding: 0 !important;
+}
+
+.blv-priv-body {
+  font-family: "Open Sans", sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  color: rgba(255,255,255,0.70) !important;
+  margin: 0 0 16px !important;
+  padding: 0 !important;
+  line-height: 1.75 !important;
+}
+
+.blv-priv-body strong {
+  color: rgba(255,255,255,0.90) !important;
+  font-weight: 600 !important;
+}
+
+.blv-priv-link {
+  color: rgba(255,255,255,0.80) !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px !important;
+  text-decoration-color: rgba(255,255,255,0.30) !important;
+  transition: text-decoration-color 0.2s ease !important;
+}
+
+.blv-priv-link:hover {
+  text-decoration-color: rgba(255,255,255,0.80) !important;
+}
+
+.blv-priv-list {
+  margin: 0 0 16px !important;
+  padding: 0 0 0 20px !important;
+  list-style: disc !important;
+}
+
+.blv-priv-list li {
+  font-family: "Open Sans", sans-serif !important;
+  font-size: 15px !important;
+  color: rgba(255,255,255,0.70) !important;
+  margin-bottom: 10px !important;
+  padding: 0 !important;
+  line-height: 1.7 !important;
+}
+
+.blv-priv-list li strong {
+  color: rgba(255,255,255,0.90) !important;
+}
+
+.blv-priv-highlight {
+  padding: 36px 40px !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  border-radius: 4px !important;
+  background: rgba(255,255,255,0.03) !important;
+}
+
+.blv-priv-highlight-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 32px 48px !important;
+}
+
+.blv-priv-aviso-box {
+  margin-top: 24px !important;
+  padding: 20px 24px !important;
+  border-left: 3px solid rgba(255,255,255,0.40) !important;
+  background: rgba(255,255,255,0.05) !important;
+}
+
+/* DERECHOS GRID */
+.blv-priv-derechos-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr 1fr !important;
+  gap: 1px !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  border-radius: 4px !important;
+  overflow: hidden !important;
+}
+
+.blv-priv-derecho {
+  padding: 28px 24px !important;
+  border-right: 1px solid rgba(255,255,255,0.12) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.12) !important;
+  background: rgba(255,255,255,0.03) !important;
+}
+
+.blv-priv-derecho-title {
+  font-family: "Open Sans", sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  margin: 0 0 10px !important;
+  padding: 0 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  line-height: 1.3 !important;
+}
+
+.blv-priv-derecho .blv-priv-body {
+  font-size: 13px !important;
+  margin: 0 !important;
+}
+
+/* ACCORDION */
+.blv-priv-accordion {
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+.blv-priv-faq {
+  border-bottom: 1px solid rgba(255,255,255,0.20) !important;
+  background: transparent !important;
+}
+
+.blv-priv-faq-btn {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 16px !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  color: #ffffff !important;
+  font-size: 18px !important;
+  font-family: "Open Sans", sans-serif !important;
+  font-weight: 600 !important;
+  padding: 22px 0 !important;
+  margin: 0 !important;
+  cursor: pointer !important;
+  text-align: left !important;
+  text-decoration: none !important;
+  text-transform: none !important;
+  line-height: 1.2 !important;
+}
+
+.blv-priv-faq-btn:hover,
+.blv-priv-faq-btn:focus,
+.blv-priv-faq-btn:active {
+  background: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+  color: #ffffff !important;
+}
+
+.blv-priv-plus {
+  width: 18px !important;
+  height: 18px !important;
+  border: none !important;
+  position: relative !important;
+  flex: 0 0 auto !important;
+  background: transparent !important;
+  opacity: 0.68 !important;
+}
+
+.blv-priv-plus::before,
+.blv-priv-plus::after {
+  content: '' !important;
+  position: absolute !important;
+  background: rgba(255,255,255,0.82) !important;
+  border-radius: 999px !important;
+}
+
+.blv-priv-plus::before {
+  width: 14px !important;
+  height: 1px !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%,-50%) !important;
+}
+
+.blv-priv-plus::after {
+  width: 1px !important;
+  height: 14px !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%,-50%) !important;
+  transition: opacity .28s ease !important;
+  opacity: 1 !important;
+}
+
+.blv-priv-faq.active .blv-priv-plus::after {
+  opacity: 0 !important;
+}
+
+.blv-priv-faq-content {
+  max-height: 0 !important;
+  overflow: hidden !important;
+  transition: max-height .4s ease, padding .4s ease !important;
+  padding: 0 !important;
+}
+
+.blv-priv-faq.active .blv-priv-faq-content {
+  max-height: 800px !important;
+  padding-bottom: 24px !important;
+}
+
+@media (max-width: 768px) {
+  .blv-priv-h1 { font-size: 36px !important; }
+  .blv-priv-title { font-size: 26px !important; }
+  .blv-priv-intro,
+  .blv-priv-highlight { padding: 24px !important; }
+  .blv-priv-highlight-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+  .blv-priv-derechos-grid { grid-template-columns: 1fr 1fr !important; }
+  .blv-priv-faq-btn { font-size: 15px !important; }
+}
+
+@media (max-width: 480px) {
+  .blv-priv-derechos-grid { grid-template-columns: 1fr !important; }
+}
+
+/* ===================== POLÍTICA DE COOKIES ===================== */
+.blv-cookies,
+.blv-cookies * {
+  box-sizing: border-box !important;
+}
+
+.blv-cookies {
+  width: 100% !important;
+  font-family: "Open Sans", sans-serif !important;
+  color: #ffffff !important;
+  background: transparent !important;
+  line-height: 1.6 !important;
+}
+
+.blv-cookies-h1 {
+  font-family: "Libre Bodoni", serif !important;
+  font-size: 52px !important;
+  font-weight: 400 !important;
+  color: #ffffff !important;
+  margin: 0 0 40px !important;
+  padding: 0 !important;
+  letter-spacing: -0.5px !important;
+  text-transform: none !important;
+  line-height: 1.15 !important;
+}
+
+.blv-cookies-intro {
+  margin-bottom: 64px !important;
+  padding: 36px 40px !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  border-radius: 4px !important;
+}
+
+.blv-cookies-section {
+  margin-bottom: 64px !important;
+}
+
+.blv-cookies-title {
+  font-family: "Libre Bodoni", serif !important;
+  font-size: 32px !important;
+  font-weight: 400 !important;
+  color: #ffffff !important;
+  margin: 0 0 24px !important;
+  padding: 0 !important;
+  letter-spacing: -0.3px !important;
+  text-transform: none !important;
+  line-height: 1.2 !important;
+}
+
+.blv-cookies-label {
+  font-family: "Open Sans", sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 1.2px !important;
+  text-transform: uppercase !important;
+  color: rgba(255,255,255,0.45) !important;
+  margin: 0 0 10px !important;
+  padding: 0 !important;
+}
+
+.blv-cookies-body {
+  font-family: "Open Sans", sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  color: rgba(255,255,255,0.70) !important;
+  margin: 0 0 16px !important;
+  padding: 0 !important;
+  line-height: 1.75 !important;
+}
+
+.blv-cookies-body strong {
+  color: rgba(255,255,255,0.90) !important;
+  font-weight: 600 !important;
+}
+
+.blv-cookies-list {
+  margin: 16px 0 0 !important;
+  padding: 0 0 0 20px !important;
+  list-style: disc !important;
+}
+
+.blv-cookies-list li {
+  font-family: "Open Sans", sans-serif !important;
+  font-size: 15px !important;
+  color: rgba(255,255,255,0.70) !important;
+  margin-bottom: 10px !important;
+  padding: 0 !important;
+  line-height: 1.7 !important;
+}
+
+.blv-cookies-list li strong {
+  color: rgba(255,255,255,0.90) !important;
+}
+
+.blv-cookies-link {
+  color: rgba(255,255,255,0.80) !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px !important;
+  text-decoration-color: rgba(255,255,255,0.30) !important;
+  transition: text-decoration-color 0.2s ease !important;
+}
+
+.blv-cookies-link:hover {
+  text-decoration-color: rgba(255,255,255,0.80) !important;
+}
+
+/* TABLA */
+.blv-cookies-table-wrap {
+  width: 100% !important;
+  overflow-x: auto !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  border-radius: 4px !important;
+}
+
+.blv-cookies-table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  font-family: "Open Sans", sans-serif !important;
+  font-size: 14px !important;
+}
+
+.blv-cookies-table thead tr {
+  border-bottom: 1px solid rgba(255,255,255,0.20) !important;
+  background: rgba(255,255,255,0.06) !important;
+}
+
+.blv-cookies-table th {
+  padding: 14px 20px !important;
+  text-align: left !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  color: rgba(255,255,255,0.50) !important;
+}
+
+.blv-cookies-table td {
+  padding: 18px 20px !important;
+  color: rgba(255,255,255,0.70) !important;
+  vertical-align: top !important;
+  border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+  line-height: 1.65 !important;
+}
+
+.blv-cookies-table tbody tr:last-child td {
+  border-bottom: none !important;
+}
+
+.blv-cookies-table tbody tr:hover td {
+  background: rgba(255,255,255,0.03) !important;
+}
+
+.blv-cookies-table td strong {
+  color: rgba(255,255,255,0.90) !important;
+  font-weight: 600 !important;
+  display: block !important;
+  margin-bottom: 2px !important;
+}
+
+/* HIGHLIGHT */
+.blv-cookies-highlight {
+  padding: 36px 40px !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  border-radius: 4px !important;
+  background: rgba(255,255,255,0.03) !important;
+}
+
+.blv-cookies-highlight-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 48px !important;
+}
+
+/* BROWSERS */
+.blv-cookies-browsers {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+  margin: 20px 0 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+.blv-cookies-browsers li {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.blv-cookies-browsers .blv-cookies-link {
+  display: inline-block !important;
+  padding: 8px 20px !important;
+  border: 1px solid rgba(255,255,255,0.30) !important;
+  border-radius: 2px !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.8px !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  color: #ffffff !important;
+  transition: background 0.2s ease, border-color 0.2s ease !important;
+}
+
+.blv-cookies-browsers .blv-cookies-link:hover {
+  background: rgba(255,255,255,0.10) !important;
+  border-color: rgba(255,255,255,0.70) !important;
+}
+
+@media (max-width: 768px) {
+  .blv-cookies-h1 {
+    font-size: 36px !important;
+  }
+  .blv-cookies-title {
+    font-size: 26px !important;
+  }
+  .blv-cookies-intro,
+  .blv-cookies-highlight {
+    padding: 24px !important;
+  }
+  .blv-cookies-highlight-grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+  .blv-cookies-table th,
+  .blv-cookies-table td {
+    padding: 12px 14px !important;
+  }
+}
+
+/* ===================== AVISO LEGAL ===================== */
+.blv-aviso,
+.blv-aviso * {
+  box-sizing: border-box !important;
+}
+
+.blv-aviso {
+  width: 100% !important;
+  font-family: "Open Sans", sans-serif !important;
+  color: #ffffff !important;
+  background: transparent !important;
+  line-height: 1.6 !important;
+}
+
+.blv-aviso-h1 {
+  font-family: "Libre Bodoni", serif !important;
+  font-size: 52px !important;
+  font-weight: 400 !important;
+  color: #ffffff !important;
+  margin: 0 0 40px !important;
+  padding: 0 !important;
+  letter-spacing: -0.5px !important;
+  text-transform: none !important;
+  line-height: 1.15 !important;
+}
+
+.blv-aviso-intro {
+  margin-bottom: 64px !important;
+  padding: 36px 40px !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  border-radius: 4px !important;
+}
+
+.blv-aviso-section {
+  margin-bottom: 64px !important;
+}
+
+.blv-aviso-title {
+  font-family: "Libre Bodoni", serif !important;
+  font-size: 32px !important;
+  font-weight: 400 !important;
+  color: #ffffff !important;
+  margin: 0 0 24px !important;
+  padding: 0 !important;
+  letter-spacing: -0.3px !important;
+  text-transform: none !important;
+  line-height: 1.2 !important;
+}
+
+.blv-aviso-label {
+  font-family: "Open Sans", sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 1.2px !important;
+  text-transform: uppercase !important;
+  color: rgba(255,255,255,0.45) !important;
+  margin: 0 0 8px !important;
+  padding: 0 !important;
+}
+
+.blv-aviso-body {
+  font-family: "Open Sans", sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  color: rgba(255,255,255,0.70) !important;
+  margin: 0 0 16px !important;
+  padding: 0 !important;
+  line-height: 1.75 !important;
+}
+
+.blv-aviso-body strong {
+  color: rgba(255,255,255,0.90) !important;
+  font-weight: 600 !important;
+}
+
+.blv-aviso-link {
+  color: rgba(255,255,255,0.80) !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px !important;
+  text-decoration-color: rgba(255,255,255,0.30) !important;
+  transition: text-decoration-color 0.2s ease !important;
+}
+
+.blv-aviso-link:hover {
+  text-decoration-color: rgba(255,255,255,0.80) !important;
+}
+
+.blv-aviso-list {
+  margin: 0 0 16px !important;
+  padding: 0 0 0 20px !important;
+  list-style: disc !important;
+}
+
+.blv-aviso-list li {
+  font-family: "Open Sans", sans-serif !important;
+  font-size: 15px !important;
+  color: rgba(255,255,255,0.70) !important;
+  margin-bottom: 10px !important;
+  padding: 0 !important;
+  line-height: 1.7 !important;
+}
+
+/* HIGHLIGHT BOX */
+.blv-aviso-highlight {
+  padding: 36px 40px !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  border-radius: 4px !important;
+  background: rgba(255,255,255,0.03) !important;
+  margin-top: 24px !important;
+}
+
+.blv-aviso-highlight-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 32px 48px !important;
+}
+
+/* AVISO BOX */
+.blv-aviso-aviso-box {
+  margin-top: 24px !important;
+  padding: 20px 24px !important;
+  border-left: 3px solid rgba(255,255,255,0.40) !important;
+  background: rgba(255,255,255,0.05) !important;
+}
+
+/* REDES */
+.blv-aviso-redes {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+  margin-top: 16px !important;
+}
+
+.blv-aviso-redes .blv-aviso-link {
+  display: inline-block !important;
+  padding: 6px 16px !important;
+  border: 1px solid rgba(255,255,255,0.30) !important;
+  border-radius: 2px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.8px !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  color: #ffffff !important;
+  transition: background 0.2s ease, border-color 0.2s ease !important;
+}
+
+.blv-aviso-redes .blv-aviso-link:hover {
+  background: rgba(255,255,255,0.10) !important;
+  border-color: rgba(255,255,255,0.70) !important;
+}
+
+/* TABLA */
+.blv-aviso-table-wrap {
+  width: 100% !important;
+  overflow-x: auto !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  border-radius: 4px !important;
+  margin-top: 8px !important;
+}
+
+.blv-aviso-table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  font-family: "Open Sans", sans-serif !important;
+  font-size: 13px !important;
+}
+
+.blv-aviso-table thead tr {
+  border-bottom: 1px solid rgba(255,255,255,0.20) !important;
+  background: rgba(255,255,255,0.06) !important;
+}
+
+.blv-aviso-table th {
+  padding: 12px 18px !important;
+  text-align: left !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  color: rgba(255,255,255,0.50) !important;
+}
+
+.blv-aviso-table td {
+  padding: 14px 18px !important;
+  color: rgba(255,255,255,0.70) !important;
+  vertical-align: top !important;
+  border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+  line-height: 1.5 !important;
+}
+
+.blv-aviso-table tbody tr:last-child td {
+  border-bottom: none !important;
+}
+
+.blv-aviso-table tbody tr:hover td {
+  background: rgba(255,255,255,0.03) !important;
+}
+
+.blv-aviso-table td strong {
+  color: rgba(255,255,255,0.90) !important;
+  font-weight: 600 !important;
+}
+
+/* ACCORDION */
+.blv-aviso-accordion {
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+.blv-aviso-faq {
+  border-bottom: 1px solid rgba(255,255,255,0.20) !important;
+  background: transparent !important;
+}
+
+.blv-aviso-faq-btn {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 16px !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  color: #ffffff !important;
+  font-size: 18px !important;
+  font-family: "Open Sans", sans-serif !important;
+  font-weight: 600 !important;
+  padding: 22px 0 !important;
+  margin: 0 !important;
+  cursor: pointer !important;
+  text-align: left !important;
+  text-decoration: none !important;
+  text-transform: none !important;
+  line-height: 1.2 !important;
+}
+
+.blv-aviso-faq-btn:hover,
+.blv-aviso-faq-btn:focus,
+.blv-aviso-faq-btn:active {
+  background: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+  color: #ffffff !important;
+}
+
+.blv-aviso-plus {
+  width: 18px !important;
+  height: 18px !important;
+  border: none !important;
+  position: relative !important;
+  flex: 0 0 auto !important;
+  background: transparent !important;
+  opacity: 0.68 !important;
+}
+
+.blv-aviso-plus::before,
+.blv-aviso-plus::after {
+  content: '' !important;
+  position: absolute !important;
+  background: rgba(255,255,255,0.82) !important;
+  border-radius: 999px !important;
+}
+
+.blv-aviso-plus::before {
+  width: 14px !important;
+  height: 1px !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%,-50%) !important;
+}
+
+.blv-aviso-plus::after {
+  width: 1px !important;
+  height: 14px !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%,-50%) !important;
+  transition: opacity .28s ease !important;
+  opacity: 1 !important;
+}
+
+.blv-aviso-faq.active .blv-aviso-plus::after {
+  opacity: 0 !important;
+}
+
+.blv-aviso-faq-content {
+  max-height: 0 !important;
+  overflow: hidden !important;
+  transition: max-height .4s ease, padding .4s ease !important;
+  padding: 0 !important;
+}
+
+.blv-aviso-faq.active .blv-aviso-faq-content {
+  max-height: 1200px !important;
+  padding-bottom: 24px !important;
+}
+
+@media (max-width: 768px) {
+  .blv-aviso-h1 {
+    font-size: 36px !important;
+  }
+  .blv-aviso-title {
+    font-size: 26px !important;
+  }
+  .blv-aviso-intro,
+  .blv-aviso-highlight {
+    padding: 24px !important;
+  }
+  .blv-aviso-highlight-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  .blv-aviso-faq-btn {
+    font-size: 15px !important;
+  }
+}
