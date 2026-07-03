@@ -201,3 +201,52 @@ class BLV_Arrow_Link_Widget extends BLV_Visual_Base_Widget {
 		echo '</a>';
 	}
 }
+
+class BLV_Partidas_Especiales_Widget extends BLV_Visual_Base_Widget {
+
+	public function get_name() { return 'blv_partidas_especiales'; }
+	public function get_title() { return esc_html__( 'Partidas especiales', 'bingo-essentials' ); }
+	public function get_icon() { return 'eicon-image-rollover'; }
+
+	public function get_script_depends() {
+		return array( 'blv-be-premios-lightbox' );
+	}
+
+	protected function register_controls() {
+		$this->start_controls_section( 'content', array( 'label' => esc_html__( 'Contenido', 'bingo-essentials' ) ) );
+		$this->add_control( 'eyebrow', array( 'label' => esc_html__( 'Etiqueta superior', 'bingo-essentials' ), 'type' => Controls_Manager::TEXT, 'default' => 'Bingo Las Vegas', 'label_block' => true ) );
+		$this->add_control( 'title', array( 'label' => esc_html__( 'Titulo', 'bingo-essentials' ), 'type' => Controls_Manager::TEXT, 'default' => 'Partidas especiales', 'label_block' => true ) );
+		$this->add_control( 'poster', array( 'label' => esc_html__( 'Cartel', 'bingo-essentials' ), 'type' => Controls_Manager::MEDIA, 'default' => array( 'url' => 'https://des.bingolasvegas.es/wp-content/uploads/2026/06/premios.jpg' ) ) );
+		$this->add_control( 'poster_alt', array( 'label' => esc_html__( 'Texto alternativo', 'bingo-essentials' ), 'type' => Controls_Manager::TEXT, 'default' => 'Cartel de partidas especiales de Bingo Las Vegas', 'label_block' => true ) );
+		$this->add_control( 'lightbox_label', array( 'label' => esc_html__( 'Etiqueta del visor', 'bingo-essentials' ), 'type' => Controls_Manager::TEXT, 'default' => 'Cartel ampliado de partidas especiales', 'label_block' => true ) );
+		$this->end_controls_section();
+	}
+
+	protected function render() {
+		$s              = $this->get_settings_for_display();
+		$title_id       = 'blv26-premios-title-' . $this->get_id();
+		$image          = ! empty( $s['poster']['url'] ) ? $s['poster']['url'] : 'https://des.bingolasvegas.es/wp-content/uploads/2026/06/premios.jpg';
+		$alt            = ! empty( $s['poster_alt'] ) ? $s['poster_alt'] : __( 'Cartel de partidas especiales de Bingo Las Vegas', 'bingo-essentials' );
+		$lightbox_label = ! empty( $s['lightbox_label'] ) ? $s['lightbox_label'] : __( 'Cartel ampliado de partidas especiales', 'bingo-essentials' );
+
+		echo '<section class="blv26-premios-widget" data-blv26-premios-widget aria-labelledby="' . esc_attr( $title_id ) . '">';
+		echo '<div class="blv26-premios-container">';
+		echo '<div class="blv26-premios-content">';
+		echo '<span class="blv26-premios-eyebrow">' . esc_html( $s['eyebrow'] ?? '' ) . '</span>';
+		echo '<h2 id="' . esc_attr( $title_id ) . '" class="blv26-premios-title">' . esc_html( $s['title'] ?? '' ) . '</h2>';
+		echo '<div class="blv26-premios-line" aria-hidden="true"></div>';
+		echo '</div>';
+		echo '<figure class="blv26-premios-poster-wrap"><div class="blv26-premios-poster-stage">';
+		echo '<button class="blv26-premios-poster-button" type="button" data-blv26-premios-open aria-label="' . esc_attr__( 'Ampliar cartel de partidas especiales', 'bingo-essentials' ) . '">';
+		echo '<img class="blv26-premios-poster" src="' . esc_url( $image ) . '" alt="' . esc_attr( $alt ) . '" loading="lazy" decoding="async">';
+		echo '</button>';
+		echo '</div></figure>';
+		echo '</div>';
+		echo '<div class="blv26-premios-lightbox" data-blv26-premios-lightbox role="dialog" aria-modal="true" aria-hidden="true" aria-label="' . esc_attr( $lightbox_label ) . '">';
+		echo '<div class="blv26-premios-lightbox-dialog">';
+		echo '<button class="blv26-premios-lightbox-close" type="button" data-blv26-premios-close aria-label="' . esc_attr__( 'Cerrar imagen', 'bingo-essentials' ) . '">&times;</button>';
+		echo '<img class="blv26-premios-lightbox-image" data-blv26-premios-image src="" alt="' . esc_attr( $alt ) . '">';
+		echo '</div></div>';
+		echo '</section>';
+	}
+}
