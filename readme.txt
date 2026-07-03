@@ -4,7 +4,7 @@ Tags: elementor, widgets, bingo
 Requires at least: 6.0
 Tested up to: 6.6
 Requires PHP: 7.4
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv2 or later
 
 Widgets esenciales de Elementor para Bingo Las Vegas.
@@ -15,6 +15,10 @@ Bingo Essentials incluye widgets de Elementor para las secciones "Dónde Estamos
 y "Nuestra Historia" de Bingo Las Vegas.
 
 == Changelog ==
+
+= 1.0.4 =
+* Añade widgets Cards experiencias, Carrusel cards sorteos/promos y Enlace con flecha underline.
+* Sustituye el icono del dato curioso por un icono Lucide y elimina el adorno rosa lateral.
 
 = 1.0.3 =
 * Añade bloque editable de dato curioso al widget Cine y television.

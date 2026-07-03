@@ -84,6 +84,10 @@ abstract class BLV_Historia_Base_Widget extends Widget_Base {
 		call_user_func( $content_callback );
 		echo '</section></div>';
 	}
+
+	protected function lucide_clapperboard_icon() {
+		return '<svg class="blv-history-lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.2 6 3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3Z"></path><path d="m6.2 5.3 3.1 3.9"></path><path d="m12.4 3.4 3.1 4"></path><path d="M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"></path></svg>';
+	}
 }
 
 class BLV_Historia_Hero_Widget extends BLV_Historia_Base_Widget {
@@ -307,7 +311,7 @@ class BLV_Historia_Producciones_Widget extends BLV_Historia_Base_Widget {
 				echo '</div>';
 				if ( ! empty( $s['curiosity_text'] ) ) {
 					echo '<aside class="blv-history-curiosity blv-history-reveal">';
-					echo '<div class="blv-history-curiosity-mark">+</div>';
+					echo '<div class="blv-history-curiosity-mark">' . $this->lucide_clapperboard_icon() . '</div>';
 					echo '<div class="blv-history-curiosity-copy">';
 					if ( ! empty( $s['curiosity_label'] ) ) {
 						echo '<span>' . esc_html( $s['curiosity_label'] ) . '</span>';

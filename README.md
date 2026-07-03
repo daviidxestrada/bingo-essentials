@@ -11,6 +11,9 @@ Plugin de WordPress para Elementor con los widgets esenciales de Bingo Las Vegas
 - **Cine y television**.
 - **Revolucion digital**.
 - **CTA - Nuestra Historia**.
+- **Cards experiencias**.
+- **Carrusel cards sorteos/promos**.
+- **Enlace con flecha underline**.
 
 Todos aparecen en la categoria **Bingo Essentials** de Elementor.
 

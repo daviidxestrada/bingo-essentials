@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name:       Bingo Essentials
- * Description:        Widgets esenciales de Elementor para Bingo Las Vegas: Dónde Estamos y secciones de Nuestra Historia.
- * Version:           1.0.3
+ * Description:        Widgets esenciales de Elementor para Bingo Las Vegas: Dónde Estamos, Nuestra Historia y bloques visuales.
+ * Version:           1.0.4
  * Author:            Bingo Las Vegas
  * Text Domain:       bingo-essentials
  * Requires Plugins:  elementor
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // No acceso directo.
 }
 
-define( 'BLV_BE_VERSION', '1.0.3' );
+define( 'BLV_BE_VERSION', '1.0.4' );
 define( 'BLV_BE_PATH', plugin_dir_path( __FILE__ ) );
 define( 'BLV_BE_URL', plugin_dir_url( __FILE__ ) );
 
@@ -84,6 +84,7 @@ add_action( 'elementor/widgets/register', function ( $widgets_manager ) {
 	}
 	require_once BLV_BE_PATH . 'widgets/class-donde-estamos-widget.php';
 	require_once BLV_BE_PATH . 'widgets/class-nuestra-historia-widgets.php';
+	require_once BLV_BE_PATH . 'widgets/class-bingo-visual-widgets.php';
 
 	$widgets_manager->register( new \BLV_BE_Donde_Estamos_Widget() );
 	$widgets_manager->register( new \BLV_Historia_Hero_Widget() );
@@ -92,6 +93,9 @@ add_action( 'elementor/widgets/register', function ( $widgets_manager ) {
 	$widgets_manager->register( new \BLV_Historia_Producciones_Widget() );
 	$widgets_manager->register( new \BLV_Historia_Revolucion_Widget() );
 	$widgets_manager->register( new \BLV_Historia_Cta_Widget() );
+	$widgets_manager->register( new \BLV_Experiencias_Cards_Widget() );
+	$widgets_manager->register( new \BLV_Sorteos_Promos_Widget() );
+	$widgets_manager->register( new \BLV_Arrow_Link_Widget() );
 } );
 
 /**
@@ -127,6 +131,13 @@ function blv_be_register_assets() {
 		BLV_BE_VERSION
 	);
 
+	wp_register_style(
+		'blv-be-visual-widgets-style',
+		BLV_BE_URL . 'assets/css/visual-widgets.css',
+		array( 'blv-de-fonts' ),
+		BLV_BE_VERSION
+	);
+
 	// ---- GSAP + ScrollTrigger (locales) ----
 	wp_register_script(
 		'blv-de-gsap',
@@ -156,6 +167,14 @@ function blv_be_register_assets() {
 		'blv-be-history-init',
 		BLV_BE_URL . 'assets/js/nuestra-historia.js',
 		array( 'blv-de-gsap', 'blv-de-scrolltrigger' ),
+		BLV_BE_VERSION,
+		true
+	);
+
+	wp_register_script(
+		'blv-be-promos-lightbox',
+		BLV_BE_URL . 'assets/js/promos-lightbox.js',
+		array(),
 		BLV_BE_VERSION,
 		true
 	);

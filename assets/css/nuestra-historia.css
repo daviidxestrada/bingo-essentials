@@ -346,19 +346,6 @@
     overflow: hidden !important;
 }
 
-.blv-history-curiosity::after {
-    content: '' !important;
-    position: absolute !important;
-    right: -42px !important;
-    bottom: -42px !important;
-    width: 150px !important;
-    height: 150px !important;
-    border-left: 2px solid var(--cta-fuchsia) !important;
-    border-top: 2px solid var(--cta-fuchsia) !important;
-    opacity: 0.85 !important;
-    pointer-events: none !important;
-}
-
 .blv-history-curiosity-mark {
     width: 42px !important;
     height: 42px !important;
@@ -370,6 +357,12 @@
     font-family: var(--font-serif) !important;
     font-size: 2rem !important;
     line-height: 1 !important;
+}
+
+.blv-history-lucide {
+    width: 22px !important;
+    height: 22px !important;
+    display: block !important;
 }
 
 .blv-history-curiosity-copy {
