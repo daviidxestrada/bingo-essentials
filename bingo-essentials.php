@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Bingo Essentials
  * Description:        Widgets esenciales de Elementor para Bingo Las Vegas: Dónde Estamos, Nuestra Historia y bloques visuales.
- * Version:           1.0.6
+ * Version:           1.0.7
  * Author:            Bingo Las Vegas
  * Text Domain:       bingo-essentials
  * Requires Plugins:  elementor
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // No acceso directo.
 }
 
-define( 'BLV_BE_VERSION', '1.0.6' );
+define( 'BLV_BE_VERSION', '1.0.7' );
 define( 'BLV_BE_PATH', plugin_dir_path( __FILE__ ) );
 define( 'BLV_BE_URL', plugin_dir_url( __FILE__ ) );
 
@@ -97,6 +97,7 @@ add_action( 'elementor/widgets/register', function ( $widgets_manager ) {
 	$widgets_manager->register( new \BLV_Sorteos_Promos_Widget() );
 	$widgets_manager->register( new \BLV_Arrow_Link_Widget() );
 	$widgets_manager->register( new \BLV_Partidas_Especiales_Widget() );
+	$widgets_manager->register( new \BLV_Carta_Widget() );
 } );
 
 /**
@@ -194,6 +195,29 @@ function blv_be_register_assets() {
 		array(),
 		BLV_BE_VERSION,
 		true
+	);
+
+	wp_register_script(
+		'blv-be-pdfjs',
+		BLV_BE_URL . 'assets/js/pdf.min.js',
+		array(),
+		'3.11.174',
+		true
+	);
+
+	wp_register_script(
+		'blv-be-carta-pdf-viewer',
+		BLV_BE_URL . 'assets/js/carta-pdf-viewer.js',
+		array( 'blv-be-pdfjs' ),
+		BLV_BE_VERSION,
+		true
+	);
+	wp_localize_script(
+		'blv-be-carta-pdf-viewer',
+		'BLV_BE_PDF',
+		array(
+			'workerUrl' => BLV_BE_URL . 'assets/js/pdf.worker.min.js',
+		)
 	);
 }
 add_action( 'wp_enqueue_scripts', 'blv_be_register_assets' );

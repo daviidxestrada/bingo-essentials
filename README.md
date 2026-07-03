@@ -15,6 +15,7 @@ Plugin de WordPress para Elementor con los widgets esenciales de Bingo Las Vegas
 - **Carrusel cards sorteos/promos**.
 - **Enlace con flecha underline**.
 - **Partidas especiales**.
+- **Carta**.
 
 Todos aparecen en la categoria **Bingo Essentials** de Elementor.
 
@@ -29,9 +30,10 @@ La rama estable configurada es `main`.
 
 ## Edicion en Elementor
 
-Los widgets de **Nuestra Historia** y los bloques visuales exponen textos e
-imagenes desde el panel de contenido. Todas las imagenes usan el control
-`MEDIA`, asi que se pueden elegir desde la biblioteca de medios de WordPress.
+Los widgets de **Nuestra Historia** y los bloques visuales exponen textos,
+imagenes y PDFs desde el panel de contenido. Las imagenes y documentos usan el
+control `MEDIA`, asi que se pueden elegir desde la biblioteca de medios de
+WordPress.
 
 ## Instalacion
 
@@ -60,5 +62,5 @@ bingo-essentials/
     └── fonts/
 ```
 
-El plugin mantiene fuentes, GSAP y ScrollTrigger en local, igual que el plugin
-anterior.
+El plugin mantiene fuentes, GSAP, ScrollTrigger y PDF.js en local, igual que el
+plugin anterior.
