@@ -25,6 +25,10 @@ abstract class BLV_Visual_Base_Widget extends Widget_Base {
 		return array( 'bingo', 'las vegas', 'cards', 'promociones', 'cta' );
 	}
 
+	public function get_script_depends() {
+		return array( 'blv-be-visual-widgets-init' );
+	}
+
 	protected function media_url( $item, $key = 'image' ) {
 		return ! empty( $item[ $key ]['url'] ) ? $item[ $key ]['url'] : '';
 	}
@@ -106,7 +110,7 @@ class BLV_Sorteos_Promos_Widget extends BLV_Visual_Base_Widget {
 	public function get_icon() { return 'eicon-carousel'; }
 
 	public function get_script_depends() {
-		return array( 'blv-be-promos-lightbox' );
+		return array( 'blv-be-visual-widgets-init', 'blv-be-promos-lightbox' );
 	}
 
 	protected function register_controls() {
@@ -209,7 +213,7 @@ class BLV_Partidas_Especiales_Widget extends BLV_Visual_Base_Widget {
 	public function get_icon() { return 'eicon-image-rollover'; }
 
 	public function get_script_depends() {
-		return array( 'blv-be-premios-lightbox' );
+		return array( 'blv-be-visual-widgets-init', 'blv-be-premios-lightbox' );
 	}
 
 	protected function register_controls() {

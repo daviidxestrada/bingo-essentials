@@ -739,3 +739,46 @@ body.blv26-premios-lightbox-open {
         transition: none !important;
     }
 }
+
+.blv26-exp-widget.blv26-motion-enabled .blv26-exp-card,
+.blv26-sp-widget.blv26-motion-enabled .blv26-sp-card,
+.blv26-premios-widget.blv26-motion-enabled .blv26-premios-content,
+.blv26-premios-widget.blv26-motion-enabled .blv26-premios-poster-wrap,
+.blv26-arrow-link.blv26-motion-enabled {
+    opacity: 0 !important;
+    transform: translateY(18px) scale(0.985) !important;
+    filter: saturate(0.9) !important;
+    transition:
+        opacity 0.62s ease,
+        transform 0.72s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 0.72s ease !important;
+    transition-delay: var(--blv26-motion-delay, 0ms) !important;
+    will-change: opacity, transform, filter !important;
+}
+
+.blv26-arrow-link.blv26-motion-enabled {
+    transform: translateY(12px) !important;
+}
+
+.blv26-exp-widget.blv26-motion-enabled.blv26-motion-in .blv26-exp-card,
+.blv26-sp-widget.blv26-motion-enabled.blv26-motion-in .blv26-sp-card,
+.blv26-premios-widget.blv26-motion-enabled.blv26-motion-in .blv26-premios-content,
+.blv26-premios-widget.blv26-motion-enabled.blv26-motion-in .blv26-premios-poster-wrap,
+.blv26-arrow-link.blv26-motion-enabled.blv26-motion-in {
+    opacity: 1 !important;
+    transform: translateY(0) scale(1) !important;
+    filter: saturate(1) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .blv26-exp-widget.blv26-motion-enabled .blv26-exp-card,
+    .blv26-sp-widget.blv26-motion-enabled .blv26-sp-card,
+    .blv26-premios-widget.blv26-motion-enabled .blv26-premios-content,
+    .blv26-premios-widget.blv26-motion-enabled .blv26-premios-poster-wrap,
+    .blv26-arrow-link.blv26-motion-enabled {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        transition: none !important;
+    }
+}
