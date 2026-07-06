@@ -57,7 +57,7 @@ class BLV_Experiencias_Cards_Widget extends BLV_Visual_Base_Widget {
 		$repeater = new Repeater();
 		$repeater->add_control( 'title', array( 'label' => esc_html__( 'Titulo', 'bingo-essentials' ), 'type' => Controls_Manager::TEXT, 'default' => 'Sala del bingo', 'label_block' => true ) );
 		$repeater->add_control( 'text', array( 'label' => esc_html__( 'Texto', 'bingo-essentials' ), 'type' => Controls_Manager::TEXTAREA, 'rows' => 4, 'default' => 'Donde vive la máxima emoción y se cantan los premios más altos de Madrid.' ) );
-		$repeater->add_control( 'image', array( 'label' => esc_html__( 'Imagen', 'bingo-essentials' ), 'type' => Controls_Manager::MEDIA, 'default' => array( 'url' => 'https://des.bingolasvegas.es/wp-content/uploads/2026/06/1-scaled.jpg' ) ) );
+		$repeater->add_control( 'image', array( 'label' => esc_html__( 'Imagen', 'bingo-essentials' ), 'type' => Controls_Manager::MEDIA, 'media_types' => array( 'image' ), 'default' => array( 'url' => 'https://des.bingolasvegas.es/wp-content/uploads/2026/06/1-scaled.jpg' ) ) );
 		$repeater->add_control( 'alt', array( 'label' => esc_html__( 'Texto alternativo', 'bingo-essentials' ), 'type' => Controls_Manager::TEXT, 'default' => 'Experiencia Bingo Las Vegas', 'label_block' => true ) );
 
 		$this->add_control(
@@ -117,7 +117,7 @@ class BLV_Sorteos_Promos_Widget extends BLV_Visual_Base_Widget {
 		$this->start_controls_section( 'content', array( 'label' => esc_html__( 'Promociones', 'bingo-essentials' ) ) );
 
 		$repeater = new Repeater();
-		$repeater->add_control( 'image', array( 'label' => esc_html__( 'Imagen', 'bingo-essentials' ), 'type' => Controls_Manager::MEDIA, 'default' => array( 'url' => 'https://des.bingolasvegas.es/wp-content/uploads/2026/06/L-DE-JUNIO-600X600.jpg' ) ) );
+		$repeater->add_control( 'image', array( 'label' => esc_html__( 'Imagen', 'bingo-essentials' ), 'type' => Controls_Manager::MEDIA, 'media_types' => array( 'image' ), 'default' => array( 'url' => 'https://des.bingolasvegas.es/wp-content/uploads/2026/06/L-DE-JUNIO-600X600.jpg' ) ) );
 		$repeater->add_control( 'alt', array( 'label' => esc_html__( 'Texto alternativo / aria-label', 'bingo-essentials' ), 'type' => Controls_Manager::TEXT, 'default' => 'Promoción Bingo Las Vegas', 'label_block' => true ) );
 
 		$this->add_control(
@@ -220,7 +220,7 @@ class BLV_Partidas_Especiales_Widget extends BLV_Visual_Base_Widget {
 		$this->start_controls_section( 'content', array( 'label' => esc_html__( 'Contenido', 'bingo-essentials' ) ) );
 		$this->add_control( 'eyebrow', array( 'label' => esc_html__( 'Etiqueta superior', 'bingo-essentials' ), 'type' => Controls_Manager::TEXT, 'default' => 'Bingo Las Vegas', 'label_block' => true ) );
 		$this->add_control( 'title', array( 'label' => esc_html__( 'Titulo', 'bingo-essentials' ), 'type' => Controls_Manager::TEXT, 'default' => 'Partidas especiales', 'label_block' => true ) );
-		$this->add_control( 'poster', array( 'label' => esc_html__( 'Cartel', 'bingo-essentials' ), 'type' => Controls_Manager::MEDIA, 'default' => array( 'url' => 'https://des.bingolasvegas.es/wp-content/uploads/2026/06/premios.jpg' ) ) );
+		$this->add_control( 'poster', array( 'label' => esc_html__( 'Cartel', 'bingo-essentials' ), 'type' => Controls_Manager::MEDIA, 'media_types' => array( 'image' ), 'default' => array( 'url' => 'https://des.bingolasvegas.es/wp-content/uploads/2026/06/premios.jpg' ) ) );
 		$this->add_control( 'poster_alt', array( 'label' => esc_html__( 'Texto alternativo', 'bingo-essentials' ), 'type' => Controls_Manager::TEXT, 'default' => 'Cartel de partidas especiales de Bingo Las Vegas', 'label_block' => true ) );
 		$this->add_control( 'lightbox_label', array( 'label' => esc_html__( 'Etiqueta del visor', 'bingo-essentials' ), 'type' => Controls_Manager::TEXT, 'default' => 'Cartel ampliado de partidas especiales', 'label_block' => true ) );
 		$this->end_controls_section();

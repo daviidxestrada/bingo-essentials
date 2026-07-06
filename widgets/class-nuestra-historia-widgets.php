@@ -48,9 +48,10 @@ abstract class BLV_Historia_Base_Widget extends Widget_Base {
 		$this->add_control(
 			$id,
 			array(
-				'label'   => $label,
-				'type'    => Controls_Manager::MEDIA,
-				'default' => array(
+				'label'       => $label,
+				'type'        => Controls_Manager::MEDIA,
+				'media_types' => array( 'image' ),
+				'default'     => array(
 					'url' => $default_url,
 				),
 			)
@@ -118,7 +119,9 @@ class BLV_Historia_Hero_Widget extends BLV_Historia_Base_Widget {
 		$this->render_shell(
 			'blv-history-hero',
 			function () use ( $s, $img ) {
-				echo '<div class="blv-history-hero-bg" style="background-image:url(' . esc_url( $img ) . ')"></div>';
+				if ( $img ) {
+					echo '<div class="blv-history-hero-bg" style="background-image:url(' . esc_url( $img ) . ')"></div>';
+				}
 				echo '<div class="blv-history-hero-overlay"></div>';
 				echo '<div class="blv-history-hero-content blv-history-reveal">';
 				echo '<h1>' . esc_html( $s['title'] ) . '</h1>';
@@ -162,6 +165,7 @@ abstract class BLV_Historia_Split_Widget extends BLV_Historia_Base_Widget {
 		$this->render_shell(
 			$classes,
 			function () use ( $s, $reverse ) {
+				$image = $this->image_url( $s, 'image' );
 				echo '<div class="blv-history-split">';
 				echo '<div class="blv-history-copy blv-history-reveal">';
 				if ( ! empty( $s['tag'] ) ) {
@@ -170,10 +174,13 @@ abstract class BLV_Historia_Split_Widget extends BLV_Historia_Base_Widget {
 				echo '<h2>' . esc_html( $s['title'] ) . '</h2>';
 				$this->paragraphs( $s['body'] );
 				echo '</div>';
-				echo '<div class="blv-history-image-wrap blv-history-reveal">';
-				echo '<div class="blv-history-image-accent"></div>';
-				echo '<figure class="blv-history-image"><img src="' . esc_url( $this->image_url( $s, 'image' ) ) . '" alt="' . esc_attr( $s['alt'] ) . '"></figure>';
-				echo '</div></div>';
+				if ( $image ) {
+					echo '<div class="blv-history-image-wrap blv-history-reveal">';
+					echo '<div class="blv-history-image-accent"></div>';
+					echo '<figure class="blv-history-image"><img src="' . esc_url( $image ) . '" alt="' . esc_attr( $s['alt'] ) . '"></figure>';
+					echo '</div>';
+				}
+				echo '</div>';
 			}
 		);
 	}
@@ -234,7 +241,7 @@ class BLV_Historia_Producciones_Widget extends BLV_Historia_Base_Widget {
 		$repeater->add_control( 'name', array( 'label' => esc_html__( 'Nombre', 'bingo-essentials' ), 'type' => Controls_Manager::TEXT, 'default' => 'Furia', 'label_block' => true ) );
 		$repeater->add_control( 'meta', array( 'label' => esc_html__( 'Subtitulo', 'bingo-essentials' ), 'type' => Controls_Manager::TEXT, 'default' => 'Serie de HBO Max', 'label_block' => true ) );
 		$repeater->add_control( 'description', array( 'label' => esc_html__( 'Descripcion', 'bingo-essentials' ), 'type' => Controls_Manager::TEXTAREA, 'rows' => 6, 'default' => 'Descripcion de la produccion.' ) );
-		$repeater->add_control( 'image', array( 'label' => esc_html__( 'Imagen', 'bingo-essentials' ), 'type' => Controls_Manager::MEDIA, 'default' => array( 'url' => 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80&w=1200' ) ) );
+		$repeater->add_control( 'image', array( 'label' => esc_html__( 'Imagen', 'bingo-essentials' ), 'type' => Controls_Manager::MEDIA, 'media_types' => array( 'image' ), 'default' => array( 'url' => 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80&w=1200' ) ) );
 		$repeater->add_control( 'alt', array( 'label' => esc_html__( 'Texto alternativo', 'bingo-essentials' ), 'type' => Controls_Manager::TEXT, 'default' => 'Produccion audiovisual', 'label_block' => true ) );
 
 		$this->add_control(
@@ -384,6 +391,7 @@ class BLV_Historia_Cta_Widget extends BLV_Historia_Base_Widget {
 		$this->render_shell(
 			'blv-history-section blv-history-cta-section blv-theme-dark',
 			function () use ( $s ) {
+				$image = $this->image_url( $s, 'image' );
 				echo '<div class="blv-history-cta blv-history-reveal">';
 				echo '<div class="blv-history-cta-copy">';
 				if ( ! empty( $s['eyebrow'] ) ) {
@@ -395,10 +403,13 @@ class BLV_Historia_Cta_Widget extends BLV_Historia_Base_Widget {
 				$this->render_link( $s, 'primary_text', 'primary_url', 'blv-history-btn blv-history-btn-primary' );
 				$this->render_link( $s, 'secondary_text', 'secondary_url', 'blv-history-btn blv-history-btn-outline' );
 				echo '</div></div>';
-				echo '<div class="blv-history-cta-media">';
-				echo '<div class="blv-history-image-accent"></div>';
-				echo '<figure class="blv-history-image"><img src="' . esc_url( $this->image_url( $s, 'image' ) ) . '" alt="' . esc_attr( $s['alt'] ) . '" loading="lazy"></figure>';
-				echo '</div></div>';
+				if ( $image ) {
+					echo '<div class="blv-history-cta-media">';
+					echo '<div class="blv-history-image-accent"></div>';
+					echo '<figure class="blv-history-image"><img src="' . esc_url( $image ) . '" alt="' . esc_attr( $s['alt'] ) . '" loading="lazy"></figure>';
+					echo '</div>';
+				}
+				echo '</div>';
 			}
 		);
 	}
