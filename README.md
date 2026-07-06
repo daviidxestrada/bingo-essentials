@@ -16,6 +16,10 @@ Plugin de WordPress para Elementor con los widgets esenciales de Bingo Las Vegas
 - **Enlace con flecha underline**.
 - **Partidas especiales**.
 - **Carta**.
+- **Canal Etico**.
+- **Politica de Privacidad**.
+- **Politica de Cookies**.
+- **Aviso Legal**.
 
 Todos aparecen en la categoria **Bingo Essentials** de Elementor.
 
@@ -30,10 +34,10 @@ La rama estable configurada es `main`.
 
 ## Edicion en Elementor
 
-Los widgets de **Nuestra Historia** y los bloques visuales exponen textos,
-imagenes y PDFs desde el panel de contenido. Las imagenes y documentos usan el
-control `MEDIA`, asi que se pueden elegir desde la biblioteca de medios de
-WordPress.
+Los widgets de **Nuestra Historia**, los bloques visuales y las paginas legales
+exponen textos, listas, acordeones, tablas, imagenes y PDFs desde el panel de
+contenido. El diseno queda encapsulado en el plugin y los medios usan controles
+`MEDIA` filtrados por tipo para elegir imagenes o documentos desde WordPress.
 
 ## Instalacion
 
