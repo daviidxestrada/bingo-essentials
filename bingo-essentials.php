@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Bingo Essentials
  * Description:        Widgets esenciales de Elementor para Bingo Las Vegas: Dónde Estamos, Nuestra Historia, bloques visuales y páginas legales.
- * Version:           1.0.12
+ * Version:           1.0.13
  * Author:            Bingo Las Vegas
  * Text Domain:       bingo-essentials
  * Requires Plugins:  elementor
@@ -15,9 +15,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // No acceso directo.
 }
 
-define( 'BLV_BE_VERSION', '1.0.12' );
+define( 'BLV_BE_VERSION', '1.0.13' );
 define( 'BLV_BE_PATH', plugin_dir_path( __FILE__ ) );
 define( 'BLV_BE_URL', plugin_dir_url( __FILE__ ) );
+
+/**
+ * URL absoluta de un archivo de la biblioteca de medios.
+ *
+ * Los valores por defecto de los widgets apuntan a medios subidos al sitio.
+ * Se resuelven en tiempo de ejecucion contra el dominio de la instalacion
+ * para que el plugin no quede atado a ningun entorno concreto.
+ *
+ * @param string $relative_path Ruta relativa dentro de uploads. Ej: '2026/04/foto.jpg'.
+ * @return string URL absoluta del archivo.
+ */
+function blv_be_upload_url( $relative_path ) {
+	$uploads = wp_get_upload_dir();
+
+	return trailingslashit( $uploads['baseurl'] ) . ltrim( $relative_path, '/' );
+}
 
 /**
  * Actualizaciones desde GitHub.

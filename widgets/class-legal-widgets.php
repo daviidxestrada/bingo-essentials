@@ -171,17 +171,17 @@ class BLV_Canal_Etico_Widget extends BLV_Legal_Base_Widget {
 		$this->end_controls_section();
 
 		$this->start_controls_section( 'codigo', array( 'label' => esc_html__( 'Código ético', 'bingo-essentials' ) ) );
-		$this->media_control( 'codigo_image', esc_html__( 'Imagen', 'bingo-essentials' ), 'https://des.bingolasvegas.es/wp-content/uploads/2026/04/LOGO_CODIGO_ETICO.jpg', 'codigo_alt', 'Código Ético Bingo Las Vegas' );
+		$this->media_control( 'codigo_image', esc_html__( 'Imagen', 'bingo-essentials' ), blv_be_upload_url( '2026/04/LOGO_CODIGO_ETICO.jpg' ), 'codigo_alt', 'Código Ético Bingo Las Vegas' );
 		$this->text_control( 'codigo_title', esc_html__( 'Título', 'bingo-essentials' ), 'Código Ético', Controls_Manager::TEXT );
 		$this->text_control( 'codigo_text', esc_html__( 'Texto', 'bingo-essentials' ), "La actuación de LAS VEGAS JUEGOS DE ESPAÑA S.A. se rige por el mantenimiento de un comportamiento honesto e íntegro en todas sus actividades, evitando toda forma de corrupción y respetando en todo momento las circunstancias y necesidades particulares de todos los sujetos implicados.\n\nEl Código Ético contiene los principios, criterios y normas de conducta que deben regir su actividad: integridad, legalidad, derechos humanos, igualdad de oportunidades, transparencia y confidencialidad." );
 		$this->text_control( 'codigo_btn_text', esc_html__( 'Botón - texto', 'bingo-essentials' ), 'Descargar Código Ético', Controls_Manager::TEXT );
-		$this->pdf_control( 'codigo_pdf', esc_html__( 'Botón - PDF', 'bingo-essentials' ), 'https://des.bingolasvegas.es/wp-content/uploads/2026/04/CODIGO-ETICO-LAS-VEGAS.pdf' );
+		$this->pdf_control( 'codigo_pdf', esc_html__( 'Botón - PDF', 'bingo-essentials' ), blv_be_upload_url( '2026/04/CODIGO-ETICO-LAS-VEGAS.pdf' ) );
 		$this->end_controls_section();
 
 		$this->start_controls_section( 'compromisos', array( 'label' => esc_html__( 'Compromisos', 'bingo-essentials' ) ) );
 		$this->text_control( 'commitments_title', esc_html__( 'Título', 'bingo-essentials' ), 'Compromisos y Cultura Corporativa', Controls_Manager::TEXT );
 		$this->text_control( 'commitments_intro', esc_html__( 'Texto', 'bingo-essentials' ), 'LAS VEGAS es una sala pionera que fusiona profesionalidad, pasión y honestidad para redefinir la excelencia en las salas de Bingo.' );
-		$this->media_control( 'commitments_image', esc_html__( 'Imagen', 'bingo-essentials' ), 'https://des.bingolasvegas.es/wp-content/uploads/2026/04/vegas_sala_2.jpg', 'commitments_alt', 'Interior sala Bingo Las Vegas Madrid' );
+		$this->media_control( 'commitments_image', esc_html__( 'Imagen', 'bingo-essentials' ), blv_be_upload_url( '2026/04/vegas_sala_2.jpg' ), 'commitments_alt', 'Interior sala Bingo Las Vegas Madrid' );
 		$rep = new Repeater();
 		$rep->add_control( 'title', array( 'label' => esc_html__( 'Título', 'bingo-essentials' ), 'type' => Controls_Manager::TEXT, 'default' => 'Compromiso', 'label_block' => true ) );
 		$rep->add_control( 'text', array( 'label' => esc_html__( 'Texto', 'bingo-essentials' ), 'type' => Controls_Manager::TEXTAREA, 'rows' => 4, 'default' => 'Texto del compromiso.' ) );
@@ -192,8 +192,8 @@ class BLV_Canal_Etico_Widget extends BLV_Legal_Base_Widget {
 		$this->text_control( 'canal_title', esc_html__( 'Título', 'bingo-essentials' ), 'Canal Interno de Información y Denuncias', Controls_Manager::TEXT );
 		$this->text_control( 'canal_text', esc_html__( 'Texto', 'bingo-essentials' ), "LAS VEGAS dispone de un canal interno para la denuncia de posibles infracciones normativas y casos de corrupción, en cumplimiento de la Ley 2/2023, de 20 de febrero, reguladora de la protección de las personas que informen sobre infracciones normativas y lucha contra la corrupción.\n\nEs muy importante realizar un uso responsable del Canal ético, de acuerdo con el principio de buena fe." );
 		$this->text_control( 'canal_btn_text', esc_html__( 'Botón - texto', 'bingo-essentials' ), 'Descargar Política del Canal', Controls_Manager::TEXT );
-		$this->pdf_control( 'canal_pdf', esc_html__( 'Botón - PDF', 'bingo-essentials' ), 'https://des.bingolasvegas.es/wp-content/uploads/2026/04/POLITICA-DEL-CANAL-VEGAS-2024-.pdf' );
-		$this->media_control( 'canal_image', esc_html__( 'Imagen', 'bingo-essentials' ), 'https://des.bingolasvegas.es/wp-content/uploads/2026/04/vegas_sala_3.jpg', 'canal_alt', 'Sala Bingo Las Vegas Madrid' );
+		$this->pdf_control( 'canal_pdf', esc_html__( 'Botón - PDF', 'bingo-essentials' ), blv_be_upload_url( '2026/04/POLITICA-DEL-CANAL-VEGAS-2024-.pdf' ) );
+		$this->media_control( 'canal_image', esc_html__( 'Imagen', 'bingo-essentials' ), blv_be_upload_url( '2026/04/vegas_sala_3.jpg' ), 'canal_alt', 'Sala Bingo Las Vegas Madrid' );
 		$this->end_controls_section();
 
 		$this->start_controls_section( 'faqs_section', array( 'label' => esc_html__( 'Preguntas frecuentes', 'bingo-essentials' ) ) );

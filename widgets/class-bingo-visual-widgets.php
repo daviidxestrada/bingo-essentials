@@ -57,7 +57,7 @@ class BLV_Experiencias_Cards_Widget extends BLV_Visual_Base_Widget {
 		$repeater = new Repeater();
 		$repeater->add_control( 'title', array( 'label' => esc_html__( 'Titulo', 'bingo-essentials' ), 'type' => Controls_Manager::TEXT, 'default' => 'Sala del bingo', 'label_block' => true ) );
 		$repeater->add_control( 'text', array( 'label' => esc_html__( 'Texto', 'bingo-essentials' ), 'type' => Controls_Manager::TEXTAREA, 'rows' => 4, 'default' => 'Donde vive la máxima emoción y se cantan los premios más altos de Madrid.' ) );
-		$repeater->add_control( 'image', array( 'label' => esc_html__( 'Imagen', 'bingo-essentials' ), 'type' => Controls_Manager::MEDIA, 'media_types' => array( 'image' ), 'default' => array( 'url' => 'https://des.bingolasvegas.es/wp-content/uploads/2026/06/1-scaled.jpg' ) ) );
+		$repeater->add_control( 'image', array( 'label' => esc_html__( 'Imagen', 'bingo-essentials' ), 'type' => Controls_Manager::MEDIA, 'media_types' => array( 'image' ), 'default' => array( 'url' => blv_be_upload_url( '2026/06/1-scaled.jpg' ) ) ) );
 		$repeater->add_control( 'alt', array( 'label' => esc_html__( 'Texto alternativo', 'bingo-essentials' ), 'type' => Controls_Manager::TEXT, 'default' => 'Experiencia Bingo Las Vegas', 'label_block' => true ) );
 
 		$this->add_control(
@@ -75,11 +75,11 @@ class BLV_Experiencias_Cards_Widget extends BLV_Visual_Base_Widget {
 
 	private function default_cards() {
 		return array(
-			array( 'title' => 'Sala del bingo', 'text' => 'Donde vive la máxima emoción y se cantan los premios más altos de Madrid. Estate atento a nuestras partidas de 20.000€.', 'image' => array( 'url' => 'https://des.bingolasvegas.es/wp-content/uploads/2026/06/1-scaled.jpg' ), 'alt' => 'Sala del bingo de Bingo Las Vegas' ),
-			array( 'title' => 'Slots & Roulette Lounge', 'text' => 'Sala exclusiva con tus máquinas favoritas, la ruleta más viva: el pulso de la diversión.', 'image' => array( 'url' => 'https://des.bingolasvegas.es/wp-content/uploads/2026/06/2-scaled.jpg' ), 'alt' => 'Slots y roulette lounge en Bingo Las Vegas' ),
-			array( 'title' => 'Gastronomía', 'text' => 'Sorprendente fusión de alta gastronomía y platos tradicionales ejecutados con maestría.', 'image' => array( 'url' => 'https://des.bingolasvegas.es/wp-content/uploads/2026/06/8.jpg' ), 'alt' => 'Gastronomía en Bingo Las Vegas' ),
-			array( 'title' => 'Terraza', 'text' => 'Contamos de forma exclusiva con una terraza con techo retráctil para que en verano puedas jugar al bingo disfrutando del cielo de Madrid.', 'image' => array( 'url' => 'https://des.bingolasvegas.es/wp-content/uploads/2026/06/4-scaled.jpg' ), 'alt' => 'Terraza de Bingo Las Vegas' ),
-			array( 'title' => 'Servicios exclusivos jugadores', 'text' => 'Parking gratuito con servicio de aparca coches y más cosas que descubrirás visitándonos.', 'image' => array( 'url' => 'https://des.bingolasvegas.es/wp-content/uploads/2026/06/5-scaled.jpg' ), 'alt' => 'Servicios exclusivos para jugadores de Bingo Las Vegas' ),
+			array( 'title' => 'Sala del bingo', 'text' => 'Donde vive la máxima emoción y se cantan los premios más altos de Madrid. Estate atento a nuestras partidas de 20.000€.', 'image' => array( 'url' => blv_be_upload_url( '2026/06/1-scaled.jpg' ) ), 'alt' => 'Sala del bingo de Bingo Las Vegas' ),
+			array( 'title' => 'Slots & Roulette Lounge', 'text' => 'Sala exclusiva con tus máquinas favoritas, la ruleta más viva: el pulso de la diversión.', 'image' => array( 'url' => blv_be_upload_url( '2026/06/2-scaled.jpg' ) ), 'alt' => 'Slots y roulette lounge en Bingo Las Vegas' ),
+			array( 'title' => 'Gastronomía', 'text' => 'Sorprendente fusión de alta gastronomía y platos tradicionales ejecutados con maestría.', 'image' => array( 'url' => blv_be_upload_url( '2026/06/8.jpg' ) ), 'alt' => 'Gastronomía en Bingo Las Vegas' ),
+			array( 'title' => 'Terraza', 'text' => 'Contamos de forma exclusiva con una terraza con techo retráctil para que en verano puedas jugar al bingo disfrutando del cielo de Madrid.', 'image' => array( 'url' => blv_be_upload_url( '2026/06/4-scaled.jpg' ) ), 'alt' => 'Terraza de Bingo Las Vegas' ),
+			array( 'title' => 'Servicios exclusivos jugadores', 'text' => 'Parking gratuito con servicio de aparca coches y más cosas que descubrirás visitándonos.', 'image' => array( 'url' => blv_be_upload_url( '2026/06/5-scaled.jpg' ) ), 'alt' => 'Servicios exclusivos para jugadores de Bingo Las Vegas' ),
 		);
 	}
 
@@ -117,7 +117,7 @@ class BLV_Sorteos_Promos_Widget extends BLV_Visual_Base_Widget {
 		$this->start_controls_section( 'content', array( 'label' => esc_html__( 'Promociones', 'bingo-essentials' ) ) );
 
 		$repeater = new Repeater();
-		$repeater->add_control( 'image', array( 'label' => esc_html__( 'Imagen', 'bingo-essentials' ), 'type' => Controls_Manager::MEDIA, 'media_types' => array( 'image' ), 'default' => array( 'url' => 'https://des.bingolasvegas.es/wp-content/uploads/2026/06/L-DE-JUNIO-600X600.jpg' ) ) );
+		$repeater->add_control( 'image', array( 'label' => esc_html__( 'Imagen', 'bingo-essentials' ), 'type' => Controls_Manager::MEDIA, 'media_types' => array( 'image' ), 'default' => array( 'url' => blv_be_upload_url( '2026/06/L-DE-JUNIO-600X600.jpg' ) ) ) );
 		$repeater->add_control( 'alt', array( 'label' => esc_html__( 'Texto alternativo / aria-label', 'bingo-essentials' ), 'type' => Controls_Manager::TEXT, 'default' => 'Promoción Bingo Las Vegas', 'label_block' => true ) );
 
 		$this->add_control(
@@ -135,10 +135,10 @@ class BLV_Sorteos_Promos_Widget extends BLV_Visual_Base_Widget {
 
 	private function default_items() {
 		return array(
-			array( 'image' => array( 'url' => 'https://des.bingolasvegas.es/wp-content/uploads/2026/06/L-DE-JUNIO-600X600.jpg' ), 'alt' => 'Promoción Bingo Las Vegas lunes de junio' ),
-			array( 'image' => array( 'url' => 'https://des.bingolasvegas.es/wp-content/uploads/2026/06/2X1-JUNIO26-Pant_Web-600x600_.jpg' ), 'alt' => 'Promoción Bingo Las Vegas 2x1 junio' ),
-			array( 'image' => array( 'url' => 'https://des.bingolasvegas.es/wp-content/uploads/2026/06/J-JUL-26__P_Web-600x600-1.jpg' ), 'alt' => 'Promoción Bingo Las Vegas jueves de julio' ),
-			array( 'image' => array( 'url' => 'https://des.bingolasvegas.es/wp-content/uploads/2026/06/X-DE-JUNIO-600X600.jpg' ), 'alt' => 'Promoción Bingo Las Vegas miércoles de junio' ),
+			array( 'image' => array( 'url' => blv_be_upload_url( '2026/06/L-DE-JUNIO-600X600.jpg' ) ), 'alt' => 'Promoción Bingo Las Vegas lunes de junio' ),
+			array( 'image' => array( 'url' => blv_be_upload_url( '2026/06/2X1-JUNIO26-Pant_Web-600x600_.jpg' ) ), 'alt' => 'Promoción Bingo Las Vegas 2x1 junio' ),
+			array( 'image' => array( 'url' => blv_be_upload_url( '2026/06/J-JUL-26__P_Web-600x600-1.jpg' ) ), 'alt' => 'Promoción Bingo Las Vegas jueves de julio' ),
+			array( 'image' => array( 'url' => blv_be_upload_url( '2026/06/X-DE-JUNIO-600X600.jpg' ) ), 'alt' => 'Promoción Bingo Las Vegas miércoles de junio' ),
 		);
 	}
 
@@ -220,7 +220,7 @@ class BLV_Partidas_Especiales_Widget extends BLV_Visual_Base_Widget {
 		$this->start_controls_section( 'content', array( 'label' => esc_html__( 'Contenido', 'bingo-essentials' ) ) );
 		$this->add_control( 'eyebrow', array( 'label' => esc_html__( 'Etiqueta superior', 'bingo-essentials' ), 'type' => Controls_Manager::TEXT, 'default' => 'Bingo Las Vegas', 'label_block' => true ) );
 		$this->add_control( 'title', array( 'label' => esc_html__( 'Titulo', 'bingo-essentials' ), 'type' => Controls_Manager::TEXT, 'default' => 'Partidas especiales', 'label_block' => true ) );
-		$this->add_control( 'poster', array( 'label' => esc_html__( 'Cartel', 'bingo-essentials' ), 'type' => Controls_Manager::MEDIA, 'media_types' => array( 'image' ), 'default' => array( 'url' => 'https://des.bingolasvegas.es/wp-content/uploads/2026/06/premios.jpg' ) ) );
+		$this->add_control( 'poster', array( 'label' => esc_html__( 'Cartel', 'bingo-essentials' ), 'type' => Controls_Manager::MEDIA, 'media_types' => array( 'image' ), 'default' => array( 'url' => blv_be_upload_url( '2026/06/premios.jpg' ) ) ) );
 		$this->add_control( 'poster_alt', array( 'label' => esc_html__( 'Texto alternativo', 'bingo-essentials' ), 'type' => Controls_Manager::TEXT, 'default' => 'Cartel de partidas especiales de Bingo Las Vegas', 'label_block' => true ) );
 		$this->add_control( 'lightbox_label', array( 'label' => esc_html__( 'Etiqueta del visor', 'bingo-essentials' ), 'type' => Controls_Manager::TEXT, 'default' => 'Cartel ampliado de partidas especiales', 'label_block' => true ) );
 		$this->end_controls_section();
@@ -229,7 +229,7 @@ class BLV_Partidas_Especiales_Widget extends BLV_Visual_Base_Widget {
 	protected function render() {
 		$s              = $this->get_settings_for_display();
 		$title_id       = 'blv26-premios-title-' . $this->get_id();
-		$image          = ! empty( $s['poster']['url'] ) ? $s['poster']['url'] : 'https://des.bingolasvegas.es/wp-content/uploads/2026/06/premios.jpg';
+		$image          = ! empty( $s['poster']['url'] ) ? $s['poster']['url'] : blv_be_upload_url( '2026/06/premios.jpg' );
 		$alt            = ! empty( $s['poster_alt'] ) ? $s['poster_alt'] : __( 'Cartel de partidas especiales de Bingo Las Vegas', 'bingo-essentials' );
 		$lightbox_label = ! empty( $s['lightbox_label'] ) ? $s['lightbox_label'] : __( 'Cartel ampliado de partidas especiales', 'bingo-essentials' );
 
@@ -275,13 +275,13 @@ class BLV_Carta_Widget extends BLV_Visual_Base_Widget {
 		$this->start_controls_section( 'pdfs', array( 'label' => esc_html__( 'PDFs', 'bingo-essentials' ) ) );
 		$this->add_control( 'carta_label', array( 'label' => esc_html__( 'Pestaña carta', 'bingo-essentials' ), 'type' => Controls_Manager::TEXT, 'default' => 'Carta', 'label_block' => true ) );
 		$this->add_control( 'carta_title', array( 'label' => esc_html__( 'Titulo carta', 'bingo-essentials' ), 'type' => Controls_Manager::TEXT, 'default' => 'Carta', 'label_block' => true ) );
-		$this->add_control( 'carta_pdf', array( 'label' => esc_html__( 'PDF carta', 'bingo-essentials' ), 'type' => Controls_Manager::MEDIA, 'media_types' => array( 'application/pdf' ), 'default' => array( 'url' => 'https://des.bingolasvegas.es/wp-content/uploads/2026/06/Carta.BINGO_.2026.pdf' ) ) );
+		$this->add_control( 'carta_pdf', array( 'label' => esc_html__( 'PDF carta', 'bingo-essentials' ), 'type' => Controls_Manager::MEDIA, 'media_types' => array( 'application/pdf' ), 'default' => array( 'url' => blv_be_upload_url( '2026/06/Carta.BINGO_.2026.pdf' ) ) ) );
 		$this->add_control( 'bebidas_label', array( 'label' => esc_html__( 'Pestaña bebidas', 'bingo-essentials' ), 'type' => Controls_Manager::TEXT, 'default' => 'Bebidas', 'label_block' => true, 'separator' => 'before' ) );
 		$this->add_control( 'bebidas_title', array( 'label' => esc_html__( 'Titulo bebidas', 'bingo-essentials' ), 'type' => Controls_Manager::TEXT, 'default' => 'Carta de bebidas', 'label_block' => true ) );
-		$this->add_control( 'bebidas_pdf', array( 'label' => esc_html__( 'PDF bebidas', 'bingo-essentials' ), 'type' => Controls_Manager::MEDIA, 'media_types' => array( 'application/pdf' ), 'default' => array( 'url' => 'https://des.bingolasvegas.es/wp-content/uploads/2026/06/Bebidas.BINGO_.2026.pdf' ) ) );
+		$this->add_control( 'bebidas_pdf', array( 'label' => esc_html__( 'PDF bebidas', 'bingo-essentials' ), 'type' => Controls_Manager::MEDIA, 'media_types' => array( 'application/pdf' ), 'default' => array( 'url' => blv_be_upload_url( '2026/06/Bebidas.BINGO_.2026.pdf' ) ) ) );
 		$this->add_control( 'alergenos_label', array( 'label' => esc_html__( 'Pestaña alérgenos', 'bingo-essentials' ), 'type' => Controls_Manager::TEXT, 'default' => 'Alérgenos', 'label_block' => true, 'separator' => 'before' ) );
 		$this->add_control( 'alergenos_title', array( 'label' => esc_html__( 'Titulo alérgenos', 'bingo-essentials' ), 'type' => Controls_Manager::TEXT, 'default' => 'Carta de alérgenos', 'label_block' => true ) );
-		$this->add_control( 'alergenos_pdf', array( 'label' => esc_html__( 'PDF alérgenos', 'bingo-essentials' ), 'type' => Controls_Manager::MEDIA, 'media_types' => array( 'application/pdf' ), 'default' => array( 'url' => 'https://des.bingolasvegas.es/wp-content/uploads/2026/06/carta.alergenos.2026.pdf' ) ) );
+		$this->add_control( 'alergenos_pdf', array( 'label' => esc_html__( 'PDF alérgenos', 'bingo-essentials' ), 'type' => Controls_Manager::MEDIA, 'media_types' => array( 'application/pdf' ), 'default' => array( 'url' => blv_be_upload_url( '2026/06/carta.alergenos.2026.pdf' ) ) ) );
 		$this->add_control( 'skip_alergenos_first_page', array( 'label' => esc_html__( 'Ocultar primera página de alérgenos', 'bingo-essentials' ), 'type' => Controls_Manager::SWITCHER, 'label_on' => esc_html__( 'Sí', 'bingo-essentials' ), 'label_off' => esc_html__( 'No', 'bingo-essentials' ), 'return_value' => 'yes', 'default' => 'yes' ) );
 		$this->end_controls_section();
 	}
