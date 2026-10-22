@@ -26,7 +26,7 @@
     --blv-ft-white: #ffffff;
     --blv-ft-muted: rgba(255, 255, 255, 0.72);
     --blv-ft-ease: cubic-bezier(0.16, 1, 0.3, 1);
-    --blv-ft-pad: clamp(16px, 3.6vw, 52px);
+    --blv-ft-pad: var(--blv-gutter, clamp(20px, 4vw, 56px));
     width: 100%;
     color: var(--blv-ft-white);
     font-family: 'Open Sans', sans-serif;
@@ -72,7 +72,7 @@
     align-items: center;
     justify-content: center;
     gap: 14px;
-    max-width: 1240px;
+    max-width: var(--blv-container, 1240px);
     margin: 0 auto !important;
     color: var(--blv-ft-white);
     text-decoration: none;
@@ -118,7 +118,7 @@ a.blv-ft__rg-inner:hover .blv-ft__rg-text {
     grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
     align-items: center;
     column-gap: 40px;
-    max-width: 1240px;
+    max-width: var(--blv-container, 1240px);
     margin: 0 auto;
 }
 
@@ -262,7 +262,7 @@ a.blv-ft__rg-inner:hover .blv-ft__rg-text {
     align-items: center;
     justify-content: space-between;
     gap: 8px 24px;
-    max-width: 1240px;
+    max-width: var(--blv-container, 1240px);
     margin: 0 auto;
     color: rgba(255, 255, 255, 0.62);
     font-size: 13px;

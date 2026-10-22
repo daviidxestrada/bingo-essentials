@@ -4,7 +4,7 @@ Tags: elementor, widgets, bingo
 Requires at least: 6.0
 Tested up to: 6.6
 Requires PHP: 7.4
-Stable tag: 1.0.21
+Stable tag: 1.0.27
 License: GPLv2 or later
 
 Widgets esenciales de Elementor para Bingo Las Vegas.
@@ -15,6 +15,30 @@ Bingo Essentials incluye widgets de Elementor para las secciones "Dónde Estamos
 y "Nuestra Historia" de Bingo Las Vegas.
 
 == Changelog ==
+
+= 1.0.27 =
+* Cabecera de página: corrige la imagen en modo "imagen arriba" en móvil (quedaba con alto 0).
+
+= 1.0.26 =
+* Cabecera de página: opción "Móvil: imagen arriba y texto debajo" para fotos cuyo elemento principal no debe quedar tapado.
+* Formularios: el botón de enviar ocupa todo el ancho de la tarjeta.
+
+= 1.0.25 =
+* Nuestra Historia: secciones alineadas a la rejilla común.
+
+= 1.0.24 =
+* Clase .blv-section para alinear cualquier sección de Elementor a la rejilla común.
+
+= 1.0.23 =
+* Nuevo widget "Mapa con dirección": mapa de Google en el marco de la casa con tarjeta de dirección, horario, aparcamiento y "Cómo llegar".
+* Formularios: tarjeta, campos, foco, casilla y botón comunes (.blv-form-card) para Contacto y Trabaja con nosotros.
+* Rejilla común: un ancho de contenido (1240 px) y un margen lateral para cabecera, heroes, secciones y pie.
+* Heroes: la imagen de fondo cubre siempre la sección (Elementor forzaba height:auto en móvil), encuadre vertical ajustable y oscurecido solo donde está el texto.
+
+= 1.0.22 =
+* Nuevo widget "Hero portada": vídeo a sangre completa; la línea manuscrita se escribe letra a letra con un trazo dorado y se enciende como un neón, después entran titular, filete y botón.
+* Nuevo widget "Cabecera de página": banda con vídeo o foto, texto apoyado abajo o centrado, titular letra a letra (o palabra a palabra en frases), filete, texto y botón.
+* Ambos respetan "reducir movimiento" y se ven completos aunque falle el JavaScript.
 
 = 1.0.21 =
 * La hoja de la fuente Phosphor solo se carga cuando algún icono no está incluido como SVG.

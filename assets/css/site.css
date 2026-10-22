@@ -20,6 +20,11 @@
     --blv-font-body: 'Open Sans', sans-serif;
     --blv-font-script: 'Yellowtail', 'Libre Bodoni', cursive;
     --blv-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+    /* Rejilla de la web: un solo ancho de contenido y un solo margen
+       lateral para cabecera, heroes, secciones y pie. */
+    --blv-container: 1240px;
+    --blv-gutter: clamp(20px, 4vw, 56px);
 }
 
 /* Iconos Phosphor en línea (blv_be_icon). */
@@ -30,6 +35,12 @@
     height: 1em;
     fill: currentColor;
     vertical-align: -0.125em;
+}
+
+/* Sección de Elementor alineada a la rejilla de la web (clase CSS en
+   el contenedor de la sección). */
+.blv-section {
+    padding-inline: max(var(--blv-gutter), calc((100% - var(--blv-container)) / 2)) !important;
 }
 
 ::selection {
@@ -264,13 +275,15 @@
 }
 
 /* Tarjeta del formulario: misma superficie que los bloques de Dónde Estamos. */
-.blv-careers-form {
+.blv-careers-form,
+.blv-form-card {
     background: var(--blv-green-deep) !important;
     border: 1px solid rgba(253, 179, 20, 0.22) !important;
     border-radius: 4px !important;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5) !important;
 }
 
+.blv-form-card .elementor-field-type-upload .elementor-field,
 .blv-careers-form .elementor-field-type-upload .elementor-field {
     padding: 14px !important;
     border: 1px dashed rgba(253, 179, 20, 0.5) !important;
@@ -283,11 +296,14 @@
 }
 
 .blv-careers-form .elementor-field-type-upload .elementor-field:hover,
-.blv-careers-form .elementor-field-type-upload .elementor-field:focus-visible {
+.blv-careers-form .elementor-field-type-upload .elementor-field:focus-visible,
+.blv-form-card .elementor-field-type-upload .elementor-field:hover,
+.blv-form-card .elementor-field-type-upload .elementor-field:focus-visible {
     border-color: var(--blv-gold) !important;
     background: rgba(253, 179, 20, 0.06) !important;
 }
 
+.blv-form-card .elementor-field-type-upload .elementor-field::file-selector-button,
 .blv-careers-form .elementor-field-type-upload .elementor-field::file-selector-button {
     margin-right: 14px;
     padding: 10px 16px;
@@ -303,6 +319,7 @@
     cursor: pointer;
 }
 
+.blv-form-card .elementor-field-type-acceptance a,
 .blv-careers-form .elementor-field-type-acceptance a {
     color: var(--blv-gold) !important;
     text-decoration: underline !important;
@@ -314,4 +331,141 @@
     color: rgba(255, 255, 255, 0.6) !important;
     font-size: 0.75rem !important;
     line-height: 1.55 !important;
+}
+
+/* -------------------------------------------------------------
+   4. FORMULARIOS (Contacto, Trabaja con nosotros)
+   Tarjeta .blv-form-card / .blv-careers-form alrededor del widget
+   de formulario de Elementor: mismos campos, foco y botón en toda
+   la web, ganen o no los estilos propios de cada widget.
+   ------------------------------------------------------------- */
+
+:is(.blv-form-card, .blv-careers-form) .elementor-field-group > label,
+:is(.blv-form-card, .blv-careers-form) .elementor-field-label {
+    color: var(--blv-gold) !important;
+    font-family: var(--blv-font-body) !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.09em !important;
+    text-transform: uppercase !important;
+}
+
+:is(.blv-form-card, .blv-careers-form) .elementor-field-group:not(.elementor-field-type-upload):not(.elementor-field-type-acceptance) .elementor-field {
+    min-height: 48px;
+    padding: 10px 2px !important;
+    border-width: 0 0 2px !important;
+    border-style: solid !important;
+    border-color: rgba(255, 255, 255, 0.28) !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    color: var(--blv-white) !important;
+    font-family: var(--blv-font-body) !important;
+    font-size: 16px !important;
+    caret-color: var(--blv-gold);
+    box-shadow: none !important;
+    transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+
+:is(.blv-form-card, .blv-careers-form) textarea.elementor-field {
+    min-height: 120px;
+    resize: vertical;
+}
+
+:is(.blv-form-card, .blv-careers-form) .elementor-field::placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
+    opacity: 1;
+}
+
+:is(.blv-form-card, .blv-careers-form) .elementor-field-group:not(.elementor-field-type-upload):not(.elementor-field-type-acceptance) .elementor-field:hover {
+    border-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+:is(.blv-form-card, .blv-careers-form) .elementor-field-group:not(.elementor-field-type-upload):not(.elementor-field-type-acceptance) .elementor-field:focus {
+    border-color: var(--blv-gold) !important;
+    background: rgba(253, 179, 20, 0.05) !important;
+    outline: none;
+}
+
+:is(.blv-form-card, .blv-careers-form) .elementor-field-type-acceptance .elementor-field-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: var(--blv-muted);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+:is(.blv-form-card, .blv-careers-form) .elementor-field-type-acceptance input[type="checkbox"] {
+    flex: none;
+    width: 18px;
+    height: 18px;
+    margin: 2px 0 0;
+    accent-color: var(--blv-gold);
+}
+
+:is(.blv-form-card, .blv-careers-form) .elementor-field-type-submit,
+:is(.blv-form-card, .blv-careers-form) .e-form__buttons {
+    flex-basis: 100% !important;
+    max-width: 100% !important;
+}
+
+:is(.blv-form-card, .blv-careers-form) .elementor-field-type-submit .elementor-button {
+    width: 100%;
+    min-height: 54px;
+    border-radius: 4px !important;
+    background: var(--blv-fuchsia) !important;
+    color: var(--blv-white) !important;
+    font-family: var(--blv-font-body) !important;
+    font-size: 15px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    box-shadow: 0 14px 30px -12px rgba(206, 0, 70, 0.75);
+    transition: background-color 0.25s ease, transform 0.35s var(--blv-ease-out);
+}
+
+:is(.blv-form-card, .blv-careers-form) .elementor-field-type-submit .elementor-button:hover {
+    background: var(--blv-fuchsia-hover) !important;
+    transform: translateY(-2px);
+}
+
+:is(.blv-form-card, .blv-careers-form) .elementor-field-type-submit .elementor-button:focus-visible {
+    outline: 2px solid var(--blv-gold);
+    outline-offset: 3px;
+}
+
+:is(.blv-form-card, .blv-careers-form) .elementor-message {
+    margin-top: 14px;
+    font-size: 15px;
+}
+
+:is(.blv-form-card, .blv-careers-form) .elementor-message-success {
+    color: var(--blv-white) !important;
+}
+
+:is(.blv-form-card, .blv-careers-form) .elementor-message-danger,
+:is(.blv-form-card, .blv-careers-form) .elementor-error .elementor-field + .elementor-message,
+:is(.blv-form-card, .blv-careers-form) span.elementor-message.elementor-help-inline {
+    color: var(--blv-gold) !important;
+}
+
+/* Titular de sección junto a un formulario. */
+.blv-section-title .elementor-heading-title {
+    color: var(--blv-white) !important;
+    font-family: var(--blv-font-display) !important;
+    font-size: clamp(2rem, 1.4rem + 2vw, 3.25rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.01em !important;
+}
+
+.blv-section-title .elementor-heading-title::after {
+    content: '';
+    display: block;
+    width: 112px;
+    height: 4px;
+    margin-top: 0.45em;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #ff2a73 0%, var(--blv-fuchsia) 52%, #8e0031 100%);
+    box-shadow: 0 6px 18px rgba(206, 0, 70, 0.32);
 }

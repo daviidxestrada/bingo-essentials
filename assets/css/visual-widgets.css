@@ -25,11 +25,12 @@
 }
 
 .blv26-exp-grid {
+    max-width: var(--blv-container, 1240px) !important;
     display: grid !important;
     grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
     gap: clamp(18px, 2vw, 28px) !important;
     width: 100% !important;
-    margin: 0 !important;
+    margin: 0 auto !important;
     padding: 0 !important;
 }
 
@@ -130,11 +131,12 @@
 }
 
 .blv26-sp-grid {
+    max-width: var(--blv-container, 1240px) !important;
     display: grid !important;
     grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
     gap: clamp(22px, 3vw, 42px) !important;
     width: 100% !important;
-    margin: 0 !important;
+    margin: 0 auto !important;
     padding: 0 !important;
     align-items: center !important;
     justify-items: center !important;
@@ -380,7 +382,7 @@ body.blv26-sp-lightbox-open {
     align-items: center !important;
     justify-content: center !important;
     gap: clamp(40px, 5vw, 80px) !important;
-    width: min(1240px, calc(100% - 40px)) !important;
+    width: min(var(--blv-container, 1240px), calc(100% - 2 * var(--blv-gutter, 20px))) !important;
     margin: 0 auto !important;
 }
 
@@ -647,7 +649,7 @@ body.blv26-premios-lightbox-open {
 }
 
 .blv26pdf-shell {
-    width: min(1140px, calc(100% - 40px)) !important;
+    width: min(var(--blv-container, 1240px), calc(100% - 2 * var(--blv-gutter, 20px))) !important;
     margin: 0 auto !important;
     display: grid !important;
     gap: 30px !important;
@@ -1048,7 +1050,7 @@ body.blv26-premios-lightbox-open {
     }
 
     .blv26-premios-container {
-        width: min(1240px, calc(100% - 24px)) !important;
+        width: min(var(--blv-container, 1240px), calc(100% - 2 * var(--blv-gutter, 20px))) !important;
         gap: 30px !important;
     }
 
@@ -1093,7 +1095,7 @@ body.blv26-premios-lightbox-open {
     }
 
     .blv26pdf-shell {
-        width: min(1140px, calc(100% - 24px)) !important;
+        width: min(var(--blv-container, 1240px), calc(100% - 2 * var(--blv-gutter, 20px))) !important;
         gap: 24px !important;
     }
 

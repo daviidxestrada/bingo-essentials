@@ -173,12 +173,12 @@
 
 /* ---- Secciones de localización ---- */
 .blv-widget .location-section {
-    padding: 6rem 5% !important;
+    padding: 6rem var(--blv-gutter, 5%) !important;
     position: relative !important;
 }
 
 .blv-widget .location-container {
-    max-width: 1400px !important;
+    max-width: var(--blv-container, 1240px) !important;
     margin: 0 auto !important;
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;

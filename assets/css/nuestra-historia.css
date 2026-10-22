@@ -60,7 +60,7 @@
     position: relative !important;
     display: flex !important;
     align-items: flex-end !important;
-    padding: 7rem 5% 6rem !important;
+    padding: 7rem max(var(--blv-gutter, 5%), calc((100% - var(--blv-container, 1240px)) / 2)) 6rem !important;
     overflow: hidden !important;
     background: var(--bg-primary) !important;
 }
@@ -84,7 +84,7 @@
 .blv-history-hero-content {
     position: relative !important;
     z-index: 2 !important;
-    width: min(100%, 1400px) !important;
+    width: 100% !important;
     margin: 0 auto !important;
 }
 
@@ -105,7 +105,7 @@
 }
 
 .blv-history-section {
-    padding: 8rem 5% !important;
+    padding: 8rem max(var(--blv-gutter, 5%), calc((100% - var(--blv-container, 1240px)) / 2)) !important;
     background: var(--bg-primary) !important;
 }
 
@@ -120,7 +120,7 @@
 }
 
 .blv-history-split {
-    width: min(100%, 1400px) !important;
+    width: 100% !important;
     margin: 0 auto !important;
     display: grid !important;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
@@ -241,7 +241,7 @@
 }
 
 .blv-history-grid {
-    width: min(100%, 1400px) !important;
+    width: 100% !important;
     margin: 0 auto !important;
     display: grid !important;
     grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
@@ -394,7 +394,7 @@
 }
 
 .blv-history-cta {
-    width: min(100%, 1400px) !important;
+    width: 100% !important;
     margin: 0 auto !important;
     display: grid !important;
     grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr) !important;
@@ -523,7 +523,7 @@
 @media (max-width: 768px) {
     .blv-history-hero {
         min-height: 560px !important;
-        padding: 5rem 1.25rem 3rem !important;
+        padding: 5rem var(--blv-gutter, 1.25rem) 3rem !important;
     }
 
     .blv-history-hero h1 {
@@ -537,7 +537,7 @@
     }
 
     .blv-history-section {
-        padding: 5rem 1.25rem !important;
+        padding: 5rem var(--blv-gutter, 1.25rem) !important;
     }
 
     .blv-history-grid {

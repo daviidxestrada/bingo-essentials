@@ -1,0 +1,510 @@
+/* =============================================================
+   BINGO LAS VEGAS – WIDGET "HERO VÍDEO"
+   Secuencia de entrada (una vez, al cargar):
+     1. "Bienvenido a" se escribe letra a letra con un trazo dorado
+     2. el rótulo se enciende como un neón (relleno + parpadeo)
+     3. el titular entra letra a letra desde el desenfoque
+     4. el filete fucsia se dibuja desde el centro
+     5. aparece el botón
+   Los tiempos los calcula assets/js/video-hero.js (--t-*).
+   Sin JS o con "reducir movimiento" todo se ve en su sitio.
+   ============================================================= */
+
+.elementor-widget-blv_video_hero,
+.elementor-widget-blv_video_hero > .elementor-widget-container {
+    width: 100%;
+}
+
+.blv-vh,
+.blv-vh *,
+.blv-vh *::before,
+.blv-vh *::after {
+    box-sizing: border-box;
+}
+
+.blv-vh {
+    --blv-vh-gold: #fdb314;
+    --blv-vh-fuchsia: #ce0046;
+    --blv-vh-ink: #031400;
+    --blv-vh-ease: cubic-bezier(0.16, 1, 0.3, 1);
+    --blv-vh-scrim: 35%;
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    min-height: 88vh;
+    padding: clamp(72px, 10vh, 120px) var(--blv-gutter, 20px);
+    overflow: hidden;
+    isolation: isolate;
+    color: #ffffff;
+    background: var(--blv-vh-ink);
+}
+
+/* ---- Fondo ---- */
+
+.blv-vh__media {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    container-type: size;
+    overflow: hidden;
+}
+
+/* !important: Elementor fija ".elementor img { height: auto }" y la foto
+   dejaría de cubrir la sección en pantallas estrechas. */
+.blv-vh .blv-vh__poster,
+.blv-vh .blv-vh__video {
+    position: absolute;
+    inset: 0;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    object-fit: cover;
+    border: 0;
+    border-radius: 0;
+}
+
+/* Iframe de Vimeo "cover": cubre el contenedor sin bandas negras. */
+.blv-vh .blv-vh__video--vimeo {
+    inset: auto;
+    top: 50%;
+    left: 50%;
+    width: max(100cqw, 177.78cqh) !important;
+    height: max(100cqh, 56.25cqw) !important;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.blv-vh__scrim {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 60% 55% at 50% 50%, rgb(3 20 0 / 45%), rgb(3 20 0 / 0%) 70%),
+        linear-gradient(180deg, rgb(3 20 0 / 0%) 55%, rgb(3 20 0 / 55%) 100%),
+        rgb(3 20 0 / var(--blv-vh-scrim));
+}
+
+/* ---- Composición ---- */
+
+.blv-vh__copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: min(100%, 1100px);
+    text-align: center;
+}
+
+.blv-vh__script {
+    position: relative;
+    margin: 0 0 -0.1em;
+    padding: 0;
+    line-height: 1;
+    transform: translateX(clamp(-150px, -9vw, -36px)) rotate(-6deg);
+    transform-origin: left center;
+}
+
+.blv-vh__script-text {
+    display: inline-block;
+    color: var(--blv-vh-gold);
+    font-family: 'Yellowtail', 'Libre Bodoni', cursive;
+    font-size: clamp(2.6rem, 1.6rem + 3vw, 4.4rem);
+    font-weight: 400;
+    line-height: 1.1;
+    text-shadow:
+        0 1px 1px rgb(3 20 0 / 60%),
+        0 4px 14px rgb(3 20 0 / 55%),
+        0 0 22px rgb(253 179 20 / 45%);
+}
+
+.blv-vh__script-svg {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1px;
+    overflow: visible;
+    visibility: hidden;
+}
+
+.blv-vh__script-svg text {
+    font-family: 'Yellowtail', cursive;
+    font-weight: 400;
+}
+
+/* Con el SVG montado: el texto real queda para lectores de pantalla. */
+.blv-vh.is-svg .blv-vh__script-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+.blv-vh.is-svg .blv-vh__script-svg {
+    position: static;
+    height: clamp(3.4rem, 2.1rem + 3.9vw, 5.8rem);
+    width: auto;
+    visibility: visible;
+}
+
+.blv-vh__glyph {
+    fill: var(--blv-vh-gold);
+    stroke: var(--blv-vh-gold);
+    stroke-width: 2px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.blv-vh__glyphs {
+    filter:
+        drop-shadow(0 2px 3px rgb(3 20 0 / 70%))
+        drop-shadow(0 0 10px rgb(253 179 20 / 45%));
+}
+
+.blv-vh__title {
+    margin: 0 !important;
+    padding: 0;
+    color: #ffffff !important;
+    font-family: 'Libre Bodoni', Georgia, serif !important;
+    font-size: clamp(3rem, 1.5rem + 5.6vw, 6rem) !important;
+    font-weight: 700 !important;
+    line-height: 0.98 !important;
+    letter-spacing: -0.015em !important;
+    text-wrap: balance;
+    text-shadow:
+        0 1px 1px rgb(3 20 0 / 55%),
+        0 6px 16px rgb(3 20 0 / 55%),
+        0 18px 48px rgb(3 20 0 / 65%);
+}
+
+.blv-vh__word {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.blv-vh__char {
+    display: inline-block;
+}
+
+.blv-vh__rule {
+    display: block;
+    width: 120px;
+    height: 4px;
+    margin: clamp(18px, 2.4vw, 28px) 0 clamp(26px, 3.2vw, 38px);
+    border-radius: 999px;
+    background: linear-gradient(90deg, #ff2a73 0%, var(--blv-vh-fuchsia) 52%, #8e0031 100%);
+    box-shadow: 0 6px 18px rgb(206 0 70 / 45%);
+}
+
+.blv-vh__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 54px;
+    padding: 0 32px;
+    border-radius: 999px;
+    background: var(--blv-vh-fuchsia);
+    color: #ffffff !important;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none !important;
+    box-shadow: 0 14px 30px -10px rgb(206 0 70 / 75%), 0 0 0 0 rgb(206 0 70 / 0%);
+    transition: background-color 0.25s ease, transform 0.35s var(--blv-vh-ease), box-shadow 0.35s ease;
+}
+
+.blv-vh__button:hover {
+    background: #a80039;
+    transform: translateY(-2px);
+    box-shadow: 0 18px 36px -12px rgb(206 0 70 / 85%), 0 0 0 6px rgb(206 0 70 / 18%);
+}
+
+.blv-vh__button:focus-visible {
+    outline: 2px solid var(--blv-vh-gold);
+    outline-offset: 4px;
+}
+
+.blv-vh__lead {
+    max-width: 58ch;
+    margin: 0 0 clamp(26px, 3.2vw, 36px) !important;
+    color: #ffffff;
+    font-family: 'Open Sans', sans-serif;
+    font-size: clamp(1rem, 0.92rem + 0.3vw, 1.1875rem);
+    line-height: 1.6;
+    text-shadow:
+        0 1px 2px rgb(3 20 0 / 70%),
+        0 4px 18px rgb(3 20 0 / 60%);
+}
+
+/* Titular mediano para frases largas (Carta). */
+.blv-vh--lg .blv-vh__title {
+    font-size: clamp(2.125rem, 1.3rem + 2.6vw, 3.75rem) !important;
+    line-height: 1.06 !important;
+}
+
+/* A la izquierda: el halo y el bloque se van al lado del texto. */
+.blv-vh--left {
+    place-items: center start;
+}
+
+.blv-vh--left .blv-vh__copy {
+    align-items: flex-start;
+    width: min(100%, 860px);
+    text-align: left;
+}
+
+.blv-vh--left .blv-vh__script {
+    transform: rotate(-6deg);
+}
+
+.blv-vh--left .blv-vh__rule {
+    transform-origin: left center;
+}
+
+.blv-vh--left .blv-vh__scrim {
+    background:
+        radial-gradient(ellipse 70% 80% at 22% 55%, rgb(3 20 0 / 55%), rgb(3 20 0 / 0%) 72%),
+        linear-gradient(180deg, rgb(3 20 0 / 0%) 55%, rgb(3 20 0 / 55%) 100%),
+        rgb(3 20 0 / var(--blv-vh-scrim));
+}
+
+/* ---- Cabecera de página: banda más baja, texto apoyado abajo ---- */
+
+.blv-vh--page {
+    padding: clamp(96px, 14vh, 150px) max(var(--blv-gutter, 20px), calc((100% - var(--blv-container, 1240px)) / 2)) clamp(40px, 7vh, 72px);
+}
+
+.blv-vh--page.blv-vh--left {
+    place-items: end start;
+}
+
+.blv-vh--page.blv-vh--left .blv-vh__copy {
+    width: min(100%, 900px);
+}
+
+.blv-vh--page.blv-vh--xl .blv-vh__title {
+    font-size: clamp(2.75rem, 1.4rem + 4.2vw, 5.25rem) !important;
+}
+
+.blv-vh--page .blv-vh__rule {
+    margin-top: clamp(14px, 1.8vw, 22px);
+    margin-bottom: clamp(18px, 2.4vw, 28px);
+}
+
+.blv-vh--page .blv-vh__rule:last-child {
+    margin-bottom: 0;
+}
+
+/* Lectura localizada: solo se oscurece la esquina donde está el texto,
+   el resto de la foto se ve limpia. */
+.blv-vh--page.blv-vh--left .blv-vh__scrim {
+    background:
+        radial-gradient(ellipse 72% 95% at 0% 100%, rgb(3 20 0 / 85%) 0%, rgb(3 20 0 / 45%) 42%, rgb(3 20 0 / 0%) 74%),
+        rgb(3 20 0 / var(--blv-vh-scrim));
+}
+
+.blv-vh--page.blv-vh--center .blv-vh__scrim {
+    background:
+        radial-gradient(ellipse 42% 46% at 50% 50%, rgb(3 20 0 / 62%) 0%, rgb(3 20 0 / 25%) 55%, rgb(3 20 0 / 0%) 100%),
+        rgb(3 20 0 / var(--blv-vh-scrim));
+}
+
+@media (max-width: 767px) {
+    .blv-vh--page.blv-vh--left .blv-vh__scrim {
+        background:
+            linear-gradient(180deg, rgb(3 20 0 / 0%) 30%, rgb(3 20 0 / 82%) 78%),
+            rgb(3 20 0 / var(--blv-vh-scrim));
+    }
+
+    .blv-vh--page.blv-vh--center .blv-vh__scrim {
+        background:
+            radial-gradient(ellipse 80% 45% at 50% 50%, rgb(3 20 0 / 60%), rgb(3 20 0 / 0%)),
+            rgb(3 20 0 / var(--blv-vh-scrim));
+    }
+}
+
+/* =============================================================
+   SECUENCIA
+   ============================================================= */
+
+/* Antes de empezar: todo oculto (lo pone el script en línea). */
+.blv-vh.is-pre:not(.is-play) .blv-vh__script,
+.blv-vh.is-pre:not(.is-play) .blv-vh__title,
+.blv-vh.is-pre:not(.is-play) .blv-vh__rule,
+.blv-vh.is-pre:not(.is-play) .blv-vh__lead,
+.blv-vh.is-pre:not(.is-play) .blv-vh__button {
+    opacity: 0;
+    animation: blvVhFailsafe 0.6s ease 2.6s forwards;
+}
+
+@keyframes blvVhFailsafe {
+    to { opacity: 1; }
+}
+
+/* 1. Trazo: cada letra se escribe con un trazo dorado, de la primera a la última. */
+.blv-vh.is-play .blv-vh__glyph {
+    fill: rgb(253 179 20 / 0%);
+    stroke-dasharray: 1600;
+    stroke-dashoffset: 1600;
+    animation:
+        blvVhDraw var(--t-draw, 650ms) cubic-bezier(0.45, 0, 0.25, 1) calc(var(--t-start, 0ms) + var(--i) * var(--t-step, 110ms)) forwards,
+        blvVhFill 520ms ease-out var(--t-ignite, 1700ms) forwards;
+}
+
+@keyframes blvVhDraw {
+    to { stroke-dashoffset: 0; }
+}
+
+@keyframes blvVhFill {
+    to { fill: var(--blv-vh-gold); }
+}
+
+/* 2. Encendido de neón: el halo dorado parpadea y se queda. */
+.blv-vh.is-play .blv-vh__glyphs {
+    filter: drop-shadow(0 2px 3px rgb(3 20 0 / 70%));
+    animation: blvVhNeon 900ms linear var(--t-ignite, 1700ms) forwards;
+}
+
+@keyframes blvVhNeon {
+    0%   { filter: drop-shadow(0 2px 3px rgb(3 20 0 / 70%)) drop-shadow(0 0 0 rgb(253 179 20 / 0%)); }
+    18%  { filter: drop-shadow(0 2px 3px rgb(3 20 0 / 70%)) drop-shadow(0 0 14px rgb(253 179 20 / 75%)); }
+    26%  { filter: drop-shadow(0 2px 3px rgb(3 20 0 / 70%)) drop-shadow(0 0 2px rgb(253 179 20 / 15%)); }
+    38%  { filter: drop-shadow(0 2px 3px rgb(3 20 0 / 70%)) drop-shadow(0 0 16px rgb(253 179 20 / 80%)); }
+    46%  { filter: drop-shadow(0 2px 3px rgb(3 20 0 / 70%)) drop-shadow(0 0 6px rgb(253 179 20 / 35%)); }
+    100% { filter: drop-shadow(0 2px 3px rgb(3 20 0 / 70%)) drop-shadow(0 0 10px rgb(253 179 20 / 45%)); }
+}
+
+/* 3. Titular letra a letra. */
+.blv-vh.is-play .blv-vh__char {
+    animation: blvVhChar 760ms var(--blv-vh-ease) calc(var(--t-title, 1850ms) + var(--c) * 34ms) both;
+}
+
+@keyframes blvVhChar {
+    from {
+        opacity: 0;
+        transform: translateY(0.38em);
+        filter: blur(10px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+        filter: blur(0);
+    }
+}
+
+/* 4. Filete desde el centro. */
+.blv-vh.is-play .blv-vh__rule {
+    animation: blvVhRule 700ms var(--blv-vh-ease) var(--t-rule, 2300ms) both;
+}
+
+@keyframes blvVhRule {
+    from { transform: scaleX(0); opacity: 0; }
+    to { transform: scaleX(1); opacity: 1; }
+}
+
+/* Texto: entra justo detrás del titular. */
+.blv-vh.is-play .blv-vh__lead {
+    animation: blvVhButton 800ms var(--blv-vh-ease) var(--t-lead, 2400ms) both;
+}
+
+/* 5. Botón. */
+.blv-vh.is-play .blv-vh__button {
+    animation: blvVhButton 700ms var(--blv-vh-ease) var(--t-button, 2550ms) both;
+}
+
+@keyframes blvVhButton {
+    from {
+        opacity: 0;
+        transform: translateY(14px) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* La foto se asienta despacio mientras entra el texto. */
+.blv-vh.is-play .blv-vh__poster {
+    animation: blvVhSettle 2600ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes blvVhSettle {
+    from { transform: scale(1.07); }
+    to { transform: scale(1); }
+}
+
+/* Vídeo: entra suave cuando el reproductor ya está listo. */
+.blv-vh__video--vimeo {
+    opacity: 0;
+    transition: opacity 1.2s ease;
+}
+
+.blv-vh.is-video-ready .blv-vh__video--vimeo {
+    opacity: 1;
+}
+
+/* ---- Móvil ---- */
+@media (max-width: 767px) {
+    .blv-vh {
+        padding: 64px var(--blv-gutter, 20px) 72px;
+    }
+
+    .blv-vh--page {
+        padding: 88px var(--blv-gutter, 20px) 36px;
+    }
+
+    .blv-vh__script {
+        transform: translateX(-6vw) rotate(-6deg);
+    }
+
+    .blv-vh__button {
+        min-height: 52px;
+        padding: 0 28px;
+        font-size: 17px;
+    }
+}
+
+/* Móvil "imagen arriba, texto debajo": la foto se ve entera y el texto
+   arranca justo debajo, fundido sobre el verde de la página. */
+@media (max-width: 767px) {
+    .blv-vh.blv-vh--stack-m {
+        display: block;
+        min-height: 0 !important;
+        padding: 0 !important;
+        background: var(--blv-green, #052000);
+    }
+
+    /* Sin "container-type: size": con él el alto por proporción sería 0. */
+    .blv-vh--stack-m .blv-vh__media {
+        position: relative;
+        inset: auto;
+        z-index: 0;
+        container-type: normal;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+    }
+
+    .blv-vh--stack-m .blv-vh__scrim {
+        background: linear-gradient(180deg, rgb(5 32 0 / 0%) 55%, rgb(5 32 0 / 100%) 100%) !important;
+    }
+
+    .blv-vh--stack-m .blv-vh__copy {
+        position: relative;
+        z-index: 1;
+        margin-top: -36px;
+        padding: 0 var(--blv-gutter, 20px) 44px;
+    }
+}
+
+/* Reducir movimiento: sin trazos ni desplazamientos, solo un fundido. */
+@media (prefers-reduced-motion: reduce) {
+    .blv-vh__copy {
+        animation: blvVhFailsafe 500ms ease both;
+    }
+
+    .blv-vh__video--vimeo {
+        transition: none;
+    }
+}

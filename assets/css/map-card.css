@@ -1,0 +1,184 @@
+/* =============================================================
+   BINGO LAS VEGAS – WIDGET "MAPA CON DIRECCIÓN"
+   Marco de la casa (esquina dorada, como Dónde Estamos) y tarjeta
+   que monta sobre el borde inferior del mapa.
+   ============================================================= */
+
+.elementor-widget-blv_map_card,
+.elementor-widget-blv_map_card > .elementor-widget-container {
+    width: 100%;
+}
+
+.blv-map,
+.blv-map * {
+    box-sizing: border-box;
+}
+
+.blv-map {
+    --blv-map-gold: #fdb314;
+    --blv-map-deep: #031400;
+    --blv-map-ink: #020d00;
+    position: relative;
+    width: 100%;
+    color: #ffffff;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.blv-map__frame {
+    position: relative;
+    padding: 10px;
+    border: 1px solid rgb(253 179 20 / 30%);
+    border-radius: 4px;
+    background: var(--blv-map-ink);
+    box-shadow: 0 30px 60px rgb(0 0 0 / 40%);
+}
+
+/* Esquina dorada. */
+.blv-map__frame::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 96px;
+    height: 96px;
+    border-top: 2px solid var(--blv-map-gold);
+    border-right: 2px solid var(--blv-map-gold);
+    pointer-events: none;
+}
+
+.blv-map__frame iframe {
+    display: block;
+    width: 100%;
+    height: 420px;
+    border: 0;
+    border-radius: 2px;
+    filter: contrast(1.08) saturate(0.75) brightness(0.96);
+    transition: filter 0.4s ease;
+}
+
+.blv-map__frame:hover iframe {
+    filter: none;
+}
+
+/* Tarjeta: monta sobre el borde inferior del mapa. */
+.blv-map__card {
+    position: relative;
+    z-index: 1;
+    width: calc(100% - 48px);
+    margin: -56px 0 0 24px;
+    padding: 28px 30px 30px;
+    border: 1px solid rgb(253 179 20 / 22%);
+    border-radius: 4px;
+    background: var(--blv-map-deep);
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 60%);
+}
+
+.blv-map__name {
+    margin: 0 0 18px !important;
+    padding: 0;
+    color: #ffffff !important;
+    font-family: 'Libre Bodoni', Georgia, serif !important;
+    font-size: clamp(1.5rem, 1.2rem + 0.8vw, 1.875rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.1 !important;
+}
+
+.blv-map__rows {
+    display: grid;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.blv-map__row {
+    display: grid;
+    grid-template-columns: 22px minmax(0, 1fr);
+    align-items: start;
+    gap: 14px;
+    margin: 0;
+    padding: 0;
+}
+
+.blv-map__icon {
+    width: 22px;
+    height: 22px;
+    margin-top: 1px;
+    color: var(--blv-map-gold);
+    fill: currentColor;
+}
+
+.blv-map__label {
+    display: block;
+    margin-bottom: 2px;
+    color: var(--blv-map-gold);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    line-height: 1.4;
+    text-transform: uppercase;
+}
+
+.blv-map__text {
+    display: block;
+    color: #ffffff;
+    font-size: 15px;
+    line-height: 1.55;
+    font-variant-numeric: tabular-nums;
+}
+
+.blv-map__button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 48px;
+    margin-top: 24px;
+    padding: 0 22px;
+    border-radius: 4px;
+    background: var(--blv-map-gold);
+    color: var(--blv-map-ink) !important;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    text-decoration: none !important;
+    text-transform: uppercase;
+    box-shadow: 0 12px 26px -12px rgb(253 179 20 / 70%);
+    transition: background-color 0.25s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.blv-map__button:hover {
+    background: #ffc43d;
+    transform: translateY(-2px);
+}
+
+.blv-map__button:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+}
+
+.blv-map__button .blv-ph {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+@media (max-width: 767px) {
+    .blv-map__frame::before {
+        width: 64px;
+        height: 64px;
+        top: -8px;
+        right: -8px;
+    }
+
+    .blv-map__card {
+        width: calc(100% - 24px);
+        margin: -40px 0 0 12px;
+        padding: 22px 20px 24px;
+    }
+
+    .blv-map__button {
+        width: 100%;
+        justify-content: center;
+    }
+}

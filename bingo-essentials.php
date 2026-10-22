@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Bingo Essentials
  * Description:        Widgets esenciales de Elementor para Bingo Las Vegas: Dónde Estamos, Nuestra Historia, bloques visuales y páginas legales.
- * Version:           1.0.21
+ * Version:           1.0.27
  * Author:            Bingo Las Vegas
  * Text Domain:       bingo-essentials
  * Requires Plugins:  elementor
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // No acceso directo.
 }
 
-define( 'BLV_BE_VERSION', '1.0.21' );
+define( 'BLV_BE_VERSION', '1.0.27' );
 define( 'BLV_BE_PATH', plugin_dir_path( __FILE__ ) );
 define( 'BLV_BE_URL', plugin_dir_url( __FILE__ ) );
 
@@ -108,6 +108,8 @@ add_action( 'elementor/widgets/register', function ( $widgets_manager ) {
 	require_once BLV_BE_PATH . 'widgets/class-legal-widgets.php';
 	require_once BLV_BE_PATH . 'widgets/class-site-header-widget.php';
 	require_once BLV_BE_PATH . 'widgets/class-site-footer-widget.php';
+	require_once BLV_BE_PATH . 'widgets/class-video-hero-widget.php';
+	require_once BLV_BE_PATH . 'widgets/class-map-card-widget.php';
 
 	$widgets_manager->register( new \BLV_BE_Donde_Estamos_Widget() );
 	$widgets_manager->register( new \BLV_Historia_Hero_Widget() );
@@ -127,6 +129,9 @@ add_action( 'elementor/widgets/register', function ( $widgets_manager ) {
 	$widgets_manager->register( new \BLV_Aviso_Legal_Widget() );
 	$widgets_manager->register( new \BLV_Site_Header_Widget() );
 	$widgets_manager->register( new \BLV_Site_Footer_Widget() );
+	$widgets_manager->register( new \BLV_Video_Hero_Widget() );
+	$widgets_manager->register( new \BLV_Page_Hero_Widget() );
+	$widgets_manager->register( new \BLV_Map_Card_Widget() );
 } );
 
 /**
@@ -190,6 +195,25 @@ function blv_be_register_assets() {
 	wp_register_style(
 		'blv-be-site-header',
 		BLV_BE_URL . 'assets/css/site-header.css',
+		array( 'blv-de-fonts' ),
+		BLV_BE_VERSION
+	);
+	wp_register_style(
+		'blv-be-video-hero',
+		BLV_BE_URL . 'assets/css/video-hero.css',
+		array( 'blv-de-fonts' ),
+		BLV_BE_VERSION
+	);
+	wp_register_script(
+		'blv-be-video-hero',
+		BLV_BE_URL . 'assets/js/video-hero.js',
+		array(),
+		BLV_BE_VERSION,
+		true
+	);
+	wp_register_style(
+		'blv-be-map-card',
+		BLV_BE_URL . 'assets/css/map-card.css',
 		array( 'blv-de-fonts' ),
 		BLV_BE_VERSION
 	);

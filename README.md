@@ -22,6 +22,9 @@ Plugin de WordPress para Elementor con los widgets esenciales de Bingo Las Vegas
 - **Aviso Legal**.
 - **Cabecera Bingo Las Vegas**: logo, enlaces y redes editables; el menú pasa a hamburguesa solo cuando los enlaces no caben.
 - **Pie de página Bingo Las Vegas**: juego responsable, logo, enlaces legales, redes, copyright y créditos editables.
+- **Hero portada Bingo Las Vegas**: vídeo a sangre completa con el rótulo manuscrito que se escribe y se enciende.
+- **Cabecera de página Bingo Las Vegas**: banda con vídeo o foto, titular, texto y botón con entrada animada.
+- **Mapa con dirección**: mapa de Google enmarcado con tarjeta de dirección, horario, aparcamiento y "Cómo llegar".
 
 Todos aparecen en la categoria **Bingo Essentials** de Elementor.
 
