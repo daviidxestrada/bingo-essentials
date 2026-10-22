@@ -80,7 +80,7 @@
     font-family: 'Libre Bodoni', Georgia, serif !important;
     font-size: clamp(1.5rem, 1.2rem + 0.8vw, 1.875rem) !important;
     font-weight: 700 !important;
-    line-height: 1.1 !important;
+    line-height: 1.18 !important;
 }
 
 .blv-map__rows {

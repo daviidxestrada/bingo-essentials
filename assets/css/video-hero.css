@@ -169,7 +169,7 @@
     font-family: 'Libre Bodoni', Georgia, serif !important;
     font-size: clamp(3rem, 1.5rem + 5.6vw, 6rem) !important;
     font-weight: 700 !important;
-    line-height: 0.98 !important;
+    line-height: 1.08 !important;
     letter-spacing: -0.015em !important;
     text-wrap: balance;
     text-shadow:
@@ -241,7 +241,7 @@
 /* Titular mediano para frases largas (Carta). */
 .blv-vh--lg .blv-vh__title {
     font-size: clamp(2.125rem, 1.3rem + 2.6vw, 3.75rem) !important;
-    line-height: 1.06 !important;
+    line-height: 1.14 !important;
 }
 
 /* A la izquierda: el halo y el bloque se van al lado del texto. */

@@ -116,12 +116,12 @@
 .blv-video-hero .blv-video-title--xl {
     margin-bottom: 30px !important;
     font-size: clamp(3.25rem, 1.6rem + 5.6vw, 6rem) !important;
-    line-height: 0.95 !important;
+    line-height: 1.06 !important;
 }
 
 .blv-video-hero .blv-video-title--lg .elementor-heading-title {
     font-size: clamp(2.125rem, 1.3rem + 2.6vw, 3.75rem) !important;
-    line-height: 1.04 !important;
+    line-height: 1.14 !important;
 }
 
 /* Filete fucsia bajo el titular, el mismo del sistema (Partidas especiales). */
@@ -236,7 +236,7 @@
     font-family: var(--blv-font-display) !important;
     font-size: clamp(2.125rem, 1.4rem + 2.4vw, 3.5rem) !important;
     font-weight: 700 !important;
-    line-height: 1.04 !important;
+    line-height: 1.16 !important;
     letter-spacing: -0.01em !important;
     text-wrap: balance;
 }
@@ -455,7 +455,7 @@
     font-family: var(--blv-font-display) !important;
     font-size: clamp(2rem, 1.4rem + 2vw, 3.25rem) !important;
     font-weight: 700 !important;
-    line-height: 1.05 !important;
+    line-height: 1.16 !important;
     letter-spacing: -0.01em !important;
 }
 
