@@ -294,6 +294,24 @@
     color: var(--blv-hd-white);
 }
 
+/* Hello Elementor pinta "button:focus / [type=button]:focus" en rosa (#c36):
+   se fijan todos los estados con más especificidad que el tema. */
+.blv-hd .blv-hd__toggle,
+.blv-hd .blv-hd__toggle:focus,
+.blv-hd .blv-hd__toggle:active {
+    border-color: rgba(253, 179, 20, 0.45);
+    background: transparent;
+    color: var(--blv-hd-white);
+    box-shadow: none;
+}
+
+.blv-hd .blv-hd__toggle:hover,
+.blv-hd.is-open .blv-hd__toggle {
+    border-color: var(--blv-hd-gold);
+    background: rgba(253, 179, 20, 0.1);
+    color: var(--blv-hd-white);
+}
+
 .blv-hd__burger {
     position: relative;
     display: block;

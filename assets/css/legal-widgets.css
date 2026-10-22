@@ -1105,3 +1105,13 @@
     font-size: 15px !important;
   }
 }
+
+/* Las preguntas quitan el contorno de foco: se devuelve un anillo dorado
+   solo para la navegación con teclado. */
+.blv-canal-faq-btn:focus-visible,
+.blv-priv-faq-btn:focus-visible,
+.blv-aviso-faq-btn:focus-visible {
+    outline: 2px solid #fdb314 !important;
+    outline-offset: 4px !important;
+    border-radius: 4px !important;
+}

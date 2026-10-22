@@ -4,7 +4,7 @@ Tags: elementor, widgets, bingo
 Requires at least: 6.0
 Tested up to: 6.6
 Requires PHP: 7.4
-Stable tag: 1.0.27
+Stable tag: 1.0.28
 License: GPLv2 or later
 
 Widgets esenciales de Elementor para Bingo Las Vegas.
@@ -15,6 +15,10 @@ Bingo Essentials incluye widgets de Elementor para las secciones "Dónde Estamos
 y "Nuestra Historia" de Bingo Las Vegas.
 
 == Changelog ==
+
+= 1.0.28 =
+* Cabecera: el botón de menú ya no se vuelve rosa (#c36 de Hello Elementor) al recibir el foco o pulsarlo.
+* Visor de la carta y preguntas legales: estados blindados frente al tema y foco visible con teclado.
 
 = 1.0.27 =
 * Cabecera de página: corrige la imagen en modo "imagen arriba" en móvil (quedaba con alto 0).

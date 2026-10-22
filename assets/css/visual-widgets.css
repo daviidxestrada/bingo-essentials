@@ -1225,3 +1225,19 @@ body.blv26-premios-lightbox-open {
     height: 22px !important;
     fill: currentColor !important;
 }
+
+/* Botones de página del visor de la carta: sin colores del tema y con
+   foco visible para teclado. */
+.blv26pdf-widget .blv26pdf-page,
+.blv26pdf-widget .blv26pdf-page:hover,
+.blv26pdf-widget .blv26pdf-page:focus,
+.blv26pdf-widget .blv26pdf-page:active {
+    color: inherit !important;
+    background: var(--blv26pdf-white) !important;
+    border-color: transparent !important;
+}
+
+.blv26pdf-widget .blv26pdf-page:focus-visible {
+    outline: 3px solid #fdb314 !important;
+    outline-offset: 3px !important;
+}
