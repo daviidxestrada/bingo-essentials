@@ -20,8 +20,15 @@ Plugin de WordPress para Elementor con los widgets esenciales de Bingo Las Vegas
 - **Politica de Privacidad**.
 - **Politica de Cookies**.
 - **Aviso Legal**.
+- **Cabecera Bingo Las Vegas**: logo, enlaces y redes editables; el menú pasa a hamburguesa solo cuando los enlaces no caben.
 
 Todos aparecen en la categoria **Bingo Essentials** de Elementor.
+
+## Panel "Fotos Home"
+
+En el escritorio de WordPress, **Fotos Home** permite cambiar el cartel de Partidas
+especiales y las imágenes de Promociones de la Home sin entrar en Elementor. El rol
+**Marketing (Fotos Home)** solo da acceso a ese panel y a la biblioteca de medios.
 
 ## Actualizaciones
 

@@ -4,7 +4,7 @@ Tags: elementor, widgets, bingo
 Requires at least: 6.0
 Tested up to: 6.6
 Requires PHP: 7.4
-Stable tag: 1.0.13
+Stable tag: 1.0.17
 License: GPLv2 or later
 
 Widgets esenciales de Elementor para Bingo Las Vegas.
@@ -15,6 +15,24 @@ Bingo Essentials incluye widgets de Elementor para las secciones "Dónde Estamos
 y "Nuestra Historia" de Bingo Las Vegas.
 
 == Changelog ==
+
+= 1.0.17 =
+* Partidas especiales: título y cartel más juntos y centrados en escritorio.
+
+= 1.0.16 =
+* Cabecera: los iconos de redes mantienen el blanco aunque el kit tenga color de enlace propio. Control "Fija al hacer scroll" renombrado para no chocar con el sticky de Elementor Pro.
+
+= 1.0.15 =
+* Nuevo widget "Cabecera Bingo Las Vegas": logo, enlaces y redes editables; el menú pasa a hamburguesa solo cuando los enlaces no caben, con panel desplegable accesible (teclado, Escape, foco).
+* Partidas especiales: el bloque de título se ajusta a su contenido para acercar el cartel al centro.
+
+= 1.0.14 =
+* Panel "Fotos Home" en el escritorio de WordPress y rol "Marketing (Fotos Home)" para cambiar el cartel de Partidas especiales y las imágenes de Promociones sin entrar en Elementor.
+* Filtro anti-spam para los formularios de Elementor (enlaces en el nombre, alfabetos no latinos, teléfonos imposibles).
+* Estilos globales: titulares sobre vídeo con rótulo manuscrito (Yellowtail, local) y sombras en capas; estilos de la página Trabaja con nosotros.
+* Nuevo verde de fondo del sitio (#052000) en todos los widgets.
+* Partidas especiales: composición centrada en escritorio.
+* Dónde Estamos: la descripción de cada detalle admite varias líneas (horarios).
 
 = 1.0.13 =
 * Corrige las URLs por defecto de imagenes y PDFs de los widgets, que apuntaban al dominio de desarrollo. Ahora se resuelven contra el dominio de la instalacion.

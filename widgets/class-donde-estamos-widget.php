@@ -111,7 +111,8 @@ class BLV_BE_Donde_Estamos_Widget extends Widget_Base {
 				'd1_label'  => 'Transporte Público',
 				'd1_text'   => 'Metro Ciudad Lineal (L5) / Autobuses 38, 48, 70',
 				'd2_label'  => 'Horario',
-				'd2_text'   => 'Abierto todos los días de 12:30 a 03:00',
+				'd2_text'   => "Lunes a jueves: 13:00 – 03:00
+Viernes, sábados y festivos: 13:00 – 03:30",
 				'btn1_text' => 'Cómo Llegar',
 				'btn1_url'  => 'https://maps.google.com/?q=Calle+Hermanos+Garcia+Noblejas+17+Madrid',
 				'legal'     => "Acceso exclusivo a mayores de 18 años.\nImprescindible para acceder al local la presentación de documento oficial de identidad vigente físico (DNI, NIE, Pasaporte).\nNo se permite el acceso a quien figure en el Registro de Interdicciones de Acceso al Juego (RGIAJ).",
@@ -258,10 +259,11 @@ class BLV_BE_Donde_Estamos_Widget extends Widget_Base {
 		$this->add_control(
 			$p . '_d2_text',
 			array(
-				'label'   => esc_html__( 'Descripción', 'bingo-donde-estamos' ),
-				'type'    => Controls_Manager::TEXTAREA,
-				'rows'    => 2,
-				'default' => $d['d2_text'],
+				'label'       => esc_html__( 'Descripción', 'bingo-donde-estamos' ),
+				'type'        => Controls_Manager::TEXTAREA,
+				'rows'        => 3,
+				'default'     => $d['d2_text'],
+				'description' => esc_html__( 'Cada línea se muestra en una línea propia.', 'bingo-donde-estamos' ),
 			)
 		);
 
@@ -393,7 +395,7 @@ class BLV_BE_Donde_Estamos_Widget extends Widget_Base {
 			echo '<span class="label">' . esc_html( $label ) . '</span>';
 		}
 		if ( ! empty( $text ) ) {
-			echo '<span>' . esc_html( $text ) . '</span>';
+			echo '<span>' . nl2br( esc_html( trim( $text ) ) ) . '</span>';
 		}
 		echo '</div></div>';
 	}

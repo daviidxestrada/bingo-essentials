@@ -1,0 +1,520 @@
+/* =============================================================
+   BINGO LAS VEGAS – WIDGET "CABECERA"
+   Tres modos que decide el propio widget según el espacio:
+     (por defecto) logo | menú centrado | redes
+     .is-tight     logo · menú | redes
+     .is-compact   logo | redes · hamburguesa  (+ panel desplegable)
+   ============================================================= */
+
+/* La plantilla de cabecera de Elementor queda fija arriba. */
+.elementor-location-header:has(.blv-hd[data-sticky="yes"]) {
+    position: sticky;
+    top: var(--wp-admin--admin-bar--height, 0px);
+    z-index: 1000;
+}
+
+.elementor-widget-blv_site_header,
+.elementor-widget-blv_site_header > .elementor-widget-container {
+    width: 100%;
+}
+
+.blv-hd,
+.blv-hd *,
+.blv-hd *::before,
+.blv-hd *::after {
+    box-sizing: border-box;
+}
+
+.blv-hd {
+    --blv-hd-green: #052000;
+    --blv-hd-deep: #031400;
+    --blv-hd-ink: #020d00;
+    --blv-hd-gold: #fdb314;
+    --blv-hd-white: #ffffff;
+    --blv-hd-h: 96px;
+    --blv-hd-logo: 150px;
+    --blv-hd-ease: cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    width: 100%;
+    color: var(--blv-hd-white);
+    font-family: 'Open Sans', sans-serif;
+    background: var(--blv-hd-green);
+}
+
+.blv-hd ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Filete inferior: oro muy suave, se intensifica al hacer scroll. */
+.blv-hd::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(253, 179, 20, 0) 0%, rgba(253, 179, 20, 0.35) 50%, rgba(253, 179, 20, 0) 100%);
+    pointer-events: none;
+}
+
+/* ---- Barra ---- */
+
+.blv-hd__bar {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    column-gap: 32px;
+    min-height: var(--blv-hd-h);
+    padding: 0 clamp(16px, 3.6vw, 52px);
+    background: var(--blv-hd-green);
+    transition: min-height 0.45s var(--blv-hd-ease), box-shadow 0.45s ease;
+}
+
+.blv-hd.is-scrolled {
+    --blv-hd-h: 76px;
+}
+
+.blv-hd.is-scrolled .blv-hd__bar {
+    box-shadow: 0 14px 30px -18px rgba(0, 0, 0, 0.75);
+}
+
+.blv-hd__logo {
+    justify-self: start;
+    display: block;
+    width: var(--blv-hd-logo);
+    line-height: 0;
+    transition: width 0.45s var(--blv-hd-ease), transform 0.3s var(--blv-hd-ease);
+}
+
+.blv-hd.is-scrolled .blv-hd__logo {
+    width: calc(var(--blv-hd-logo) * 0.8);
+}
+
+.blv-hd__logo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: none;
+}
+
+.blv-hd__logo:hover {
+    transform: rotate(-2deg) scale(1.03);
+}
+
+/* ---- Menú de escritorio ---- */
+
+.blv-hd__nav {
+    justify-self: center;
+    min-width: 0;
+}
+
+.blv-hd__menu {
+    display: flex;
+    align-items: center;
+    gap: clamp(4px, 1vw, 14px);
+    width: max-content;
+    white-space: nowrap;
+}
+
+.blv-hd__item {
+    position: relative;
+}
+
+.blv-hd__menu > .blv-hd__item > .blv-hd__link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 12px;
+    color: var(--blv-hd-white);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+.blv-hd__menu > .blv-hd__item > .blv-hd__link::after {
+    content: '';
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 6px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--blv-hd-gold);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.45s var(--blv-hd-ease);
+}
+
+.blv-hd__menu > .blv-hd__item > .blv-hd__link:hover,
+.blv-hd__menu > .blv-hd__item > .blv-hd__link.is-active {
+    color: var(--blv-hd-gold);
+}
+
+.blv-hd__menu > .blv-hd__item > .blv-hd__link:hover::after,
+.blv-hd__menu > .blv-hd__item > .blv-hd__link.is-active::after {
+    transform: scaleX(1);
+}
+
+.blv-hd a:focus-visible,
+.blv-hd button:focus-visible {
+    outline: 2px solid var(--blv-hd-gold);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* Submenús (solo con menús de WordPress que los tengan). */
+.blv-hd__sub {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 220px;
+    padding: 10px 0 !important;
+    border: 1px solid rgba(253, 179, 20, 0.2);
+    border-radius: 4px;
+    background: var(--blv-hd-deep);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(6px);
+    transition: opacity 0.25s ease, transform 0.35s var(--blv-hd-ease), visibility 0.25s;
+}
+
+.blv-hd__item:hover > .blv-hd__sub,
+.blv-hd__item:focus-within > .blv-hd__sub {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.blv-hd__sub .blv-hd__link {
+    display: block;
+    padding: 10px 18px;
+    color: var(--blv-hd-white);
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.blv-hd__sub .blv-hd__link:hover,
+.blv-hd__sub .blv-hd__link.is-active {
+    color: var(--blv-hd-gold);
+}
+
+/* ---- Redes y botón de menú ---- */
+
+.blv-hd__end {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.blv-hd__social {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.blv-hd__social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: var(--blv-hd-social, #262626);
+    color: var(--blv-hd-white);
+    text-decoration: none;
+    box-shadow: 0 6px 16px -6px rgba(0, 0, 0, 0.55);
+    transition: transform 0.35s var(--blv-hd-ease), box-shadow 0.35s ease;
+}
+
+.blv-hd__social-link:hover {
+    color: var(--blv-hd-white);
+    transform: translateY(-2px) scale(1.06);
+    box-shadow: 0 12px 22px -8px rgba(0, 0, 0, 0.7);
+}
+
+/* Gana al color de enlace global del kit de Elementor. */
+.blv-hd .blv-hd__social-link,
+.blv-hd .blv-hd__social-link:hover,
+.blv-hd .blv-hd__social-link:focus-visible,
+.blv-hd .blv-hd__social-link i {
+    color: var(--blv-hd-white);
+}
+
+.blv-hd__social-link i,
+.blv-hd__social-link svg {
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    line-height: 1;
+    fill: currentColor;
+    color: currentColor;
+}
+
+.blv-hd__toggle {
+    display: none;
+    align-items: center;
+    gap: 10px;
+    min-height: 46px;
+    padding: 0 14px 0 12px;
+    border: 1px solid rgba(253, 179, 20, 0.45);
+    border-radius: 4px;
+    background: transparent;
+    color: var(--blv-hd-white);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    line-height: 1;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.blv-hd__toggle:hover {
+    border-color: var(--blv-hd-gold);
+    background: rgba(253, 179, 20, 0.08);
+    color: var(--blv-hd-white);
+}
+
+.blv-hd__burger {
+    position: relative;
+    display: block;
+    width: 22px;
+    height: 14px;
+}
+
+.blv-hd__burger span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--blv-hd-gold);
+    transition: transform 0.4s var(--blv-hd-ease), opacity 0.2s ease, top 0.4s var(--blv-hd-ease);
+}
+
+.blv-hd__burger span:nth-child(1) { top: 0; }
+.blv-hd__burger span:nth-child(2) { top: 6px; }
+.blv-hd__burger span:nth-child(3) { top: 12px; }
+
+.blv-hd.is-open .blv-hd__burger span:nth-child(1) { top: 6px; transform: rotate(45deg); }
+.blv-hd.is-open .blv-hd__burger span:nth-child(2) { opacity: 0; }
+.blv-hd.is-open .blv-hd__burger span:nth-child(3) { top: 6px; transform: rotate(-45deg); }
+
+/* ---- Modo "tight": menú pegado al logo ---- */
+
+.blv-hd.is-tight .blv-hd__bar {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+}
+
+.blv-hd.is-tight .blv-hd__nav {
+    justify-self: start;
+}
+
+/* ---- Modo compacto: hamburguesa ---- */
+
+.blv-hd.is-compact .blv-hd__bar {
+    grid-template-columns: auto minmax(0, 1fr);
+}
+
+/* El menú se oculta pero sigue midiéndose para saber si vuelve a caber. */
+.blv-hd.is-compact .blv-hd__nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.blv-hd.is-compact .blv-hd__toggle {
+    display: inline-flex;
+}
+
+/* Panel desplegable */
+.blv-hd__drawer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: calc(var(--wp-admin--admin-bar--height, 0px) + var(--blv-hd-h));
+    z-index: 1;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 32px;
+    height: calc(100dvh - var(--wp-admin--admin-bar--height, 0px) - var(--blv-hd-h));
+    padding: 28px clamp(20px, 6vw, 56px) 36px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background:
+        radial-gradient(circle at 12% 0%, rgba(253, 179, 20, 0.12), transparent 40%),
+        radial-gradient(circle at 100% 100%, rgba(206, 0, 70, 0.16), transparent 45%),
+        var(--blv-hd-deep);
+    clip-path: inset(0 0 100% 0);
+    transition: clip-path 0.55s var(--blv-hd-ease), visibility 0s linear 0.55s;
+    visibility: hidden;
+}
+
+.blv-hd.is-compact .blv-hd__drawer {
+    display: flex;
+}
+
+.blv-hd.is-open .blv-hd__drawer {
+    clip-path: inset(0 0 0 0);
+    visibility: visible;
+    transition: clip-path 0.55s var(--blv-hd-ease), visibility 0s;
+}
+
+.blv-hd__drawer-menu > .blv-hd__item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.4s ease, transform 0.55s var(--blv-hd-ease);
+}
+
+.blv-hd.is-open .blv-hd__drawer-menu > .blv-hd__item {
+    opacity: 1;
+    transform: none;
+}
+
+.blv-hd.is-open .blv-hd__drawer-menu > .blv-hd__item:nth-child(2) { transition-delay: 0.04s; }
+.blv-hd.is-open .blv-hd__drawer-menu > .blv-hd__item:nth-child(3) { transition-delay: 0.08s; }
+.blv-hd.is-open .blv-hd__drawer-menu > .blv-hd__item:nth-child(4) { transition-delay: 0.12s; }
+.blv-hd.is-open .blv-hd__drawer-menu > .blv-hd__item:nth-child(5) { transition-delay: 0.16s; }
+.blv-hd.is-open .blv-hd__drawer-menu > .blv-hd__item:nth-child(n+6) { transition-delay: 0.2s; }
+
+.blv-hd__drawer-menu .blv-hd__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    min-height: 64px;
+    padding: 12px 0;
+    color: var(--blv-hd-white);
+    font-family: 'Libre Bodoni', Georgia, serif;
+    font-size: clamp(26px, 6.4vw, 34px);
+    font-weight: 700;
+    line-height: 1.1;
+    text-decoration: none;
+    transition: color 0.25s ease, padding-left 0.4s var(--blv-hd-ease);
+}
+
+.blv-hd__drawer-menu .blv-hd__link::after {
+    content: '';
+    flex: none;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    transform: rotate(45deg);
+    opacity: 0.45;
+    transition: opacity 0.25s ease, transform 0.4s var(--blv-hd-ease);
+}
+
+.blv-hd__drawer-menu .blv-hd__link:hover,
+.blv-hd__drawer-menu .blv-hd__link.is-active {
+    color: var(--blv-hd-gold);
+}
+
+.blv-hd__drawer-menu .blv-hd__link:hover::after,
+.blv-hd__drawer-menu .blv-hd__link.is-active::after {
+    opacity: 1;
+    transform: translateX(4px) rotate(45deg);
+}
+
+.blv-hd__drawer-menu .blv-hd__sub {
+    position: static;
+    min-width: 0;
+    padding: 0 0 14px 18px !important;
+    border: 0;
+    background: none;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+}
+
+.blv-hd__drawer-menu .blv-hd__sub .blv-hd__link {
+    min-height: 44px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.blv-hd__social--drawer {
+    gap: 12px;
+}
+
+.blv-hd__social--drawer .blv-hd__social-link {
+    width: 50px;
+    height: 50px;
+}
+
+html.blv-hd-locked,
+html.blv-hd-locked body {
+    overflow: hidden;
+}
+
+/* Móvil: barra más baja, redes dentro del panel. */
+@media (max-width: 767px) {
+    .blv-hd {
+        --blv-hd-h: 76px;
+    }
+
+    .blv-hd.is-scrolled {
+        --blv-hd-h: 66px;
+    }
+
+    .blv-hd__bar .blv-hd__social {
+        display: none;
+    }
+
+    .blv-hd__toggle-text {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+    }
+
+    .blv-hd__toggle {
+        width: 48px;
+        padding: 0;
+        justify-content: center;
+    }
+}
+
+/* Antes de que el script decida el modo, en móvil ya se muestra compacta. */
+@media (max-width: 767px) {
+    .blv-hd:not(.is-fitted) .blv-hd__nav {
+        position: absolute;
+        visibility: hidden;
+    }
+
+    .blv-hd:not(.is-fitted) .blv-hd__toggle {
+        display: inline-flex;
+    }
+
+    .blv-hd:not(.is-fitted) .blv-hd__bar {
+        grid-template-columns: auto minmax(0, 1fr);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .blv-hd *,
+    .blv-hd *::before,
+    .blv-hd *::after {
+        transition-duration: 0.01ms !important;
+        transition-delay: 0s !important;
+    }
+}

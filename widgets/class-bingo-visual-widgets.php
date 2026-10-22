@@ -37,6 +37,29 @@ abstract class BLV_Visual_Base_Widget extends Widget_Base {
 		return '<svg class="blv26-lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>';
 	}
 
+	/**
+	 * Control "Usar fotos del panel de marketing" (Fotos Home).
+	 */
+	protected function add_home_media_control() {
+		$this->add_control(
+			'use_home_media',
+			array(
+				'label'        => esc_html__( 'Usar fotos del panel de marketing', 'bingo-essentials' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => esc_html__( 'Sí', 'bingo-essentials' ),
+				'label_off'    => esc_html__( 'No', 'bingo-essentials' ),
+				'return_value' => 'yes',
+				'default'      => 'yes',
+				'description'  => esc_html__( 'Si el panel "Fotos Home" tiene imágenes, se muestran esas en lugar de las de este widget.', 'bingo-essentials' ),
+				'separator'    => 'before',
+			)
+		);
+	}
+
+	protected function uses_home_media( $settings ) {
+		return function_exists( 'blv_be_home_media' ) && 'yes' === ( $settings['use_home_media'] ?? 'yes' );
+	}
+
 	protected function link_attrs( $url ) {
 		$href   = ! empty( $url['url'] ) ? $url['url'] : '#';
 		$target = ! empty( $url['is_external'] ) ? ' target="_blank"' : '';
@@ -113,6 +136,11 @@ class BLV_Sorteos_Promos_Widget extends BLV_Visual_Base_Widget {
 		return array( 'blv-be-visual-widgets-init', 'blv-be-promos-lightbox' );
 	}
 
+	// Las imágenes pueden venir del panel de marketing: sin caché de elemento.
+	protected function is_dynamic_content(): bool {
+		return true;
+	}
+
 	protected function register_controls() {
 		$this->start_controls_section( 'content', array( 'label' => esc_html__( 'Promociones', 'bingo-essentials' ) ) );
 
@@ -130,6 +158,7 @@ class BLV_Sorteos_Promos_Widget extends BLV_Visual_Base_Widget {
 				'default'     => $this->default_items(),
 			)
 		);
+		$this->add_home_media_control();
 		$this->end_controls_section();
 	}
 
@@ -145,6 +174,22 @@ class BLV_Sorteos_Promos_Widget extends BLV_Visual_Base_Widget {
 	protected function render() {
 		$s     = $this->get_settings_for_display();
 		$items = ! empty( $s['items'] ) && is_array( $s['items'] ) ? $s['items'] : $this->default_items();
+
+		if ( $this->uses_home_media( $s ) ) {
+			$panel = array();
+			foreach ( blv_be_home_media()['promos'] as $promo ) {
+				$url = wp_get_attachment_image_url( $promo['id'], 'full' );
+				if ( $url ) {
+					$panel[] = array(
+						'image' => array( 'url' => $url ),
+						'alt'   => '' !== $promo['alt'] ? $promo['alt'] : get_post_meta( $promo['id'], '_wp_attachment_image_alt', true ),
+					);
+				}
+			}
+			if ( $panel ) {
+				$items = $panel;
+			}
+		}
 
 		echo '<section class="blv26-sp-widget" data-blv26-sp-widget aria-label="' . esc_attr__( 'Sorteos y promociones de Bingo Las Vegas', 'bingo-essentials' ) . '"><div class="blv26-sp-grid">';
 		foreach ( $items as $item ) {
@@ -216,6 +261,11 @@ class BLV_Partidas_Especiales_Widget extends BLV_Visual_Base_Widget {
 		return array( 'blv-be-visual-widgets-init', 'blv-be-premios-lightbox' );
 	}
 
+	// El cartel puede venir del panel de marketing: sin caché de elemento.
+	protected function is_dynamic_content(): bool {
+		return true;
+	}
+
 	protected function register_controls() {
 		$this->start_controls_section( 'content', array( 'label' => esc_html__( 'Contenido', 'bingo-essentials' ) ) );
 		$this->add_control( 'eyebrow', array( 'label' => esc_html__( 'Etiqueta superior', 'bingo-essentials' ), 'type' => Controls_Manager::TEXT, 'default' => 'Bingo Las Vegas', 'label_block' => true ) );
@@ -223,6 +273,7 @@ class BLV_Partidas_Especiales_Widget extends BLV_Visual_Base_Widget {
 		$this->add_control( 'poster', array( 'label' => esc_html__( 'Cartel', 'bingo-essentials' ), 'type' => Controls_Manager::MEDIA, 'media_types' => array( 'image' ), 'default' => array( 'url' => blv_be_upload_url( '2026/06/premios.jpg' ) ) ) );
 		$this->add_control( 'poster_alt', array( 'label' => esc_html__( 'Texto alternativo', 'bingo-essentials' ), 'type' => Controls_Manager::TEXT, 'default' => 'Cartel de partidas especiales de Bingo Las Vegas', 'label_block' => true ) );
 		$this->add_control( 'lightbox_label', array( 'label' => esc_html__( 'Etiqueta del visor', 'bingo-essentials' ), 'type' => Controls_Manager::TEXT, 'default' => 'Cartel ampliado de partidas especiales', 'label_block' => true ) );
+		$this->add_home_media_control();
 		$this->end_controls_section();
 	}
 
@@ -232,6 +283,17 @@ class BLV_Partidas_Especiales_Widget extends BLV_Visual_Base_Widget {
 		$image          = ! empty( $s['poster']['url'] ) ? $s['poster']['url'] : blv_be_upload_url( '2026/06/premios.jpg' );
 		$alt            = ! empty( $s['poster_alt'] ) ? $s['poster_alt'] : __( 'Cartel de partidas especiales de Bingo Las Vegas', 'bingo-essentials' );
 		$lightbox_label = ! empty( $s['lightbox_label'] ) ? $s['lightbox_label'] : __( 'Cartel ampliado de partidas especiales', 'bingo-essentials' );
+
+		if ( $this->uses_home_media( $s ) ) {
+			$panel     = blv_be_home_media();
+			$panel_url = $panel['poster_id'] ? wp_get_attachment_image_url( $panel['poster_id'], 'full' ) : '';
+			if ( $panel_url ) {
+				$image = $panel_url;
+				if ( '' !== $panel['poster_alt'] ) {
+					$alt = $panel['poster_alt'];
+				}
+			}
+		}
 
 		echo '<section class="blv26-premios-widget" data-blv26-premios-widget aria-labelledby="' . esc_attr( $title_id ) . '">';
 		echo '<div class="blv26-premios-container">';

@@ -1,9 +1,9 @@
 /* Bingo Essentials - Nuestra Historia widgets */
 
 .blv-history-widget {
-    --bg-primary: #094800;
-    --bg-surface: #052000;
-    --bg-surface-dark: #031400;
+    --bg-primary: #052000;
+    --bg-surface: #031400;
+    --bg-surface-dark: #020d00;
     --cta-fuchsia: #CE0046;
     --accent-gold: #FDB314;
     --text-main: #FFFFFF;
@@ -270,7 +270,7 @@
     position: relative !important;
     background:
         radial-gradient(circle at 22% 18%, rgba(253, 179, 20, 0.28), transparent 24%),
-        linear-gradient(135deg, #031400 0%, #094800 56%, #CE0046 160%) !important;
+        linear-gradient(135deg, #020d00 0%, #052000 56%, #CE0046 160%) !important;
 }
 
 .blv-history-card-visual::after {

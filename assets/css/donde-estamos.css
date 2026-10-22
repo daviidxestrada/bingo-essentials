@@ -11,9 +11,9 @@
 
 .blv-widget {
     /* Colores (sobrescribibles con variables inline desde Elementor) */
-    --bg-primary: #094800;
-    --bg-surface: #052000;
-    --bg-surface-dark: #031400;
+    --bg-primary: #052000;
+    --bg-surface: #031400;
+    --bg-surface-dark: #020d00;
     --cta-fuchsia: #CE0046;
     --cta-fuchsia-hover: #a80039;
     --accent-gold: #FDB314;
@@ -266,6 +266,7 @@
 .blv-widget .detail-text {
     display: flex !important;
     flex-direction: column !important;
+    font-variant-numeric: tabular-nums !important;
 }
 
 .blv-widget .detail-text .label {
