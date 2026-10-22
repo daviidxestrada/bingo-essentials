@@ -13,7 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use Elementor\Controls_Manager;
-use Elementor\Icons_Manager;
 use Elementor\Repeater;
 use Elementor\Widget_Base;
 
@@ -52,19 +51,19 @@ class BLV_Site_Header_Widget extends Widget_Base {
 		return array(
 			array(
 				'label' => 'Instagram',
-				'icon'  => array( 'value' => 'fab fa-instagram', 'library' => 'fa-brands' ),
+				'icon'  => array( 'value' => 'ph-fill ph-instagram-logo', 'library' => 'ph-fill' ),
 				'link'  => array( 'url' => 'https://www.instagram.com/bingolasvegas/?hl=es', 'is_external' => 'on' ),
 				'color' => '#262626',
 			),
 			array(
 				'label' => 'Facebook',
-				'icon'  => array( 'value' => 'fab fa-facebook-f', 'library' => 'fa-brands' ),
+				'icon'  => array( 'value' => 'ph-fill ph-facebook-logo', 'library' => 'ph-fill' ),
 				'link'  => array( 'url' => 'https://www.facebook.com/BingoLasVegas/?locale=es_LA', 'is_external' => 'on' ),
 				'color' => '#3B5998',
 			),
 			array(
 				'label' => 'YouTube',
-				'icon'  => array( 'value' => 'fab fa-youtube', 'library' => 'fa-brands' ),
+				'icon'  => array( 'value' => 'ph-fill ph-youtube-logo', 'library' => 'ph-fill' ),
 				'link'  => array( 'url' => 'https://www.youtube.com/@bingolasvegas1248', 'is_external' => 'on' ),
 				'color' => '#CD201F',
 			),
@@ -189,7 +188,7 @@ class BLV_Site_Header_Widget extends Widget_Base {
 
 		$social = new Repeater();
 		$social->add_control( 'label', array( 'label' => esc_html__( 'Nombre', 'bingo-essentials' ), 'type' => Controls_Manager::TEXT, 'default' => 'Instagram', 'description' => esc_html__( 'Lo leen los lectores de pantalla: "Bingo Las Vegas en Instagram".', 'bingo-essentials' ) ) );
-		$social->add_control( 'icon', array( 'label' => esc_html__( 'Icono', 'bingo-essentials' ), 'type' => Controls_Manager::ICONS, 'default' => array( 'value' => 'fab fa-instagram', 'library' => 'fa-brands' ), 'recommended' => array( 'fa-brands' => array( 'instagram', 'facebook-f', 'youtube', 'tiktok', 'x-twitter', 'whatsapp', 'linkedin-in', 'spotify' ), 'fa-solid' => array( 'phone', 'envelope', 'location-dot' ) ) ) );
+		$social->add_control( 'icon', array( 'label' => esc_html__( 'Icono', 'bingo-essentials' ), 'type' => Controls_Manager::ICONS, 'default' => array( 'value' => 'ph-fill ph-instagram-logo', 'library' => 'ph-fill' ), 'recommended' => array( 'ph-fill' => array( 'instagram-logo', 'facebook-logo', 'youtube-logo', 'tiktok-logo', 'x-logo', 'whatsapp-logo', 'linkedin-logo', 'spotify-logo', 'phone', 'envelope-simple', 'map-pin' ) ) ) );
 		$social->add_control( 'link', array( 'label' => esc_html__( 'Enlace', 'bingo-essentials' ), 'type' => Controls_Manager::URL, 'default' => array( 'url' => '', 'is_external' => 'on' ) ) );
 		$social->add_control( 'color', array( 'label' => esc_html__( 'Color del círculo', 'bingo-essentials' ), 'type' => Controls_Manager::COLOR, 'default' => '#262626' ) );
 
@@ -291,14 +290,14 @@ class BLV_Site_Header_Widget extends Widget_Base {
 		return $links;
 	}
 
-	private function render_links( $links, $class ) {
+	private function render_links( $links, $class, $caret = false ) {
 		echo '<ul class="' . esc_attr( $class ) . '">';
 		foreach ( $links as $link ) {
 			$has_children = ! empty( $link['children'] );
 			echo '<li class="blv-hd__item' . ( $has_children ? ' has-children' : '' ) . '">';
-			echo '<a class="blv-hd__link' . ( $link['active'] ? ' is-active' : '' ) . '" href="' . esc_url( $link['url'] ) . '"' . ( $link['active'] ? ' aria-current="page"' : '' ) . ( $link['external'] ? ' target="_blank" rel="noopener"' : '' ) . '>' . esc_html( $link['text'] ) . '</a>';
+			echo '<a class="blv-hd__link' . ( $link['active'] ? ' is-active' : '' ) . '" href="' . esc_url( $link['url'] ) . '"' . ( $link['active'] ? ' aria-current="page"' : '' ) . ( $link['external'] ? ' target="_blank" rel="noopener"' : '' ) . '><span>' . esc_html( $link['text'] ) . '</span>' . ( $caret ? blv_be_icon( 'caret-right', 'blv-hd__caret' ) : '' ) . '</a>';
 			if ( $has_children ) {
-				$this->render_links( $link['children'], 'blv-hd__sub' );
+				$this->render_links( $link['children'], 'blv-hd__sub', $caret );
 			}
 			echo '</li>';
 		}
@@ -318,7 +317,7 @@ class BLV_Site_Header_Widget extends Widget_Base {
 			$label = trim( (string) ( $item['label'] ?? '' ) );
 			$color = ! empty( $item['color'] ) ? $item['color'] : '#262626';
 			echo '<li><a class="blv-hd__social-link" href="' . esc_url( $url ) . '"' . ( ! empty( $item['link']['is_external'] ) ? ' target="_blank" rel="noopener"' : '' ) . ' style="--blv-hd-social:' . esc_attr( $color ) . '" aria-label="' . esc_attr( sprintf( __( 'Bingo Las Vegas en %s', 'bingo-essentials' ), $label ) ) . '">';
-			Icons_Manager::render_icon( $item['icon'] ?? array(), array( 'aria-hidden' => 'true' ) );
+			echo blv_be_render_icon( $item['icon'] ?? array() );
 			echo '</a></li>';
 		}
 		echo '</ul>';
@@ -348,7 +347,7 @@ class BLV_Site_Header_Widget extends Widget_Base {
 		echo '<div class="blv-hd__end">';
 		$this->render_social( $social, 'blv-hd__social' );
 		echo '<button class="blv-hd__toggle" type="button" aria-expanded="false" aria-controls="' . esc_attr( $uid ) . '-drawer" data-blv-hd-toggle>';
-		echo '<span class="blv-hd__burger" aria-hidden="true"><span></span><span></span><span></span></span>';
+		echo '<span class="blv-hd__burger" aria-hidden="true">' . blv_be_icon( 'list', 'blv-hd__burger-open' ) . blv_be_icon( 'x', 'blv-hd__burger-close' ) . '</span>';
 		echo '<span class="blv-hd__toggle-text" data-blv-hd-toggle-text>' . esc_html__( 'Menú', 'bingo-essentials' ) . '</span>';
 		echo '</button>';
 		echo '</div>';
@@ -357,7 +356,7 @@ class BLV_Site_Header_Widget extends Widget_Base {
 
 		echo '<div class="blv-hd__drawer" id="' . esc_attr( $uid ) . '-drawer" data-blv-hd-drawer>';
 		echo '<nav class="blv-hd__drawer-nav" aria-label="' . esc_attr__( 'Menú principal', 'bingo-essentials' ) . '">';
-		$this->render_links( $links, 'blv-hd__drawer-menu' );
+		$this->render_links( $links, 'blv-hd__drawer-menu', true );
 		echo '</nav>';
 		$this->render_social( $social, 'blv-hd__social blv-hd__social--drawer' );
 		echo '</div>';

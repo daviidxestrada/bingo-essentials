@@ -13,6 +13,14 @@
     z-index: 1000;
 }
 
+/* En móvil la barra de administración de WordPress no es fija: la
+   cabecera se pega arriba del todo para no dejar un hueco. */
+@media (max-width: 600px) {
+    .elementor-location-header:has(.blv-hd[data-sticky="yes"]) {
+        top: 0;
+    }
+}
+
 .elementor-widget-blv_site_header,
 .elementor-widget-blv_site_header > .elementor-widget-container {
     width: 100%;
@@ -252,9 +260,9 @@
 
 .blv-hd__social-link i,
 .blv-hd__social-link svg {
-    width: 20px;
-    height: 20px;
-    font-size: 20px;
+    width: 22px;
+    height: 22px;
+    font-size: 22px;
     line-height: 1;
     fill: currentColor;
     color: currentColor;
@@ -289,27 +297,34 @@
 .blv-hd__burger {
     position: relative;
     display: block;
-    width: 22px;
-    height: 14px;
+    width: 24px;
+    height: 24px;
+    color: var(--blv-hd-gold);
 }
 
-.blv-hd__burger span {
+/* Phosphor "list" y "x": uno gira y se desvanece mientras entra el otro. */
+.blv-hd__burger .blv-ph {
     position: absolute;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    border-radius: 2px;
-    background: var(--blv-hd-gold);
-    transition: transform 0.4s var(--blv-hd-ease), opacity 0.2s ease, top 0.4s var(--blv-hd-ease);
+    inset: 0;
+    width: 24px;
+    height: 24px;
+    transition: transform 0.45s var(--blv-hd-ease), opacity 0.25s ease;
 }
 
-.blv-hd__burger span:nth-child(1) { top: 0; }
-.blv-hd__burger span:nth-child(2) { top: 6px; }
-.blv-hd__burger span:nth-child(3) { top: 12px; }
+.blv-hd__burger-close {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.6);
+}
 
-.blv-hd.is-open .blv-hd__burger span:nth-child(1) { top: 6px; transform: rotate(45deg); }
-.blv-hd.is-open .blv-hd__burger span:nth-child(2) { opacity: 0; }
-.blv-hd.is-open .blv-hd__burger span:nth-child(3) { top: 6px; transform: rotate(-45deg); }
+.blv-hd.is-open .blv-hd__burger-open {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.6);
+}
+
+.blv-hd.is-open .blv-hd__burger-close {
+    opacity: 1;
+    transform: none;
+}
 
 /* ---- Modo "tight": menú pegado al logo ---- */
 
@@ -340,19 +355,20 @@
     display: inline-flex;
 }
 
-/* Panel desplegable */
+/* Panel desplegable: ocupa toda la pantalla por debajo de la barra, así
+   nunca asoma la página aunque la cabecera no esté arriba del todo.
+   --blv-hd-drawer-top lo fija el script con el borde inferior real de la barra. */
 .blv-hd__drawer {
     position: fixed;
-    left: 0;
-    right: 0;
-    top: calc(var(--wp-admin--admin-bar--height, 0px) + var(--blv-hd-h));
+    inset: 0;
     z-index: 1;
     display: none;
     flex-direction: column;
     justify-content: space-between;
     gap: 32px;
-    height: calc(100dvh - var(--wp-admin--admin-bar--height, 0px) - var(--blv-hd-h));
-    padding: 28px clamp(20px, 6vw, 56px) 36px;
+    height: 100vh;
+    height: 100dvh;
+    padding: calc(var(--blv-hd-drawer-top, var(--blv-hd-h)) + 28px) clamp(20px, 6vw, 56px) 36px;
     overflow-y: auto;
     overscroll-behavior: contain;
     background:
@@ -408,14 +424,9 @@
     transition: color 0.25s ease, padding-left 0.4s var(--blv-hd-ease);
 }
 
-.blv-hd__drawer-menu .blv-hd__link::after {
-    content: '';
-    flex: none;
-    width: 10px;
-    height: 10px;
-    border-top: 2px solid currentColor;
-    border-right: 2px solid currentColor;
-    transform: rotate(45deg);
+.blv-hd__caret {
+    width: 22px;
+    height: 22px;
     opacity: 0.45;
     transition: opacity 0.25s ease, transform 0.4s var(--blv-hd-ease);
 }
@@ -425,10 +436,10 @@
     color: var(--blv-hd-gold);
 }
 
-.blv-hd__drawer-menu .blv-hd__link:hover::after,
-.blv-hd__drawer-menu .blv-hd__link.is-active::after {
+.blv-hd__drawer-menu .blv-hd__link:hover .blv-hd__caret,
+.blv-hd__drawer-menu .blv-hd__link.is-active .blv-hd__caret {
     opacity: 1;
-    transform: translateX(4px) rotate(45deg);
+    transform: translateX(4px);
 }
 
 .blv-hd__drawer-menu .blv-hd__sub {
@@ -459,9 +470,11 @@
     height: 50px;
 }
 
-html.blv-hd-locked,
-html.blv-hd-locked body {
+/* Solo html: si body también lleva overflow:hidden se convierte en
+   contenedor de scroll y la cabecera fija (sticky) deja de funcionar. */
+html.blv-hd-locked {
     overflow: hidden;
+    overscroll-behavior: none;
 }
 
 /* Móvil: barra más baja, redes dentro del panel. */

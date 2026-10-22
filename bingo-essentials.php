@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Bingo Essentials
  * Description:        Widgets esenciales de Elementor para Bingo Las Vegas: Dónde Estamos, Nuestra Historia, bloques visuales y páginas legales.
- * Version:           1.0.17
+ * Version:           1.0.21
  * Author:            Bingo Las Vegas
  * Text Domain:       bingo-essentials
  * Requires Plugins:  elementor
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // No acceso directo.
 }
 
-define( 'BLV_BE_VERSION', '1.0.17' );
+define( 'BLV_BE_VERSION', '1.0.21' );
 define( 'BLV_BE_PATH', plugin_dir_path( __FILE__ ) );
 define( 'BLV_BE_URL', plugin_dir_url( __FILE__ ) );
 
@@ -35,6 +35,7 @@ function blv_be_upload_url( $relative_path ) {
 	return trailingslashit( $uploads['baseurl'] ) . ltrim( $relative_path, '/' );
 }
 
+require_once BLV_BE_PATH . 'includes/icons.php';
 require_once BLV_BE_PATH . 'includes/home-media.php';
 require_once BLV_BE_PATH . 'includes/form-antispam.php';
 
@@ -106,6 +107,7 @@ add_action( 'elementor/widgets/register', function ( $widgets_manager ) {
 	require_once BLV_BE_PATH . 'widgets/class-bingo-visual-widgets.php';
 	require_once BLV_BE_PATH . 'widgets/class-legal-widgets.php';
 	require_once BLV_BE_PATH . 'widgets/class-site-header-widget.php';
+	require_once BLV_BE_PATH . 'widgets/class-site-footer-widget.php';
 
 	$widgets_manager->register( new \BLV_BE_Donde_Estamos_Widget() );
 	$widgets_manager->register( new \BLV_Historia_Hero_Widget() );
@@ -124,6 +126,7 @@ add_action( 'elementor/widgets/register', function ( $widgets_manager ) {
 	$widgets_manager->register( new \BLV_Politica_Cookies_Widget() );
 	$widgets_manager->register( new \BLV_Aviso_Legal_Widget() );
 	$widgets_manager->register( new \BLV_Site_Header_Widget() );
+	$widgets_manager->register( new \BLV_Site_Footer_Widget() );
 } );
 
 /**
@@ -187,6 +190,12 @@ function blv_be_register_assets() {
 	wp_register_style(
 		'blv-be-site-header',
 		BLV_BE_URL . 'assets/css/site-header.css',
+		array( 'blv-de-fonts' ),
+		BLV_BE_VERSION
+	);
+	wp_register_style(
+		'blv-be-site-footer',
+		BLV_BE_URL . 'assets/css/site-footer.css',
 		array( 'blv-de-fonts' ),
 		BLV_BE_VERSION
 	);

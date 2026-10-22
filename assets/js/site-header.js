@@ -11,8 +11,32 @@
         }
     }
 
+    // Borde inferior real de la barra en pantalla (admin bar, scroll, etc.).
+    function placeDrawer(header) {
+        var bar = header.querySelector('.blv-hd__bar');
+        var bottom = Math.max(0, Math.round(bar.getBoundingClientRect().bottom));
+        header.style.setProperty('--blv-hd-drawer-top', bottom + 'px');
+    }
+
+    // iOS ignora overflow:hidden en html/body: se bloquea el gesto de
+    // arrastre fuera del panel (y dentro, si el panel no tiene scroll propio).
+    var lockedHeader = null;
+    function blockTouch(event) {
+        if (!lockedHeader) {
+            return;
+        }
+        var drawer = lockedHeader.querySelector('[data-blv-hd-drawer]');
+        var insideScrollable = drawer.contains(event.target) && drawer.scrollHeight > drawer.clientHeight;
+        if (!insideScrollable) {
+            event.preventDefault();
+        }
+    }
+    document.addEventListener('touchmove', blockTouch, { passive: false });
+
     function open(header) {
         var toggle = header.querySelector('[data-blv-hd-toggle]');
+        placeDrawer(header);
+        lockedHeader = header;
         header.classList.add('is-open');
         document.documentElement.classList.add('blv-hd-locked');
         toggle.setAttribute('aria-expanded', 'true');
@@ -28,6 +52,7 @@
             return;
         }
         var toggle = header.querySelector('[data-blv-hd-toggle]');
+        lockedHeader = null;
         header.classList.remove('is-open');
         document.documentElement.classList.remove('blv-hd-locked');
         toggle.setAttribute('aria-expanded', 'false');
@@ -84,7 +109,12 @@
         var frame = 0;
         var refit = function () {
             cancelAnimationFrame(frame);
-            frame = requestAnimationFrame(function () { fit(header); });
+            frame = requestAnimationFrame(function () {
+                fit(header);
+                if (header.classList.contains('is-open')) {
+                    placeDrawer(header);
+                }
+            });
         };
         if ('ResizeObserver' in window) {
             new ResizeObserver(refit).observe(header.querySelector('.blv-hd__bar'));
@@ -105,6 +135,9 @@
             ticking = true;
             requestAnimationFrame(function () {
                 header.classList.toggle('is-scrolled', window.scrollY > 12);
+                if (header.classList.contains('is-open')) {
+                    placeDrawer(header);
+                }
                 ticking = false;
             });
         };

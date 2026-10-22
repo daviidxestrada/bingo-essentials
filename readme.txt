@@ -4,7 +4,7 @@ Tags: elementor, widgets, bingo
 Requires at least: 6.0
 Tested up to: 6.6
 Requires PHP: 7.4
-Stable tag: 1.0.17
+Stable tag: 1.0.21
 License: GPLv2 or later
 
 Widgets esenciales de Elementor para Bingo Las Vegas.
@@ -15,6 +15,20 @@ Bingo Essentials incluye widgets de Elementor para las secciones "Dónde Estamos
 y "Nuestra Historia" de Bingo Las Vegas.
 
 == Changelog ==
+
+= 1.0.21 =
+* La hoja de la fuente Phosphor solo se carga cuando algún icono no está incluido como SVG.
+
+= 1.0.20 =
+* Iconos Phosphor en todo el plugin (SVG en línea): menú hamburguesa y cerrar, flechas del desplegable, redes de cabecera y pie, enlace con flecha, pestañas de la carta, botones de cerrar de los visores, Nuestra Historia y panel Fotos Home.
+* Phosphor y Phosphor (relleno) disponibles en el selector de iconos de Elementor (fuentes locales, solo woff2).
+
+= 1.0.19 =
+* Nuevo widget "Pie de página Bingo Las Vegas": franja de juego responsable con sello +18, logo, enlaces legales, redes, copyright con año automático y créditos; todo editable y responsive.
+* Cabecera: el bloqueo de scroll del menú móvil ya no desactiva la cabecera fija (era lo que dejaba ver la página por encima del menú).
+
+= 1.0.18 =
+* Cabecera: el menú desplegable cubre toda la pantalla bajo la barra (ya no asoma la página por encima), se coloca según la posición real de la barra y bloquea el scroll de fondo también en iOS. En móvil la cabecera fija ignora la barra de administración, que allí no es fija.
 
 = 1.0.17 =
 * Partidas especiales: título y cartel más juntos y centrados en escritorio.

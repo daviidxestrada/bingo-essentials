@@ -34,7 +34,7 @@ abstract class BLV_Visual_Base_Widget extends Widget_Base {
 	}
 
 	protected function lucide_arrow_right() {
-		return '<svg class="blv26-lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>';
+		return blv_be_icon( 'arrow-right', 'blv26-lucide' );
 	}
 
 	/**
@@ -202,7 +202,7 @@ class BLV_Sorteos_Promos_Widget extends BLV_Visual_Base_Widget {
 			echo '<img class="blv26-sp-image" src="' . esc_url( $image ) . '" alt="' . esc_attr( $alt ) . '" loading="lazy" decoding="async">';
 			echo '</button>';
 		}
-		echo '</div><div class="blv26-sp-lightbox" data-blv26-sp-lightbox role="dialog" aria-modal="true" aria-hidden="true"><div class="blv26-sp-lightbox-dialog"><button class="blv26-sp-lightbox-close" type="button" data-blv26-sp-close aria-label="' . esc_attr__( 'Cerrar imagen', 'bingo-essentials' ) . '">&times;</button><img class="blv26-sp-lightbox-image" data-blv26-sp-image src="" alt=""></div></div></section>';
+		echo '</div><div class="blv26-sp-lightbox" data-blv26-sp-lightbox role="dialog" aria-modal="true" aria-hidden="true"><div class="blv26-sp-lightbox-dialog"><button class="blv26-sp-lightbox-close" type="button" data-blv26-sp-close aria-label="' . esc_attr__( 'Cerrar imagen', 'bingo-essentials' ) . '">' . blv_be_icon( 'x' ) . '</button><img class="blv26-sp-lightbox-image" data-blv26-sp-image src="" alt=""></div></div></section>';
 	}
 }
 
@@ -310,7 +310,7 @@ class BLV_Partidas_Especiales_Widget extends BLV_Visual_Base_Widget {
 		echo '</div>';
 		echo '<div class="blv26-premios-lightbox" data-blv26-premios-lightbox role="dialog" aria-modal="true" aria-hidden="true" aria-label="' . esc_attr( $lightbox_label ) . '">';
 		echo '<div class="blv26-premios-lightbox-dialog">';
-		echo '<button class="blv26-premios-lightbox-close" type="button" data-blv26-premios-close aria-label="' . esc_attr__( 'Cerrar imagen', 'bingo-essentials' ) . '">&times;</button>';
+		echo '<button class="blv26-premios-lightbox-close" type="button" data-blv26-premios-close aria-label="' . esc_attr__( 'Cerrar imagen', 'bingo-essentials' ) . '">' . blv_be_icon( 'x' ) . '</button>';
 		echo '<img class="blv26-premios-lightbox-image" data-blv26-premios-image src="" alt="' . esc_attr( $alt ) . '">';
 		echo '</div></div>';
 		echo '</section>';
@@ -353,19 +353,19 @@ class BLV_Carta_Widget extends BLV_Visual_Base_Widget {
 	}
 
 	private function doc_icon() {
-		return '<svg class="blv26pdf-tab-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg>';
+		return blv_be_icon( 'file-text', 'blv26pdf-tab-icon' );
 	}
 
 	private function drink_icon() {
-		return '<svg class="blv26pdf-tab-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M8 22h8"></path><path d="M7 10h10"></path><path d="M12 15v7"></path><path d="M12 15a5 5 0 0 0 5-5c0-2-2-6-2-6H9s-2 4-2 6a5 5 0 0 0 5 5Z"></path></svg>';
+		return blv_be_icon( 'wine', 'blv26pdf-tab-icon' );
 	}
 
 	private function warning_icon() {
-		return '<svg class="blv26pdf-tab-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg>';
+		return blv_be_icon( 'warning', 'blv26pdf-tab-icon' );
 	}
 
 	private function close_icon() {
-		return '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>';
+		return blv_be_icon( 'x' );
 	}
 
 	private function render_tab( $kind, $label, $icon, $active, $uid ) {

@@ -21,6 +21,7 @@ Plugin de WordPress para Elementor con los widgets esenciales de Bingo Las Vegas
 - **Politica de Cookies**.
 - **Aviso Legal**.
 - **Cabecera Bingo Las Vegas**: logo, enlaces y redes editables; el menú pasa a hamburguesa solo cuando los enlaces no caben.
+- **Pie de página Bingo Las Vegas**: juego responsable, logo, enlaces legales, redes, copyright y créditos editables.
 
 Todos aparecen en la categoria **Bingo Essentials** de Elementor.
 
@@ -29,6 +30,12 @@ Todos aparecen en la categoria **Bingo Essentials** de Elementor.
 En el escritorio de WordPress, **Fotos Home** permite cambiar el cartel de Partidas
 especiales y las imágenes de Promociones de la Home sin entrar en Elementor. El rol
 **Marketing (Fotos Home)** solo da acceso a ese panel y a la biblioteca de medios.
+
+## Iconos
+
+Todos los iconos son [Phosphor](https://phosphoricons.com/) (MIT). Los fijos del plugin se
+pintan como SVG en línea (`blv_be_icon()`); en Elementor aparecen las bibliotecas
+**Phosphor** y **Phosphor (relleno)** en el selector de iconos.
 
 ## Actualizaciones
 

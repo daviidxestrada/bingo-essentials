@@ -261,14 +261,14 @@ function blv_be_home_media_render_page() {
 				</div>
 				<a class="blv-hm-link" href="<?php echo esc_url( $home_url ); ?>" target="_blank" rel="noopener">
 					<?php esc_html_e( 'Ver la Home', 'bingo-essentials' ); ?>
-					<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
+					<?php echo blv_be_icon( 'arrow-square-out' ); ?>
 				</a>
 			</div>
 		</header>
 
 		<?php if ( $saved ) : ?>
 			<div class="blv-hm-toast" role="status" data-blv-hm-toast>
-				<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+				<?php echo blv_be_icon( 'check' ); ?>
 				<span><?php esc_html_e( 'Guardado. La Home ya muestra las nuevas fotos.', 'bingo-essentials' ); ?></span>
 			</div>
 		<?php endif; ?>
@@ -291,7 +291,7 @@ function blv_be_home_media_render_page() {
 					<div class="blv-hm-poster__side">
 						<input type="hidden" name="poster_id" value="<?php echo esc_attr( $data['poster_id'] ); ?>" data-blv-hm-poster-id>
 						<button type="button" class="blv-hm-btn blv-hm-btn--gold" data-blv-hm-pick-poster>
-							<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></svg>
+							<?php echo blv_be_icon( 'image' ); ?>
 							<?php esc_html_e( 'Cambiar cartel', 'bingo-essentials' ); ?>
 						</button>
 						<label class="blv-hm-field">
@@ -310,7 +310,7 @@ function blv_be_home_media_render_page() {
 						<p class="blv-hm-help"><?php esc_html_e( 'Se muestran en la Home en este orden. Arrastra una tarjeta para moverla. Formato cuadrado (por ejemplo 600 × 600).', 'bingo-essentials' ); ?></p>
 					</div>
 					<button type="button" class="blv-hm-btn blv-hm-btn--gold" data-blv-hm-add-promos>
-						<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+						<?php echo blv_be_icon( 'plus' ); ?>
 						<?php esc_html_e( 'Añadir promociones', 'bingo-essentials' ); ?>
 					</button>
 				</div>
@@ -328,7 +328,7 @@ function blv_be_home_media_render_page() {
 							<div class="blv-hm-promo__media">
 								<img src="<?php echo esc_url( $url ); ?>" alt="">
 								<span class="blv-hm-promo__handle" title="<?php esc_attr_e( 'Arrastra para ordenar', 'bingo-essentials' ); ?>" aria-hidden="true">
-									<svg viewBox="0 0 24 24" fill="currentColor"><circle cx="9" cy="6" r="1.6"></circle><circle cx="15" cy="6" r="1.6"></circle><circle cx="9" cy="12" r="1.6"></circle><circle cx="15" cy="12" r="1.6"></circle><circle cx="9" cy="18" r="1.6"></circle><circle cx="15" cy="18" r="1.6"></circle></svg>
+									<?php echo blv_be_icon( 'dots-six-vertical' ); ?>
 								</span>
 								<span class="blv-hm-promo__order" aria-hidden="true"></span>
 							</div>
@@ -338,10 +338,10 @@ function blv_be_home_media_render_page() {
 									<input type="text" name="promo_alt[]" value="<?php echo esc_attr( $promo['alt'] ); ?>" placeholder="<?php esc_attr_e( 'Ej.: Sorteo de 8.000 € los miércoles', 'bingo-essentials' ); ?>">
 								</label>
 								<div class="blv-hm-promo__actions">
-									<button type="button" class="blv-hm-icon-btn" data-blv-hm-move="-1" aria-label="<?php esc_attr_e( 'Mover antes', 'bingo-essentials' ); ?>"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg></button>
-									<button type="button" class="blv-hm-icon-btn" data-blv-hm-move="1" aria-label="<?php esc_attr_e( 'Mover después', 'bingo-essentials' ); ?>"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg></button>
-									<button type="button" class="blv-hm-icon-btn" data-blv-hm-replace aria-label="<?php esc_attr_e( 'Cambiar imagen', 'bingo-essentials' ); ?>"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"></path><path d="M16 16h5v5"></path></svg></button>
-									<button type="button" class="blv-hm-icon-btn blv-hm-icon-btn--danger" data-blv-hm-remove aria-label="<?php esc_attr_e( 'Quitar de la Home', 'bingo-essentials' ); ?>"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path></svg></button>
+									<button type="button" class="blv-hm-icon-btn" data-blv-hm-move="-1" aria-label="<?php esc_attr_e( 'Mover antes', 'bingo-essentials' ); ?>"><?php echo blv_be_icon( 'caret-left' ); ?></button>
+									<button type="button" class="blv-hm-icon-btn" data-blv-hm-move="1" aria-label="<?php esc_attr_e( 'Mover después', 'bingo-essentials' ); ?>"><?php echo blv_be_icon( 'caret-right' ); ?></button>
+									<button type="button" class="blv-hm-icon-btn" data-blv-hm-replace aria-label="<?php esc_attr_e( 'Cambiar imagen', 'bingo-essentials' ); ?>"><?php echo blv_be_icon( 'arrows-clockwise' ); ?></button>
+									<button type="button" class="blv-hm-icon-btn blv-hm-icon-btn--danger" data-blv-hm-remove aria-label="<?php esc_attr_e( 'Quitar de la Home', 'bingo-essentials' ); ?>"><?php echo blv_be_icon( 'trash' ); ?></button>
 								</div>
 							</div>
 						</li>
@@ -380,7 +380,7 @@ function blv_be_home_media_render_page() {
 				<div class="blv-hm-promo__media">
 					<img src="" alt="">
 					<span class="blv-hm-promo__handle" title="<?php esc_attr_e( 'Arrastra para ordenar', 'bingo-essentials' ); ?>" aria-hidden="true">
-						<svg viewBox="0 0 24 24" fill="currentColor"><circle cx="9" cy="6" r="1.6"></circle><circle cx="15" cy="6" r="1.6"></circle><circle cx="9" cy="12" r="1.6"></circle><circle cx="15" cy="12" r="1.6"></circle><circle cx="9" cy="18" r="1.6"></circle><circle cx="15" cy="18" r="1.6"></circle></svg>
+						<?php echo blv_be_icon( 'dots-six-vertical' ); ?>
 					</span>
 					<span class="blv-hm-promo__order" aria-hidden="true"></span>
 				</div>
@@ -390,10 +390,10 @@ function blv_be_home_media_render_page() {
 						<input type="text" name="promo_alt[]" value="" placeholder="<?php esc_attr_e( 'Ej.: Sorteo de 8.000 € los miércoles', 'bingo-essentials' ); ?>">
 					</label>
 					<div class="blv-hm-promo__actions">
-						<button type="button" class="blv-hm-icon-btn" data-blv-hm-move="-1" aria-label="<?php esc_attr_e( 'Mover antes', 'bingo-essentials' ); ?>"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg></button>
-						<button type="button" class="blv-hm-icon-btn" data-blv-hm-move="1" aria-label="<?php esc_attr_e( 'Mover después', 'bingo-essentials' ); ?>"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg></button>
-						<button type="button" class="blv-hm-icon-btn" data-blv-hm-replace aria-label="<?php esc_attr_e( 'Cambiar imagen', 'bingo-essentials' ); ?>"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"></path><path d="M16 16h5v5"></path></svg></button>
-						<button type="button" class="blv-hm-icon-btn blv-hm-icon-btn--danger" data-blv-hm-remove aria-label="<?php esc_attr_e( 'Quitar de la Home', 'bingo-essentials' ); ?>"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path></svg></button>
+						<button type="button" class="blv-hm-icon-btn" data-blv-hm-move="-1" aria-label="<?php esc_attr_e( 'Mover antes', 'bingo-essentials' ); ?>"><?php echo blv_be_icon( 'caret-left' ); ?></button>
+						<button type="button" class="blv-hm-icon-btn" data-blv-hm-move="1" aria-label="<?php esc_attr_e( 'Mover después', 'bingo-essentials' ); ?>"><?php echo blv_be_icon( 'caret-right' ); ?></button>
+						<button type="button" class="blv-hm-icon-btn" data-blv-hm-replace aria-label="<?php esc_attr_e( 'Cambiar imagen', 'bingo-essentials' ); ?>"><?php echo blv_be_icon( 'arrows-clockwise' ); ?></button>
+						<button type="button" class="blv-hm-icon-btn blv-hm-icon-btn--danger" data-blv-hm-remove aria-label="<?php esc_attr_e( 'Quitar de la Home', 'bingo-essentials' ); ?>"><?php echo blv_be_icon( 'trash' ); ?></button>
 					</div>
 				</div>
 			</li>
